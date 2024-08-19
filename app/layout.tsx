@@ -13,8 +13,6 @@ import CustomLayout from "./custom-layout";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
-console.log(inter);
-
 export const metadata: Metadata = {
   title: {
     template: "%s | NodeBB",
@@ -32,7 +30,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className}`}>
         <Header />
-        <CustomLayout fontFamily={inter}>{children}</CustomLayout>
+        <CustomLayout fontFamily={inter}>
+          <Container maxWidth="lg">{children}</Container>
+        </CustomLayout>
       </body>
     </html>
   );

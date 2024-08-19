@@ -4,15 +4,22 @@ function Message() {
   return (
     <Box
       bgcolor="#cff4fc"
-      padding={1}
-      margin={1}
-      width="inherit"
       sx={{
         border: 1,
         borderRadius: 2,
-
+        height: {
+          xs: "auto",
+          md: "auto",
+        },
         borderColor: "primary.main",
-        padding: "2rem 1rem",
+        padding: " 1rem",
+        marginTop: {
+          xs: 2,
+          lg: 0,
+        },
+        marginLeft: {
+          md: 2,
+        },
       }}
     >
       <Typography

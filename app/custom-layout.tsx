@@ -11,17 +11,27 @@ function CustomLayout({ children, fontFamily }: Props) {
 
   const theme = createTheme({
     typography: {
-      fontFamily: fontFamily?.style.fontFamily, // Use the Inter font family or your custom font
+      fontFamily: [
+        `${fontFamily?.style.fontFamily}`,
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        "Roboto",
+        '"Helvetica Neue"',
+        "Arial",
+        "sans-serif",
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(","),
     },
   });
 
   return (
-    <div>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
   );
 }
 

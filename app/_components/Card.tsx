@@ -1,4 +1,4 @@
-import { Paper, Stack } from "@mui/material";
+import { Box, List, Paper, Stack } from "@mui/material";
 import CardDetails from "./CardDetais";
 import CampaignRoundedIcon from "@mui/icons-material/CampaignRounded";
 import ForumRoundedIcon from "@mui/icons-material/ForumRounded";
@@ -8,7 +8,7 @@ import BiotechRoundedIcon from "@mui/icons-material/BiotechRounded";
 
 function Card() {
   return (
-    <Paper elevation={0}>
+    <>
       <CardDetails
         bg="#fda34b"
         icon={<CampaignRoundedIcon sx={{ color: "#fff" }} />}
@@ -49,8 +49,21 @@ function Card() {
         topics="10"
         posts="5"
       />
-    </Paper>
+    </>
   );
 }
 
 export default Card;
+
+{
+  /* <Grid container>
+<Grid
+  xs={12}
+  md={6}
+  sx={{
+    height: "6rem",
+    display: "flex",
+    alignItems: "center",
+  }}
+> */
+}
