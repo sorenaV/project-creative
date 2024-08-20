@@ -8,10 +8,10 @@ export default function Home() {
       container
       sx={{
         justifyContent: "center",
-        marginTop: "1rem",
+        marginTop: "2rem",
       }}
     >
-      <Grid xs={12} md={9}>
+      <Grid xs={12} md={10}>
         <Card />
       </Grid>
       <Grid xs={12} md>

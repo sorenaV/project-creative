@@ -1,38 +1,33 @@
 "use client";
 
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { useState } from "react";
+import { Box, createTheme } from "@mui/material";
+import { Inter } from "next/font/google";
+
 type Props = {
   children: React.ReactNode;
-  fontFamily: any;
 };
-function CustomLayout({ children, fontFamily }: Props) {
-  const [counter, setCounter] = useState(0);
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
-  const theme = createTheme({
-    typography: {
-      fontFamily: [
-        `${fontFamily?.style.fontFamily}`,
-        "-apple-system",
-        "BlinkMacSystemFont",
-        '"Segoe UI"',
-        "Roboto",
-        '"Helvetica Neue"',
-        "Arial",
-        "sans-serif",
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-      ].join(","),
-    },
-  });
+export const theme = createTheme({
+  typography: {
+    fontFamily: [
+      `${inter.style.fontFamily}`,
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
+  },
+});
 
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
-  );
+function CustomLayout({ children }: Props) {
+  return <Box>{children}</Box>;
 }
 
 export default CustomLayout;

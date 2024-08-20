@@ -1,15 +1,13 @@
-import {
-  Box,
-  Container,
-  createTheme,
-  CssBaseline,
-  GlobalStyles,
-} from "@mui/material";
-import type { Metadata } from "next";
+import { Container, CssBaseline, ThemeProvider } from "@mui/material";
 import { Inter } from "next/font/google";
+import { theme } from "@/app/custom-layout";
+import type { Metadata } from "next";
+
 import Header from "./_components/Header";
-import "@/app/_styles/globals.css";
 import CustomLayout from "./custom-layout";
+import Navigation from "./_components/Navigation";
+import "@/app/_styles/globals.css";
+import { DrawerProvider } from "./_context/DrawerContext";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -29,10 +27,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <Header />
-        <CustomLayout fontFamily={inter}>
-          <Container maxWidth="lg">{children}</Container>
-        </CustomLayout>
+        <DrawerProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Container sx={{ width: "90%" }}>
+              <Navigation />
+              <Header />
+              <CustomLayout>{children}</CustomLayout>
+            </Container>
+          </ThemeProvider>
+        </DrawerProvider>
       </body>
     </html>
   );
