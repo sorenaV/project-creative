@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { useDrawerContext } from "../_context/DrawerContext";
 import {
   drawerExpandedWidth,
   drawerCollapsedWidth,
@@ -29,11 +28,16 @@ import {
 type Props = {
   anchorDir: "left" | "right" | "bottom" | undefined;
   navArray: NavElementType[];
+  isOpen: boolean;
+  handleDrawer: () => void;
 };
 
-function NavDrawer({ anchorDir = "left", navArray }: Props) {
-  const { isOpen, handleDrawer } = useDrawerContext();
-
+function NavDrawer({
+  anchorDir = "left",
+  navArray,
+  isOpen,
+  handleDrawer,
+}: Props) {
   return (
     <Drawer
       anchor={anchorDir}
@@ -48,6 +52,10 @@ function NavDrawer({ anchorDir = "left", navArray }: Props) {
           overflowX: "hidden",
           backgroundColor: "#f8f9fa",
           alignItems: "center",
+          display: {
+            xs: "none",
+            md: "flex",
+          },
         },
       }}
     >
