@@ -1,11 +1,16 @@
-import { Metadata } from "next";
+import { Box } from "@mui/material";
+import Filter from "../_components/Filter";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Popular",
 };
 
-function Page(): JSX.Element {
-  return <div>Popuolar</div>;
+function Page() {
+  return (
+    <div>
+      <Filter />
+    </div>
+  );
 }
 
 export default Page;

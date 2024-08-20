@@ -10,7 +10,7 @@ function Logo(): JSX.Element {
         fontWeight={600}
         fontSize={16}
         color="#000"
-        padding={1.5}
+        py={1.5}
       >
         NodeBB
       </Typography>

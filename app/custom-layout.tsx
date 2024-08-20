@@ -27,7 +27,7 @@ export const theme = createTheme({
 });
 
 function CustomLayout({ children }: Props) {
-  return <Box>{children}</Box>;
+  return <>{children}</>;
 }
 
 export default CustomLayout;

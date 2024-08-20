@@ -32,7 +32,7 @@ export default function RootLayout({
             sx={{
               width: {
                 xs: 1,
-                md: "90%",
+                md: "90vw",
               },
             }}
           >

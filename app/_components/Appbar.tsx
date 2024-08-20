@@ -72,6 +72,7 @@ function Appbar() {
           >
             {navLinksLeft.map((link) => (
               <ListItemButton
+                key={link.name}
                 sx={{ minWidth: 0, justifyContent: "center" }}
                 dense={true}
                 disableGutters={true}

@@ -8,14 +8,11 @@ function Header(): JSX.Element {
       sx={{
         backgroundColor: "#fff",
         boxShadow: 0,
-        width: "99%",
-        overflowX: "hidden",
-        paddingTop: 2,
-        paddingLeft: 1,
+        mt: 2,
       }}
     >
       <Logo />
-      <Divider variant="middle" />
+      <Divider />
     </AppBar>
   );
 }
