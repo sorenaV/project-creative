@@ -35,7 +35,7 @@ function ListItem({ item }) {
             {author.avatar ? null : author.name.slice(0, 2)}
           </Avatar>
           <Stack spacing={1}>
-            <Link href={`/topic/topicId=${id}`}>
+            <Link href={`/topic/${id}`}>
               <Typography
                 component="h5"
                 variant="h5"
