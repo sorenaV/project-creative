@@ -7,7 +7,7 @@ function Filter() {
     <Box
       sx={{
         border: "2px solid #e9ecef",
-        px: ".5rem",
+        p: ".5rem",
         my: "2rem",
         mx: "auto",
         borderRadius: 2,

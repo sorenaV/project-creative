@@ -1,12 +1,12 @@
-import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
-import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
-import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBulletedRounded";
+import { Box, Stack, Typography } from "@mui/material";
+
 type Props = {
-  cartTopic: string;
-  cardPost: string;
+  cardIcon: JSX.Element;
+  cardLabel: string;
+  cardNum: string;
 };
 
-function CardStatus({ cartTopic, cardPost }: Props) {
+function CardStatus({ cardNum, cardLabel, cardIcon }: Props) {
   return (
     <Stack
       direction="row"
@@ -15,7 +15,6 @@ function CardStatus({ cartTopic, cardPost }: Props) {
         width: "2rem",
         justifyContent: "end",
         alignSelf: "center",
-        alignContent: "center",
         height: "auto",
         display: {
           xs: "none",
@@ -23,19 +22,27 @@ function CardStatus({ cartTopic, cardPost }: Props) {
         },
       }}
     >
-      <TypoComponent cartTopic={cartTopic} cardPost={cardPost} />
+      <div>
+        <TypoComponent
+          cardNum={cardNum}
+          cardLabel={cardLabel}
+          cardIcon={cardIcon}
+        />
+      </div>
     </Stack>
   );
 }
 
-function TypoComponent({ cartTopic, cardPost }: Props) {
+function TypoComponent({ cardNum, cardLabel, cardIcon }: Props) {
   const styles = {
     backgroundColor: "#f9f9f9",
     padding: "1.5rem",
     py: ".5rem",
     height: "4rem",
+    width: "4rem",
     display: "flex",
     flexDirection: "column",
+    alignItems: "center",
   };
   const numStyles = {
     fontSize: "1.2rem",
@@ -61,27 +68,15 @@ function TypoComponent({ cartTopic, cardPost }: Props) {
   };
 
   return (
-    <>
-      <Box sx={styles}>
-        <Typography sx={numStyles}>{cartTopic}</Typography>
-        <Typography sx={{ ...titleStyles, ...titleResponsiveMd }}>
-          <FormatListBulletedRoundedIcon fontSize="small" color="action" />
-        </Typography>
-        <Typography sx={{ ...titleStyles, ...titleResponsiveLg }}>
-          Topics
-        </Typography>
-      </Box>
-
-      <Box sx={styles}>
-        <Typography sx={numStyles}>{cardPost}</Typography>
-        <Typography sx={{ ...titleStyles, ...titleResponsiveMd }}>
-          <ChatBubbleRoundedIcon fontSize="small" color="action" />
-        </Typography>
-        <Typography sx={{ ...titleStyles, ...titleResponsiveLg }}>
-          Posts
-        </Typography>
-      </Box>
-    </>
+    <Box sx={styles}>
+      <Typography sx={numStyles}>{cardNum}</Typography>
+      <Typography sx={{ ...titleStyles, ...titleResponsiveMd }}>
+        {cardIcon}
+      </Typography>
+      <Typography sx={{ ...titleStyles, ...titleResponsiveLg }}>
+        {cardLabel}
+      </Typography>
+    </Box>
   );
 }
 export default CardStatus;

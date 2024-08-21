@@ -1,4 +1,7 @@
 import { HomeRepairServiceOutlined } from "@mui/icons-material";
+import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
+import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBulletedRounded";
+
 import {
   Box,
   colors,
@@ -8,6 +11,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Stack,
 } from "@mui/material";
 import Link from "next/link";
 import CardStatus from "./CardStatus";
@@ -26,7 +30,7 @@ function CardDetails({
   icon = <HomeRepairServiceOutlined fontSize="small" />,
   title = "Overview",
   description = "hellosdsd",
-  topics = "25",
+  topics = "Hello",
   posts = "5",
 }: Props) {
   return (
@@ -75,7 +79,20 @@ function CardDetails({
           </ListItem>
         </List>
 
-        <CardStatus cartTopic={topics} cardPost={posts} />
+        <Stack direction="row" spacing={9}>
+          <CardStatus
+            cardLabel="Topics"
+            cardNum={posts}
+            cardIcon={
+              <FormatListBulletedRoundedIcon fontSize="small" color="action" />
+            }
+          />
+          <CardStatus
+            cardLabel="Topics"
+            cardNum={posts}
+            cardIcon={<ChatBubbleRoundedIcon fontSize="small" color="action" />}
+          />
+        </Stack>
       </Box>
       <Divider />
     </>

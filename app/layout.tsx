@@ -30,10 +30,8 @@ export default function RootLayout({
           <CssBaseline />
           <Container
             sx={{
-              width: {
-                xs: 1,
-                md: "90vw",
-              },
+              //BRING THE VALUR FROM NAVIGATION
+              maxWidth: "calc(100% - 120px)",
             }}
           >
             <Navigation />

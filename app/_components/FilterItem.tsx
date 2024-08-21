@@ -1,5 +1,14 @@
 "use client";
-import { Box, Button, Menu, MenuItem } from "@mui/material";
+import {
+  Box,
+  Button,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  MenuItem,
+  MenuList,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import { FilterType } from "../_confing/FilterConfing";
 
@@ -16,27 +25,29 @@ function FilterItem({ itemList }) {
   };
 
   return (
-    <div>
+    <Box sx={{ width: 130 }}>
       <Button
-        id="demo-positioned-button"
-        aria-controls={open ? "demo-positioned-menu" : undefined}
+        id="positioned-button"
+        aria-controls={open ? "positioned-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
         startIcon={itemList.icon}
       >
-        <Box
-          component="span"
+        <Typography
           sx={{
             display: { xs: "none", md: "inline" }, // Show text only on small screens
+            fontWeight: 550,
+            fontSize: 14,
+            color: "#000",
           }}
         >
           {itemList.label}
-        </Box>
+        </Typography>
       </Button>
       <Menu
-        id="demo-positioned-menu"
-        aria-labelledby="demo-positioned-button"
+        id="positioned-menu"
+        aria-labelledby="positioned-button"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
@@ -55,7 +66,7 @@ function FilterItem({ itemList }) {
           </MenuItem>
         ))}
       </Menu>
-    </div>
+    </Box>
   );
 }
 
