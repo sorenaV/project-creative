@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Logo(): JSX.Element {
   return (
-    <Link href="/" passHref>
+    <Link href="/" passHref className="w-fit">
       <Typography
         variant="body1"
         sx={{ textDecoration: "none" }}

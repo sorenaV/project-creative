@@ -7,9 +7,9 @@ export const metadata = {
 
 function Page() {
   return (
-    <div>
+    <Box>
       <Filter />
-    </div>
+    </Box>
   );
 }
 

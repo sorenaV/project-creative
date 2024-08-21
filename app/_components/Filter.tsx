@@ -1,14 +1,6 @@
-import { Filter1 } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Stack,
-} from "@mui/material";
+import { Box, Button } from "@mui/material";
+import FilterItem from "./FilterItem";
+import { filterPopularList } from "../_confing/FilterConfing";
 
 function Filter() {
   return (
@@ -20,12 +12,33 @@ function Filter() {
         mx: "auto",
         borderRadius: 2,
         backgroundColor: "#f8f9fa",
-        position: "fixed",
-
+        position: "sticky",
         zIndex: 10,
+        display: "flex",
+        gap: 3,
       }}
     >
-      <List
+      {filterPopularList.map((list) => (
+        <FilterItem key={list.label} itemList={list} />
+      ))}
+      <Button
+        variant="contained"
+        size="medium"
+        sx={{
+          height: "2rem",
+          ml: "auto",
+          backgroundColor: "#0d6efd",
+        }}
+      >
+        hello
+      </Button>
+    </Box>
+  );
+}
+
+export default Filter;
+{
+  /* <List
         sx={{
           padding: 0,
         }}
@@ -38,6 +51,12 @@ function Filter() {
                   <Filter1 fontSize="small" />
                 </ListItemIcon>
                 <ListItemText
+                  sx={{
+                    display: {
+                      xs: "none",
+                      md: "block",
+                    },
+                  }}
                   primary="hello"
                   primaryTypographyProps={{ fontWeight: 600 }}
                 />
@@ -63,9 +82,5 @@ function Filter() {
             hello
           </Button>
         </Stack>
-      </List>
-    </Box>
-  );
+      </List> */
 }
-
-export default Filter;
