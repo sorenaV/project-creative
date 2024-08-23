@@ -1,12 +1,8 @@
 import { navLinksRight } from "../_confing/confing";
+import type { SidebarsType } from "../_types";
 import NavDrawer from "./NavDrawer";
-// REMINDER : MAKE A NEW FILE FOR ALL TTYPES, THIS FILE HAVE BEEN USED IN Left
-type RightSideNav = {
-  isOpen: boolean;
-  handleDrawer: () => void;
-};
 
-function RightSideNav({ isOpen, handleDrawer }: RightSideNav) {
+function RightSideNav({ isOpen, handleDrawer }: SidebarsType) {
   return (
     <NavDrawer
       anchorDir="right"

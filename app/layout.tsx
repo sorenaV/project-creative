@@ -7,6 +7,8 @@ import Header from "./_components/Header";
 import CustomLayout from "./custom-layout";
 import Navigation from "./_components/Navigation";
 import "@/app/_styles/globals.css";
+import Filters from "./_components/FilterItem";
+import { drawerCollapsedWidth } from "./_components/NavDrawer";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -31,7 +33,12 @@ export default function RootLayout({
           <Container
             sx={{
               //BRING THE VALUR FROM NAVIGATION
-              maxWidth: "calc(100% - 120px)",
+              maxWidth: {
+                xs: "100%",
+                md: `calc(100% - ${120}px)`,
+                lg: "80%",
+                xl: "60%",
+              },
             }}
           >
             <Navigation />

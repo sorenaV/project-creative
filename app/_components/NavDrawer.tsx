@@ -1,43 +1,31 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import {
-  drawerExpandedWidth,
-  drawerCollapsedWidth,
-  NavElementType,
-} from "../_confing/confing";
+import { NavElementType } from "../_types/index";
+import NavListItem from "./NavListItem";
 
+import { Box, Drawer, IconButton, List, Typography } from "@mui/material";
 import {
   BrushRounded,
   KeyboardDoubleArrowLeftRounded,
   KeyboardDoubleArrowRightRounded,
 } from "@mui/icons-material";
-import {
-  Box,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Tooltip,
-  Typography,
-} from "@mui/material";
 
-type Props = {
+type NavDrawerPropsType = {
   anchorDir: "left" | "right" | "bottom" | undefined;
   navArray: NavElementType[];
   isOpen: boolean;
   handleDrawer: () => void;
 };
 
+const drawerCollapsedWidth = 60;
+const drawerExpandedWidth = 240;
+export { drawerCollapsedWidth, drawerExpandedWidth };
+
 function NavDrawer({
   anchorDir = "left",
   navArray,
   isOpen,
   handleDrawer,
-}: Props) {
+}: NavDrawerPropsType) {
   return (
     <Drawer
       anchor={anchorDir}
@@ -71,35 +59,12 @@ function NavDrawer({
       >
         <List sx={{ alignItems: "center" }}>
           {navArray?.map((link: NavElementType) => (
-            <ListItem
-              key={link.name}
-              sx={{
-                justifyContent: isOpen ? "initial" : "center",
-              }}
-            >
-              <Link href={link.url}>
-                <Tooltip title={link.name} arrow placement="right">
-                  <ListItemButton
-                    sx={{ minWidth: 0, justifyContent: "center" }}
-                    dense={true}
-                    disableGutters={true}
-                  >
-                    <ListItemIcon sx={{ justifyContent: "center" }}>
-                      {link.icon}
-                    </ListItemIcon>
-                    {isOpen && (
-                      <ListItemText
-                        primary={link.name}
-                        sx={{ opacity: isOpen ? 1 : 0 }}
-                      />
-                    )}
-                  </ListItemButton>
-                </Tooltip>
-              </Link>
-            </ListItem>
+            <NavListItem key={link.name} isOpen={isOpen} link={link} />
           ))}
         </List>
-        {anchorDir === "left" ? (
+
+        {/* 2 More Icon Only On Left Side */}
+        {anchorDir === "left" && (
           <Box
             sx={{
               display: "flex",
@@ -130,7 +95,7 @@ function NavDrawer({
               )}
             </IconButton>
           </Box>
-        ) : null}
+        )}
       </Box>
     </Drawer>
   );

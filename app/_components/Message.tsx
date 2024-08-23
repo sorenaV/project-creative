@@ -7,41 +7,56 @@ function Message() {
       sx={{
         border: 1,
         borderRadius: 2,
-        height: {
-          xs: "auto",
-          md: "auto",
-        },
         borderColor: "primary.main",
-        padding: " 1rem",
-        marginTop: {
-          xs: 2,
-          lg: 0,
-        },
-        marginLeft: {
-          md: 2,
-        },
+        p: 2,
+        mt: { xs: 2, lg: 0 },
+        ml: { md: 2 },
+        height: "100%",
       }}
     >
       <Typography
         variant="h6"
-        fontSize={18}
+        fontSize={{
+          xs: 16,
+          md: 18,
+        }}
         sx={{ marginBottom: 2 }}
         fontWeight={600}
       >
         Welcome to the NodeBB demo instance!
       </Typography>
 
-      <Typography variant="body1" sx={{ marginBottom: 2 }} fontSize={16}>
+      <Typography
+        variant="body1"
+        sx={{ marginBottom: 2 }}
+        fontSize={{
+          xs: 14,
+          md: 16,
+        }}
+      >
         This website is a demo instance of NodeBB that you can use to try out
         our forum software. It is a default install with minimal configuration
         changes.
       </Typography>
 
-      <Typography variant="body1" sx={{ marginBottom: 2 }} fontSize={16}>
+      <Typography
+        variant="body1"
+        sx={{ marginBottom: 2 }}
+        fontSize={{
+          xs: 14,
+          md: 16,
+        }}
+      >
         For more information on this site, please check out this post.
       </Typography>
 
-      <Typography variant="body1" fontSize={16}>
+      <Typography
+        variant="body1"
+        fontSize={{
+          xs: 14,
+          md: 16,
+        }}
+      >
         This information is displayed via the Widgets system, available under
         the Extend menu in the admin control panel.
       </Typography>

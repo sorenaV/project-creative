@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
 import Filter from "../_components/Filter";
-import List from "../_components/List";
+import TopicList from "../_components/TopicList";
+import { filterPopularList } from "../_confing/FilterConfing";
+import { data } from "../_confing/data";
 
 export const metadata = {
   title: "Popular",
@@ -9,8 +11,8 @@ export const metadata = {
 function Page() {
   return (
     <Box>
-      <Filter />
-      <List />
+      <Filter filterOptions={filterPopularList} buttonLabel="Login" />
+      <TopicList pageName="category" data={data} />
     </Box>
   );
 }

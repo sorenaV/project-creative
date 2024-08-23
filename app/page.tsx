@@ -11,10 +11,10 @@ export default function Home() {
         marginTop: "2rem",
       }}
     >
-      <Grid xs={12} md={10}>
+      <Grid xs={12} md={8}>
         <Card />
       </Grid>
-      <Grid xs={12} md>
+      <Grid xs={12} md={4}>
         <Message />
       </Grid>
     </Grid>

@@ -1,28 +1,37 @@
 import { Box, Button } from "@mui/material";
+import { FilterOptionsType } from "../_types";
 import FilterItem from "./FilterItem";
-import { filterPopularList } from "../_confing/FilterConfing";
 
-function Filter() {
+type FilterType = {
+  buttonLabel: string;
+  filterOptions: FilterOptionsType[];
+};
+
+function Filter({ buttonLabel, filterOptions }: FilterType) {
   return (
     <Box
       sx={{
         border: "2px solid #e9ecef",
         p: ".5rem",
-        my: "2rem",
+        mt: "1rem",
         mx: "auto",
         borderRadius: 2,
         backgroundColor: "#f8f9fa",
         position: "sticky",
+        top: 10,
         zIndex: 10,
         display: "flex",
-        gap: 3,
+        gap: {
+          xs: 1,
+          md: 3,
+        },
       }}
     >
-      {filterPopularList.map((list) => (
-        <FilterItem key={list.label} itemList={list} />
+      {filterOptions.map((list, index) => (
+        <FilterItem key={index} menuList={list} />
       ))}
+
       <Button
-        variant="contained"
         size="medium"
         sx={{
           height: "2rem",
@@ -30,57 +39,10 @@ function Filter() {
           backgroundColor: "#0d6efd",
         }}
       >
-        hello
+        {buttonLabel}
       </Button>
     </Box>
   );
 }
 
 export default Filter;
-{
-  /* <List
-        sx={{
-          padding: 0,
-        }}
-      >
-        <Stack direction="row">
-          <Stack direction="row" sx={{ mr: "auto" }}>
-            <ListItem>
-              <ListItemButton sx={{ padding: 1 / 2, borderRadius: 2 }}>
-                <ListItemIcon sx={{ minWidth: "30px", color: "#0d6efd" }}>
-                  <Filter1 fontSize="small" />
-                </ListItemIcon>
-                <ListItemText
-                  sx={{
-                    display: {
-                      xs: "none",
-                      md: "block",
-                    },
-                  }}
-                  primary="hello"
-                  primaryTypographyProps={{ fontWeight: 600 }}
-                />
-              </ListItemButton>
-            </ListItem>
-            <ListItem>
-              <ListItemButton sx={{ padding: 1 / 2, borderRadius: 2 }}>
-                <ListItemIcon sx={{ minWidth: "30px", color: "#0d6efd" }}>
-                  <Filter1 fontSize="small" />
-                </ListItemIcon>
-                <ListItemText
-                  primary="hello"
-                  primaryTypographyProps={{ fontWeight: 600 }}
-                />
-              </ListItemButton>
-            </ListItem>
-          </Stack>
-          <Button
-            variant="contained"
-            size="medium"
-            sx={{ height: "2rem", my: "auto", backgroundColor: "#0d6efd" }}
-          >
-            hello
-          </Button>
-        </Stack>
-      </List> */
-}

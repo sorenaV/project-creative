@@ -1,6 +1,5 @@
 import {
   AccessTimeOutlined,
-  BrushRounded,
   FormatListBulletedRounded,
   Groups2Rounded,
   InboxRounded,
@@ -12,15 +11,7 @@ import {
   SearchRounded,
   SettingsRounded,
 } from "@mui/icons-material";
-
-export const drawerCollapsedWidth = 60;
-export const drawerExpandedWidth = 240;
-
-export type NavElementType = {
-  name: string;
-  icon: JSX.Element;
-  url: string;
-};
+import { NavElementType } from "../_types";
 
 export const navLinksLeft: NavElementType[] = [
   {

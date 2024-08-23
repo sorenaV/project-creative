@@ -3,7 +3,7 @@ import { Box, Stack, Typography } from "@mui/material";
 type Props = {
   cardIcon: JSX.Element;
   cardLabel: string;
-  cardNum: string;
+  cardNum: string | number;
 };
 
 function CardStatus({ cardNum, cardLabel, cardIcon }: Props) {

@@ -8,41 +8,36 @@ import { categories } from "./categories";
 
 export type FilterType = {
   id: number;
-  label: string;
+  name: string;
   icon: any;
-  menuList: string[] | [];
+  options: string[] | [];
 };
 const style = { color: "#0d6efd" };
 
 export const filterPopularList: FilterType[] = [
   {
     id: 1,
-    label: "All topics",
+    name: "All topics",
     icon: <FilterAlt sx={style} />,
-    menuList: [
-      "All Topics",
-      "New Topics",
-      "Watched Topics",
-      "Unreplied Topics",
-    ],
+    options: ["All Topics", "New Topics", "Watched Topics", "Unreplied Topics"],
   },
   {
     id: 2,
-    label: "Date",
+    name: "Date",
     icon: <FormatListBulletedRounded sx={style} />,
-    menuList: ["as", "as", "jdh"],
+    options: ["as", "as", "jdh"],
   },
 
   {
     id: 3,
-    label: "All Tags",
+    name: "All Tags",
     icon: <SellRounded />,
-    menuList: categories.map((category) => category.name),
+    options: categories.map((category) => category.name),
   },
 ];
 
 const filterRecentList: FilterType = {
-  label: "",
+  name: "",
   icon: "",
-  menuList: [],
+  options: [],
 };

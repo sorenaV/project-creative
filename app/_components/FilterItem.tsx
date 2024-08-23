@@ -1,22 +1,20 @@
 "use client";
-import {
-  Box,
-  Button,
-  ListItemIcon,
-  ListItemText,
-  Menu,
-  MenuItem,
-  MenuList,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
 import { useState } from "react";
-import { FilterType } from "../_confing/FilterConfing";
+import type { FilterOptionsType } from "../_types";
+
+type FilterItem = {
+  menuList: FilterOptionsType;
+};
 
 // Shall i also add type to this props?
 
-function FilterItem({ itemList }) {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+export default function FilterItem({ menuList }: FilterItem) {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -24,15 +22,20 @@ function FilterItem({ itemList }) {
     setAnchorEl(null);
   };
 
+  const handleMenuItemClick = (index: number) => {
+    setSelectedIndex(index);
+    setAnchorEl(null);
+  };
+
   return (
-    <Box sx={{ width: 130 }}>
+    <Box>
       <Button
         id="positioned-button"
         aria-controls={open ? "positioned-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        startIcon={itemList.icon}
+        startIcon={menuList.icon}
       >
         <Typography
           sx={{
@@ -42,7 +45,7 @@ function FilterItem({ itemList }) {
             color: "#000",
           }}
         >
-          {itemList.label}
+          {menuList.options[selectedIndex]}
         </Typography>
       </Button>
       <Menu
@@ -51,23 +54,17 @@ function FilterItem({ itemList }) {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
       >
-        {itemList.menuList.map((menuList, i) => (
-          <MenuItem key={menuList[i]} onClick={handleClose}>
-            {itemList.menuList[i]}
+        {menuList.options.map((list, index) => (
+          <MenuItem
+            key={index}
+            onClick={(event) => handleMenuItemClick(index)}
+            selected={index === selectedIndex}
+          >
+            {list}
           </MenuItem>
         ))}
       </Menu>
     </Box>
   );
 }
-
-export default FilterItem;
