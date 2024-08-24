@@ -1,22 +1,22 @@
-import { Box, Grid } from "@mui/material";
 import Card from "./_components/Card";
 import Message from "./_components/Message";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 export default function Home() {
   return (
-    <Grid
+    <Grid2
       container
       sx={{
         justifyContent: "center",
         marginTop: "2rem",
       }}
     >
-      <Grid xs={12} md={8}>
+      <Grid2 xs={12} md={8}>
         <Card />
-      </Grid>
-      <Grid xs={12} md={4}>
+      </Grid2>
+      <Grid2 xs={12} md={4}>
         <Message />
-      </Grid>
-    </Grid>
+      </Grid2>
+    </Grid2>
   );
 }
