@@ -42,7 +42,7 @@ export const navLinksLeft: NavElementType[] = [
   {
     name: "Users",
     icon: <PersonRounded />,
-    url: "/popular",
+    url: "/users",
   },
   {
     name: "Groups",

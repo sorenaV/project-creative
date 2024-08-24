@@ -36,6 +36,28 @@ export const filterPopularList: FilterType[] = [
   },
 ];
 
+export const filterUnreadList: FilterType[] = [
+  {
+    id: 1,
+    name: "All topics",
+    icon: <FilterAlt sx={style} />,
+    options: ["All Topics", "New Topics", "Watched Topics", "Unreplied Topics"],
+  },
+  {
+    id: 2,
+    name: "Date",
+    icon: <FormatListBulletedRounded sx={style} />,
+    options: ["as", "as", "jdh"],
+  },
+
+  {
+    id: 3,
+    name: "All Tags",
+    icon: <SellRounded />,
+    options: categories.map((category) => category.name),
+  },
+];
+
 const filterRecentList: FilterType = {
   name: "",
   icon: "",

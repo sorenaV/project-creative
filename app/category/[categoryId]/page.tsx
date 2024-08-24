@@ -1,3 +1,4 @@
+import Alert from "@/app/_components/Alert";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import ChipBox from "@/app/_components/ChipBox";
 import Filter from "@/app/_components/Filter";
@@ -73,7 +74,15 @@ function page({ params }: { params: { categoryId: string } }) {
       </Box>
       <Filter buttonLabel="Login" filterOptions={filterOptions} />
 
-      <TopicList data={list} />
+      {list.length ? (
+        <TopicList pageName="detail" data={list} />
+      ) : (
+        <Alert
+          message="No Post in this topic yet."
+          bgColor={backgroundColor}
+          messageColor="white"
+        />
+      )}
     </Box>
   );
 }

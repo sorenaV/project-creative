@@ -4,7 +4,7 @@ import Filter from "@/app/_components/Filter";
 import MobilePost from "@/app/_components/MobilePost";
 import { getTopicDetails } from "@/app/_helper/getTopicDetails";
 import { SdSharp } from "@mui/icons-material";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 const filterOptions = [
   {
@@ -15,7 +15,7 @@ const filterOptions = [
 ];
 
 function page({ params }: { params: { topicId: string } }) {
-  const { title, status, category, author, createdAt, context } =
+  const { title, status, category, author, createdAt, context, isRead } =
     getTopicDetails(params.topicId);
 
   return (

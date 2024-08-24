@@ -1,5 +1,11 @@
-import type { DataType, TopicDetailsType } from "../_types";
+import type {
+  DataType,
+  GroupSummeryType,
+  TopicDetailsType,
+  UsersType,
+} from "../_types";
 
+import avatarPic from "@/public/avatar.jpeg";
 export const data: DataType[] = [
   {
     id: 1,
@@ -9,8 +15,9 @@ export const data: DataType[] = [
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "carl",
-      avatar: "C:/Users/Rapidpc/Desktop/amir-project/public/avatar.jpeg",
+      avatar: avatarPic,
     },
+    isRead: true,
   },
   {
     id: 2,
@@ -20,8 +27,9 @@ export const data: DataType[] = [
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "sara",
-      avatar: "",
+      avatar: avatarPic,
     },
+    isRead: false,
   },
   {
     id: 3,
@@ -31,8 +39,9 @@ export const data: DataType[] = [
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "admin",
-      avatar: "",
+      avatar: avatarPic,
     },
+    isRead: true,
   },
   {
     id: 4,
@@ -42,8 +51,9 @@ export const data: DataType[] = [
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "admin",
-      avatar: "",
+      avatar: avatarPic,
     },
+    isRead: true,
   },
   {
     id: 4,
@@ -53,8 +63,9 @@ export const data: DataType[] = [
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "admin",
-      avatar: "",
+      avatar: avatarPic,
     },
+    isRead: true,
   },
   {
     id: 4,
@@ -64,8 +75,9 @@ export const data: DataType[] = [
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "admin",
-      avatar: "",
+      avatar: avatarPic,
     },
+    isRead: true,
   },
   {
     id: 4,
@@ -75,8 +87,9 @@ export const data: DataType[] = [
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "admin",
-      avatar: "",
+      avatar: "/",
     },
+    isRead: true,
   },
 ];
 
@@ -89,10 +102,12 @@ export const topicDetails: TopicDetailsType[] = [
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "carl",
-      avatar: "C:/Users/Rapidpc/Desktop/amir-project/public/avatar.jpeg",
+      avatar: avatarPic,
     },
     context: "Hey, did you know you can create tables? It's true!",
+    isRead: true,
   },
+
   {
     id: 3,
     title: "Creating tables in NodeBB",
@@ -100,11 +115,12 @@ export const topicDetails: TopicDetailsType[] = [
     status: { votes: 0, posts: 1, views: 25 },
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
-      name: "carl",
-      avatar: "C:/Users/Rapidpc/Desktop/amir-project/public/avatar.jpeg",
+      name: "admin",
+      avatar: "as",
     },
     context:
       "This plugin allows you to embed just about anything in your post, for example:",
+    isRead: true,
   },
   {
     id: 4,
@@ -113,10 +129,75 @@ export const topicDetails: TopicDetailsType[] = [
     status: { votes: 0, posts: 1, views: 25 },
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
-      name: "carl",
-      avatar: "C:/Users/Rapidpc/Desktop/amir-project/public/avatar.jpeg",
+      name: "admin",
+      avatar: "as",
     },
     context:
       "This plugin allows you to embed just about anything in your post, for example:",
+    isRead: true,
+  },
+];
+
+export const tags = [];
+
+export const users: UsersType[] = [
+  {
+    id: 1,
+    name: "Carl",
+    userName: "carl",
+    avatar: "a",
+    posts: 2,
+  },
+  {
+    id: 2,
+    name: "Admin",
+    userName: "admin",
+    avatar: "a",
+    posts: 6,
+  },
+  {
+    id: 3,
+    name: "Amir",
+    userName: "Amir",
+    avatar: "a",
+    posts: 6,
+  },
+  {
+    id: 4,
+    name: "Carl",
+    userName: "carl",
+    avatar: "a",
+    posts: 2,
+  },
+  {
+    id: 5,
+    name: "Admin",
+    userName: "admin",
+    avatar: "a",
+    posts: 6,
+  },
+  {
+    id: 6,
+    name: "Sorena",
+    userName: "sorena",
+    avatar: "a",
+    posts: 6,
+  },
+];
+
+export const groupSummeryApi: GroupSummeryType[] = [
+  { id: 1, title: "administrators", subtitle: "", members: 2 },
+  {
+    id: 2,
+    title: "Global Moderators",
+    subtitle: "Forum wide moderators",
+    members: 0,
+  },
+  { id: 3, title: "administrators", subtitle: "", members: 25 },
+  {
+    id: 4,
+    title: "Global Moderators",
+    subtitle: "Forum wide moderators",
+    members: 0,
   },
 ];

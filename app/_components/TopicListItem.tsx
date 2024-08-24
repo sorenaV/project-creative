@@ -8,6 +8,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import Image from "next/image";
 import Link from "next/link";
 import { getCategoryItem } from "../_helper/getCategoryItem";
 import { getUserAvatar } from "../_helper/getUserAvatar";
@@ -19,7 +20,7 @@ type ItemType = {
   pageName: string;
 };
 
-function TopicListItem({ item, pageName = "category" }: ItemType) {
+function TopicListItem({ item, pageName }: ItemType) {
   const { title, category, status, createdAt, author, id } = item;
 
   const {
@@ -27,8 +28,6 @@ function TopicListItem({ item, pageName = "category" }: ItemType) {
     icon,
     id: categoryId,
   } = getCategoryItem(id);
-
-  const avatar = getUserAvatar(author);
 
   return (
     <>
@@ -40,7 +39,15 @@ function TopicListItem({ item, pageName = "category" }: ItemType) {
         }}
       >
         <Stack direction="row" spacing={1}>
-          <Avatar src={avatar}>{avatar}</Avatar>
+          <Avatar alt={author.name}>
+            <Image
+              src={author.avatar}
+              alt={author.name}
+              layout="fill" // Ensures the image covers the Avatar
+              objectFit="cover" // Ensures the image covers the Avatar properly
+            />
+          </Avatar>
+
           <div>
             <Link href={`/topic/${id}`}>
               <Typography
