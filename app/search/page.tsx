@@ -11,12 +11,15 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 import { Metadata } from "next";
 import SearchSelect from "../_components/SearchSelect";
+import CustomPopover from "../_components/CustomPopover";
+import { users } from "../_confing/data";
 
 export const metadata: Metadata = {
   title: "Search",
 };
 
-function Page(): JSX.Element {
+function Page({ searchParams }) {
+  console.log(searchParams);
   return (
     <Grid2 container spacing={5}>
       <Grid2 xs={12} md={3}>
@@ -60,9 +63,10 @@ function Page(): JSX.Element {
 
       <Grid2 xs={12} md={7}>
         <Stack>
-          <Box padding={5}>
+          <Stack direction="row" spacing={1} padding={1}>
             <SearchSelect />
-          </Box>
+            <CustomPopover label="users" posts={users} />
+          </Stack>
           <Divider />
           <Box>as</Box>
         </Stack>

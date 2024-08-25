@@ -36,6 +36,7 @@ export type TopicDetailsType = {
 export type Category = {
   id: number;
   name: string;
+  url: string;
   icon: JSX.Element;
   description: string;
   backgroundColor: string;

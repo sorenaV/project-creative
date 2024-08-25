@@ -11,6 +11,7 @@ export const categories: Category[] = [
   {
     id: 1,
     name: "Announcements",
+    url: "announcements",
     icon: <CampaignRounded sx={{ color: "#fff" }} />,
     description: "Announcements regarding our community",
     backgroundColor: "#fda34b",
@@ -20,6 +21,7 @@ export const categories: Category[] = [
   {
     id: 2,
     name: "General Discussion",
+    url: "general-discussion",
     icon: <ForumRounded sx={{ color: "#fff" }} />,
     description: "A place to talk about whatever you want",
     backgroundColor: "#59b3d0",
@@ -29,6 +31,7 @@ export const categories: Category[] = [
   {
     id: 3,
     name: "Comments & Feedback",
+    url: "Comments-Feedback",
     icon: <QuestionMarkRounded sx={{ color: "#fff" }} />,
     description: "Got a question? Ask away!",
     backgroundColor: "#e95c5a",
@@ -38,6 +41,7 @@ export const categories: Category[] = [
   {
     id: 4,
     name: "Blogs",
+    url: "blogs",
     icon: <ArticleRounded sx={{ color: "#fff" }} />,
     description: "Blog posts from individual members",
     backgroundColor: "#86ba4b",
@@ -47,6 +51,7 @@ export const categories: Category[] = [
   {
     id: 5,
     name: "Testing Ground",
+    url: "testing-ground",
     icon: <BiotechRounded sx={{ color: "#fff" }} />,
     description: "Anyone can posts here to test NodeBB, even guests!",
     backgroundColor: "#ab4642",
