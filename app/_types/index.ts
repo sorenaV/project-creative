@@ -10,6 +10,7 @@ type AuthorType = { name: string; avatar: StaticImageData | string };
 type CategoryType = {
   name: string;
   categoryId: number;
+  url?: string;
 };
 
 export type DataType = {

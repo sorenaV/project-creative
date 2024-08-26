@@ -12,14 +12,19 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { Metadata } from "next";
 import SearchSelect from "../_components/SearchSelect";
 import CustomPopover from "../_components/CustomPopover";
-import { users } from "../_confing/data";
+import { tags, users } from "../_confing/data";
+import SortBy from "../_components/SortBy";
+import TopicList from "../_components/TopicList";
+import SearchList from "../_components/SearchList";
+import SearchInput from "../_components/SearchInput";
 
 export const metadata: Metadata = {
   title: "Search",
 };
 
 function Page({ searchParams }) {
-  console.log(searchParams);
+  const filter = searchParams;
+
   return (
     <Grid2 container spacing={5}>
       <Grid2 xs={12} md={3}>
@@ -30,35 +35,7 @@ function Page({ searchParams }) {
         >
           Search
         </Typography>
-        <TextField
-          id="outlined-basic"
-          label="Type to search"
-          variant="outlined"
-          sx={{
-            mt: 2,
-            fontSize: 12,
-            width: "100%",
-            display: "Block",
-            "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-              borderColor: "blue", // Change the border color on hover
-            },
-            "&:hover .MuiInputLabel-root": {
-              color: "blue", // Change the label color on hover
-              fontSize: 12,
-            },
-          }}
-        />
-        <Button
-          sx={{
-            backgroundColor: lightBlue["A700"],
-            color: "#fff",
-            mt: 2,
-            width: 1,
-            height: "42px",
-          }}
-        >
-          Search
-        </Button>
+        <SearchInput />
       </Grid2>
 
       <Grid2 xs={12} md={7}>
@@ -66,9 +43,13 @@ function Page({ searchParams }) {
           <Stack direction="row" spacing={1} padding={1}>
             <SearchSelect />
             <CustomPopover label="users" posts={users} />
+            <CustomPopover label="tag" posts={tags} />
+            <SortBy />
           </Stack>
           <Divider />
-          <Box>as</Box>
+          <Box>
+            <SearchList filter={filter} />
+          </Box>
         </Stack>
       </Grid2>
     </Grid2>

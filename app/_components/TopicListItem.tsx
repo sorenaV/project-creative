@@ -27,7 +27,8 @@ function TopicListItem({ item, pageName }: ItemType) {
     backgroundColor: badgeColor,
     icon,
     id: categoryId,
-  } = getCategoryItem(id);
+  } = getCategoryItem(category.categoryId);
+  console.log(id);
 
   return (
     <>

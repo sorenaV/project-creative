@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import { categories } from "../_confing/categories";
 import { Category } from "../_types";
+
 import { ArrowDownward } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import useTheme from "@mui/material/styles/useTheme";
@@ -119,13 +120,11 @@ export default function GitHubLabel() {
   const handleClose = () => {
     setValue(pendingValue);
     setAnchorEl(null);
-    const newQuery = new URLSearchParams(searchParams);
-    newQuery.set(
-      "categories",
-      pendingValue.map((label) => label.url).join("_")
-    );
+    const params = new URLSearchParams(searchParams);
+    if (!pendingValue.length) params.delete("categories");
+    params.set("categories", pendingValue.map((label) => label.url).join(","));
 
-    router.replace(`${pathname}?${newQuery.toString()}`, { scroll: false });
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   const open = Boolean(anchorEl);

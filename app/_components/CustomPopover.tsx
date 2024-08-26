@@ -15,6 +15,10 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import LabelIcon from "@mui/icons-material/Label";
 import DoneIcon from "@mui/icons-material/Done";
+import { UsersType } from "../_types";
+import { orange } from "@mui/material/colors";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { ArrowDownward, DownhillSkiing } from "@mui/icons-material";
 
 interface OptionType {
   name: string;
@@ -88,13 +92,19 @@ const Button = styled(ButtonBase)(({ theme }) => ({
 
 type PopoverPropsData = {
   label: "string";
+  posts: UsersType[];
 };
 
-export default function CustomPopover({ label, posts }) {
+export default function CustomPopover({ label, posts }: PopoverPropsData) {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [searchValue, setSearchValue] = useState("");
-  const [selectedOptions, setSelectedOptions] = useState<OptionType[]>([]);
+  const [selectedOptions, setSelectedOptions] = useState<UsersType[]>([]);
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  console.log(pathname);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -103,13 +113,17 @@ export default function CustomPopover({ label, posts }) {
   const handleClose = () => {
     setAnchorEl(null);
     setSearchValue("");
+    const params = new URLSearchParams(searchParams);
+    if (!selectedOptions.length) params.delete(label);
+    params.set(label, selectedOptions.map((selec) => selec.name).join(","));
+    router.replace(`${pathname}?${params.toString()}`);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };
 
-  const handleOptionClick = (option: OptionType) => {
+  const handleOptionClick = (option: UsersType) => {
     setSelectedOptions((prev) => {
       if (prev.some((selected) => selected.name === option.name)) {
         return prev.filter((selected) => selected.name !== option.name);
@@ -120,7 +134,7 @@ export default function CustomPopover({ label, posts }) {
     setSearchValue(""); // Clear search input after selecting an option
   };
 
-  const handleDeleteChip = (option: OptionType) => {
+  const handleDeleteChip = (option: UsersType) => {
     setSelectedOptions((prev) =>
       prev.filter((selected) => selected.name !== option.name)
     );
@@ -139,8 +153,8 @@ export default function CustomPopover({ label, posts }) {
     <div>
       <Box>
         <Button id={id} onClick={handleClick}>
-          <span>Labels</span>
-          <SearchIcon />
+          <span>{label}</span>
+          <ArrowDownward />
         </Button>
       </Box>
 
@@ -167,7 +181,7 @@ export default function CustomPopover({ label, posts }) {
                   label={option.name}
                   onDelete={() => handleDeleteChip(option)}
                   sx={{
-                    backgroundColor: option.color,
+                    backgroundColor: orange[500],
                     color: "blue",
                   }}
                 />
@@ -185,20 +199,19 @@ export default function CustomPopover({ label, posts }) {
                     sx={{ alignItems: "flex-start", p: 1 }}
                   >
                     <Box sx={{ display: "flex", alignItems: "center", mr: 2 }}>
-                      <LabelIcon sx={{ color: option.color, mr: 1 }} />
+                      <LabelIcon sx={{ color: orange[500], mr: 1 }} />
                       <Box
                         sx={{
                           width: 14,
                           height: 14,
                           flexShrink: 0,
                           borderRadius: "3px",
-                          backgroundColor: option.color,
+                          backgroundColor: orange[500],
                         }}
                       />
                     </Box>
                     <ListItemText
                       primary={option.name}
-                      secondary={option.description}
                       primaryTypographyProps={{
                         fontWeight: selectedOptions.some(
                           (selected) => selected.name === option.name
