@@ -1,20 +1,8 @@
-import { Search } from "@mui/icons-material";
-import {
-  Autocomplete,
-  Box,
-  Button,
-  ButtonGroup,
-  Divider,
-  IconButton,
-  InputAdornment,
-  List,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, List, Typography } from "@mui/material";
 import { Metadata } from "next";
-import { users } from "../_confing/data";
+import SearchSortHeader from "../_components/SearchSortHeader";
 import UserList from "../_components/UserList";
+import { users } from "../_confing/data";
 
 export const metadata: Metadata = {
   title: "Users",
@@ -32,49 +20,9 @@ function Page() {
         Users
       </Typography>
       <div>
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          sx={{ alignItems: { xs: "normal", sm: "center" } }}
-        >
-          <ButtonGroup
-            variant="text"
-            aria-label="Basic button group"
-            sx={{ my: 2 }}
-          >
-            <Button>Online</Button>
-            <Button>Top posters</Button>
-            <Button>Most Reputation</Button>
-          </ButtonGroup>
-          <TextField
-            size="small"
-            label="Search"
-            sx={{
-              width: { xs: "100%", sm: 200 }, // Control the width; adjust as needed
-              height: "30px", // Set a specific height
-              ml: { xs: "none", sm: "auto" },
-              mt: { xs: 1, sm: 0 },
-            }}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    sx={{
-                      backgroundColor: "blue",
-                      color: "white",
-                      padding: "4px", // Adjust padding for the button size
-                      "& .MuiSvgIcon-root": {
-                        fontSize: 18, // Adjust icon size
-                      },
-                    }}
-                  >
-                    <Search />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Stack>
-        <Divider sx={{ mt: 2 }} />
+        <SearchSortHeader
+          fieldNames={["Online", "Top Posters", "Most Reputation"]}
+        />
       </div>
       <List
         sx={{

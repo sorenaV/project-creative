@@ -6,8 +6,6 @@ import { categories } from "../_confing/categories";
 import { Category } from "../_types";
 
 import { ArrowDownward } from "@mui/icons-material";
-import { styled } from "@mui/material/styles";
-import useTheme from "@mui/material/styles/useTheme";
 import CloseIcon from "@mui/icons-material/Close";
 import DoneIcon from "@mui/icons-material/Done";
 import Autocomplete, { autocompleteClasses } from "@mui/material/Autocomplete";
@@ -16,6 +14,7 @@ import ButtonBase from "@mui/material/ButtonBase";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import InputBase from "@mui/material/InputBase";
 import Popper from "@mui/material/Popper";
+import { styled } from "@mui/material/styles";
 
 const StyledAutocompletePopper = styled("div")(({ theme }) => ({
   [`& .${autocompleteClasses.paper}`]: {
@@ -87,8 +86,8 @@ const Button = styled(ButtonBase)(({ theme }) => ({
   backgroundColor: "#f8f9fa",
   border: "1px solid #dee2e6",
   borderRadius: 5,
-  color: "#586069",
-  fontWeight: 600,
+  color: "#000",
+  fontWeight: 500,
   "&:hover,&:focus": {
     color: "#0366d6",
   },
@@ -103,14 +102,13 @@ const Button = styled(ButtonBase)(({ theme }) => ({
   },
 }));
 
-export default function GitHubLabel() {
+function CaegoryPoper() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [value, setValue] = useState<Category[]>([]);
   const [pendingValue, setPendingValue] = useState<Category[]>([]);
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const theme = useTheme();
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setPendingValue(value);
@@ -233,6 +231,7 @@ export default function GitHubLabel() {
     </>
   );
 }
+export default CaegoryPoper;
 
 // interface LabelType {
 //   name: string;

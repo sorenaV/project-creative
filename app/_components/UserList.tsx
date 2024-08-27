@@ -22,7 +22,7 @@ function UserList({ avatar, name, userName, posts }: UserListType) {
       <ListItemAvatar>
         <Avatar alt={name} src={avatar} sx={{ bgcolor: blue[900] }} />
       </ListItemAvatar>
-      <Link href="users/">
+      <Link href={`users/${userName}`}>
         <ListItemText
           primary={name}
           secondary={

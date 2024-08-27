@@ -65,11 +65,11 @@ export const navLinksRight = [
   {
     name: "Login",
     icon: <LoginRounded />,
-    url: "/",
+    url: "/login",
   },
   {
     name: "Register",
     icon: <PersonAddAlt1Rounded />,
-    url: "/",
+    url: "/register",
   },
 ];

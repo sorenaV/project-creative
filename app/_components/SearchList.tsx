@@ -1,8 +1,16 @@
 import { data } from "../_confing/data";
 import SearchItem from "./SearchItem";
-import { categories } from "../_confing/categories";
 
-function SearchList({ filter }) {
+type FilterType = {
+  categories?: string | undefined;
+  users?: string | undefined;
+  tag?: string | undefined;
+  sortBy?: string | undefined;
+  order?: string | undefined;
+  term?: string;
+};
+
+function SearchList({ filter }: { filter: FilterType }) {
   const topics = data;
   if (!topics.length) return null;
 
@@ -24,19 +32,29 @@ function SearchList({ filter }) {
 
   // Apply category AND user filter if provided
   if (filter.users && filter.categories) {
-    const categories = filter.categories.split("_");
-    const users = filter.users.split("_");
+    const categories = filter.categories.split(",");
+    const users = filter.users.split(",");
     filterValue = topics.filter(
       (topic) =>
         users.includes(topic.author.name) &&
         categories.includes(topic.category.url)
     );
   }
+
   // Apply status sort if provided
   if (filter.sortBy) {
     const modifier = filter.order === "asc" ? 1 : -1;
     const sortedCabin = filterValue.sort(
       (a, b) => (a.status[filter.sortBy] - b.status[filter.sortBy]) * modifier
+    );
+  }
+
+  // Apply search
+  if (filter.term) {
+    const searchTerm = filter.term.toLowerCase();
+
+    filterValue = filterValue.filter((item) =>
+      item.title.toLowerCase().includes(searchTerm)
     );
   }
 

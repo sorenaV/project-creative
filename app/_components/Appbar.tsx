@@ -14,6 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { navLinksLeft, navLinksRight } from "../_confing/confing";
 import HideOnScroll from "./HideOnScroll";
+import Link from "next/link";
 
 function Appbar() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -82,19 +83,19 @@ function Appbar() {
               }}
             >
               {navLinksLeft.map((link) => (
-                <ListItemButton
-                  key={link.name}
-                  sx={{ minWidth: 0, justifyContent: "center" }}
-                  dense={true}
-                  disableGutters={true}
-                  href={link.url}
-                >
-                  <ListItemIcon sx={{ justifyContent: "center" }}>
-                    {link.icon}
-                  </ListItemIcon>
+                <Link href={link.url} key={link.name}>
+                  <ListItemButton
+                    sx={{ minWidth: 0, justifyContent: "center" }}
+                    dense={true}
+                    disableGutters={true}
+                  >
+                    <ListItemIcon sx={{ justifyContent: "center" }}>
+                      {link.icon}
+                    </ListItemIcon>
 
-                  <ListItemText primary={link.name} />
-                </ListItemButton>
+                    <ListItemText primary={link.name} />
+                  </ListItemButton>
+                </Link>
               ))}
             </Menu>
           </Box>

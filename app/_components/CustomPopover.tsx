@@ -74,8 +74,8 @@ const Button = styled(ButtonBase)(({ theme }) => ({
   backgroundColor: "#f8f9fa",
   border: "1px solid #dee2e6",
   borderRadius: 5,
-  color: "#586069",
-  fontWeight: 600,
+  color: "#000",
+  fontWeight: 500,
   "&:hover,&:focus": {
     color: "#0366d6",
   },
@@ -91,7 +91,7 @@ const Button = styled(ButtonBase)(({ theme }) => ({
 }));
 
 type PopoverPropsData = {
-  label: "string";
+  label: string;
   posts: UsersType[];
 };
 
@@ -104,7 +104,6 @@ export default function CustomPopover({ label, posts }: PopoverPropsData) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  console.log(pathname);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);

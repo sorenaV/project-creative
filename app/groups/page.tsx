@@ -1,18 +1,8 @@
-import { Search } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Divider,
-  IconButton,
-  InputAdornment,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Metadata } from "next";
 
 import GroupSummery from "../_components/GroupSummety";
+import SearchSortHeader from "../_components/SearchSortHeader";
 import { groupSummeryApi } from "../_confing/data";
 
 export const metadata: Metadata = {
@@ -30,64 +20,9 @@ function Page() {
       >
         Groups
       </Typography>
-      <Box sx={{ mt: { xs: 1, md: 0 } }}>
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          sx={{ alignItems: { xs: "normal", sm: "center" } }}
-        >
-          <Typography
-            variant="body1"
-            component="p"
-            sx={{
-              fontSize: 16,
-              opacity: 0.5,
-              fontWeight: 500,
-            }}
-          >
-            Sort by
-          </Typography>
-          <ButtonGroup variant="text" aria-label="Basic button group">
-            <Button sx={{ color: "#000", height: 30, fontSize: 12 }}>
-              Online
-            </Button>
-            <Button sx={{ color: "#000", height: 30, fontSize: 12 }}>
-              Top posters
-            </Button>
-            <Button sx={{ color: "#000", height: 30, fontSize: 12 }}>
-              Most Reputation
-            </Button>
-          </ButtonGroup>
-          <TextField
-            size="small"
-            label="Search"
-            sx={{
-              width: { xs: "100%", sm: 200 }, // Control the width; adjust as needed
-              height: "30px", // Set a specific height
-              ml: { xs: "none", sm: "auto" },
-              mt: { xs: 1, sm: 0 },
-            }}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    sx={{
-                      backgroundColor: "blue",
-                      color: "white",
-                      padding: "4px", // Adjust padding for the button size
-                      "& .MuiSvgIcon-root": {
-                        fontSize: 18, // Adjust icon size
-                      },
-                    }}
-                  >
-                    <Search />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Stack>
-        <Divider sx={{ mt: 2 }} />
-      </Box>
+      <SearchSortHeader
+        fieldNames={["Group Name", "Member Count", "Creation Date"]}
+      />
       <Box
         sx={{
           display: "grid",

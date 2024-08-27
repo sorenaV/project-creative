@@ -99,7 +99,7 @@ export const data: DataType[] = [
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "Admin",
-      avatar: "/",
+      avatar: avatarPic,
     },
     isRead: true,
   },
@@ -111,7 +111,7 @@ export const data: DataType[] = [
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "Sorena",
-      avatar: "/",
+      avatar: avatarPic,
     },
     isRead: true,
   },
@@ -191,6 +191,10 @@ export const users: UsersType[] = [
     userName: "carl",
     avatar: "a",
     posts: 2,
+    joined: "about 6 hours ago",
+    lastOnline: "3 minutes from now",
+    reputation: 3,
+    profileViews: 3,
   },
   {
     id: 2,
@@ -198,6 +202,10 @@ export const users: UsersType[] = [
     userName: "Admin",
     avatar: "a",
     posts: 6,
+    joined: "about 6 hours ago",
+    lastOnline: "3 minutes from now",
+    reputation: 3,
+    profileViews: 3,
   },
   {
     id: 3,
@@ -205,6 +213,10 @@ export const users: UsersType[] = [
     userName: "Amir",
     avatar: "a",
     posts: 6,
+    joined: "about 6 hours ago",
+    lastOnline: "3 minutes from now",
+    reputation: 3,
+    profileViews: 3,
   },
   {
     id: 4,
@@ -212,6 +224,10 @@ export const users: UsersType[] = [
     userName: "tom",
     avatar: "a",
     posts: 2,
+    joined: "about 6 hours ago",
+    lastOnline: "3 minutes from now",
+    reputation: 3,
+    profileViews: 3,
   },
   {
     id: 5,
@@ -219,6 +235,10 @@ export const users: UsersType[] = [
     userName: "angelina",
     avatar: "a",
     posts: 6,
+    joined: "about 6 hours ago",
+    lastOnline: "3 minutes from now",
+    reputation: 3,
+    profileViews: 3,
   },
   {
     id: 6,
@@ -226,6 +246,10 @@ export const users: UsersType[] = [
     userName: "sorena",
     avatar: "a",
     posts: 6,
+    joined: "about 6 hours ago",
+    lastOnline: "3 minutes from now",
+    reputation: 3,
+    profileViews: 3,
   },
 ];
 

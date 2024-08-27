@@ -22,12 +22,20 @@ export const metadata: Metadata = {
   title: "Search",
 };
 
-function Page({ searchParams }) {
+type FilterType = {
+  categories: string;
+  users: string;
+  tag: string;
+  sortBy: string;
+  order: string;
+};
+
+function Page({ searchParams }: { searchParams: FilterType }) {
   const filter = searchParams;
 
   return (
     <Grid2 container spacing={5}>
-      <Grid2 xs={12} md={3}>
+      <Grid2 xs={12} md={5}>
         <Typography
           variant="h1"
           component="h1"

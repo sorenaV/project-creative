@@ -68,6 +68,10 @@ export type UsersType = {
   userName: string;
   avatar: string;
   posts: number;
+  joined: string;
+  lastOnline: string;
+  reputation: number;
+  profileViews: number;
 };
 
 export type GroupSummeryType = {
