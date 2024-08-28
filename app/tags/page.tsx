@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import { Alert, Divider, Typography } from "@mui/material";
 import { getTag } from "../_helper/getTag";
+
+import { Alert, Divider, Typography } from "@mui/material";
 
 export const metadata: Metadata = {
   title: "Tags",

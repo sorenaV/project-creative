@@ -1,19 +1,18 @@
-import { data } from "../_confing/data";
+import { data } from "../_config/data";
 import SearchItem from "./SearchItem";
 
 type FilterType = {
-  categories?: string | undefined;
-  users?: string | undefined;
-  tag?: string | undefined;
-  sortBy?: string | undefined;
-  order?: string | undefined;
+  categories?: string;
+  users?: string;
+  tag?: string;
+  sortBy: string;
+  order: string;
   term?: string;
 };
 
 function SearchList({ filter }: { filter: FilterType }) {
   const topics = data;
-  if (!topics.length) return null;
-
+  if (!filter) return;
   let filterValue = topics;
 
   // Apply category filter if provided

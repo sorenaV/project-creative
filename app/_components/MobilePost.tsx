@@ -14,7 +14,7 @@ type PostPropsType = {
   author: AuthorType;
   createdAt: string;
   context: string;
-  votes: number;
+  votes: string | number;
 };
 
 function MobilePost({ author, createdAt, context, votes }: PostPropsType) {

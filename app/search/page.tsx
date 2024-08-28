@@ -1,22 +1,13 @@
-import {
-  Box,
-  Button,
-  Divider,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { lightBlue } from "@mui/material/colors";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 import { Metadata } from "next";
-import SearchSelect from "../_components/SearchSelect";
 import CustomPopover from "../_components/CustomPopover";
-import { tags, users } from "../_confing/data";
-import SortBy from "../_components/SortBy";
-import TopicList from "../_components/TopicList";
-import SearchList from "../_components/SearchList";
 import SearchInput from "../_components/SearchInput";
+import SearchList from "../_components/SearchList";
+import SearchSelect from "../_components/SearchSelect";
+import SortBy from "../_components/SortBy";
+import { tags, users } from "../_config/data";
 
 export const metadata: Metadata = {
   title: "Search",
@@ -34,7 +25,13 @@ function Page({ searchParams }: { searchParams: FilterType }) {
   const filter = searchParams;
 
   return (
-    <Grid2 container spacing={5}>
+    <Grid2
+      container
+      spacing={{
+        xs: 2,
+        md: 5,
+      }}
+    >
       <Grid2 xs={12} md={5}>
         <Typography
           variant="h1"

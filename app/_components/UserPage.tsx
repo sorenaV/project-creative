@@ -1,7 +1,8 @@
+import Image from "next/image";
+import type { UsersType } from "../_types";
+
 import { Avatar, Box, Divider, Stack, Typography } from "@mui/material";
 import { orange } from "@mui/material/colors";
-import Image from "next/image";
-import { UsersType } from "../_types";
 
 type UserPagePropsType = {
   userInfo: UsersType | undefined;

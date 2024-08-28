@@ -1,3 +1,6 @@
+import Link from "next/link";
+import type { NavElementType } from "../_types";
+
 import {
   ListItem,
   ListItemButton,
@@ -5,8 +8,6 @@ import {
   ListItemText,
   Tooltip,
 } from "@mui/material";
-import Link from "next/link";
-import { NavElementType } from "../_types";
 
 type NavListItemType = {
   link: NavElementType;

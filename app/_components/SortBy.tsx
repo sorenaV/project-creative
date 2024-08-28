@@ -1,4 +1,7 @@
 "use client";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
+
 import { ArrowDownward } from "@mui/icons-material";
 import {
   Box,
@@ -10,8 +13,6 @@ import {
   Select,
   styled,
 } from "@mui/material";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
 
 const Button = styled(ButtonBase)(({ theme }) => ({
   width: "max-content",
@@ -21,8 +22,8 @@ const Button = styled(ButtonBase)(({ theme }) => ({
   backgroundColor: "#f8f9fa",
   border: "1px solid #dee2e6",
   borderRadius: 5,
-  color: "#586069",
-  fontWeight: 600,
+  color: "#000",
+  fontWeight: 550,
   "&:hover,&:focus": {
     color: "#0366d6",
   },
@@ -44,8 +45,8 @@ function SortBy() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const activeField = searchParams.get("sortBy") ?? "relevance";
-  const activeDirection = searchParams.get("order") ?? "asc";
+  const activeField = searchParams.get("sortBy") ?? "";
+  const activeDirection = searchParams.get("order") ?? "";
 
   const [field, setField] = useState(activeField);
   const [direction, setDirection] = useState(activeDirection);
@@ -65,6 +66,7 @@ function SortBy() {
 
   const open = Boolean(anchorEl);
   const id = open ? "search-popover" : undefined;
+
   return (
     <div>
       <Button id={id} onClick={handleClick}>
@@ -93,8 +95,8 @@ function SortBy() {
                 value={field}
                 onChange={(e) => setField(e.target.value)}
               >
-                <MenuItem value="relevance">
-                  <em>Relevance</em>
+                <MenuItem value="">
+                  <em>All</em>
                 </MenuItem>
                 <MenuItem value="votes">Votes</MenuItem>
                 <MenuItem value="posts">Number of posts</MenuItem>

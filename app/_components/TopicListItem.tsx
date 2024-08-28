@@ -1,3 +1,10 @@
+import Image from "next/image";
+import Link from "next/link";
+
+import type { DataType } from "../_types/index";
+import { getCategoryItem } from "../_helper/getCategoryItem";
+import CardStatus from "./CardStatus";
+
 import { FormatListBulletedRounded } from "@mui/icons-material";
 import {
   Avatar,
@@ -8,12 +15,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import Image from "next/image";
-import Link from "next/link";
-import { getCategoryItem } from "../_helper/getCategoryItem";
-import { getUserAvatar } from "../_helper/getUserAvatar";
-import type { DataType } from "../_types/index";
-import CardStatus from "./CardStatus";
 
 type ItemType = {
   item: DataType;

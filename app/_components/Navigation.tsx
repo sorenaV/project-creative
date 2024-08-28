@@ -1,9 +1,11 @@
 "use client";
-import { Box } from "@mui/material";
+import { useState } from "react";
+
 import LeftSideNav from "./LeftSideNav";
 import RightSideNav from "./RightSideNav";
 import Appbar from "./Appbar";
-import { useState } from "react";
+
+import { Box } from "@mui/material";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,13 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 
 function NotFound() {
   return (
-    <Box
+    <Stack
       sx={{
-        display: "flex",
-        mt: 10,
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         gap: 2,
@@ -34,7 +31,7 @@ function NotFound() {
           Go back home
         </Typography>
       </Link>
-    </Box>
+    </Stack>
   );
 }
 

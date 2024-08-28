@@ -20,6 +20,7 @@ export const data: DataType[] = [
     author: {
       name: "Carl",
       avatar: avatarPic,
+      username: "carl",
     },
     isRead: true,
   },
@@ -36,6 +37,7 @@ export const data: DataType[] = [
     author: {
       name: "Sara",
       avatar: avatarPic,
+      username: "sara",
     },
     isRead: false,
   },
@@ -48,6 +50,7 @@ export const data: DataType[] = [
     author: {
       name: "Sorena",
       avatar: avatarPic,
+      username: "sorena",
     },
     isRead: true,
   },
@@ -60,6 +63,7 @@ export const data: DataType[] = [
     author: {
       name: "Admin",
       avatar: avatarPic,
+      username: "admin",
     },
     isRead: true,
   },
@@ -72,6 +76,7 @@ export const data: DataType[] = [
     author: {
       name: "Admin",
       avatar: avatarPic,
+      username: "admin",
     },
     isRead: true,
   },
@@ -84,6 +89,7 @@ export const data: DataType[] = [
     author: {
       name: "Admin",
       avatar: avatarPic,
+      username: "admin",
     },
     isRead: true,
   },
@@ -100,6 +106,7 @@ export const data: DataType[] = [
     author: {
       name: "Admin",
       avatar: avatarPic,
+      username: "admin",
     },
     isRead: true,
   },
@@ -112,6 +119,7 @@ export const data: DataType[] = [
     author: {
       name: "Sorena",
       avatar: avatarPic,
+      username: "sorena",
     },
     isRead: true,
   },
@@ -121,12 +129,17 @@ export const topicDetails: TopicDetailsType[] = [
   {
     id: 1,
     title: "Creating tables in NodeBB",
-    category: { name: "General Discussion", categoryId: 2 },
+    category: {
+      name: "General Discussion",
+      categoryId: 2,
+      url: "general-discussion",
+    },
     status: { votes: 0, posts: 5, views: 25 },
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "carl",
       avatar: avatarPic,
+      username: "carl",
     },
     context: "Hey, did you know you can create tables? It's true!",
     isRead: true,
@@ -135,12 +148,17 @@ export const topicDetails: TopicDetailsType[] = [
   {
     id: 2,
     title: "Iframely example",
-    category: { name: "Comments & Feedback", categoryId: 3 },
+    category: {
+      name: "Comments & Feedback",
+      categoryId: 3,
+      url: "comments-feedback",
+    },
     status: { votes: 0, posts: 1, views: 25 },
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "Admin",
       avatar: "as",
+      username: "admin",
     },
     context:
       "This plugin allows you to embed just about anything in your post, for example: GIFs from sites like Imgur:",
@@ -149,12 +167,17 @@ export const topicDetails: TopicDetailsType[] = [
   {
     id: 3,
     title: "Creating tables in NodeBB",
-    category: { name: "Comments & Feedback", categoryId: 3 },
+    category: {
+      name: "Comments & Feedback",
+      categoryId: 3,
+      url: "comments-feedback",
+    },
     status: { votes: 0, posts: 1, views: 25 },
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "Admin",
       avatar: "as",
+      username: "admin",
     },
     context:
       "This plugin allows you to embed just about anything in your post, for example:",
@@ -163,12 +186,17 @@ export const topicDetails: TopicDetailsType[] = [
   {
     id: 4,
     title: "Welcome to the demo instance of NodeBB!",
-    category: { name: "General Discussion", categoryId: 2 },
+    category: {
+      name: "General Discussion",
+      categoryId: 2,
+      url: "general-discussion",
+    },
     status: { votes: 4, posts: 2, views: 5 },
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
       name: "carl",
       avatar: avatarPic,
+      username: "carl",
     },
     context: `This website is a demo instance of NodeBB that you can use to try out our forum software. 
     It is a default install with minimal configuration changes.

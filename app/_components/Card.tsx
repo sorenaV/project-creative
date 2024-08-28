@@ -1,4 +1,4 @@
-import { categories } from "../_confing/categories";
+import { categories } from "../_config/categories";
 import CardItem from "./CardItem";
 
 function Card() {

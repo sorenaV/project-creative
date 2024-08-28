@@ -1,14 +1,12 @@
-import { AppBar, Container, CssBaseline, ThemeProvider } from "@mui/material";
-import { Inter } from "next/font/google";
 import { theme } from "@/app/custom-layout";
+import { Container, CssBaseline, ThemeProvider } from "@mui/material";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-import Header from "./_components/Header";
-import CustomLayout from "./custom-layout";
-import Navigation from "./_components/Navigation";
 import "@/app/_styles/globals.css";
-import Filters from "./_components/FilterItem";
-import { drawerCollapsedWidth } from "./_components/NavDrawer";
+import Header from "./_components/Header";
+import Navigation from "./_components/Navigation";
+import CustomLayout from "./custom-layout";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 

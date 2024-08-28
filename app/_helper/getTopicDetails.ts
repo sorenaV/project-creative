@@ -1,4 +1,4 @@
-import { topicDetails } from "../_confing/data";
+import { topicDetails } from "../_config/data";
 import { TopicDetailsType } from "../_types";
 
 export function getTopicDetails(topicId: string): TopicDetailsType {

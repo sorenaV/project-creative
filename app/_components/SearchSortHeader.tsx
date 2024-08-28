@@ -1,16 +1,12 @@
 "use client";
 import styled from "@emotion/styled";
-import { Search } from "@mui/icons-material";
 import {
   Box,
   Button,
   ButtonGroup,
   Divider,
-  IconButton,
-  InputAdornment,
   InputBase,
   Stack,
-  TextField,
   Typography,
 } from "@mui/material";
 
@@ -21,7 +17,6 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
     borderRadius: 4,
     backgroundColor: "#fff",
     padding: 10,
-    transition: theme.transitions.create(["border-color", "box-shadow"]),
     border: `1px solid #eaecef`,
     fontSize: 16,
     "&:focus": {
@@ -31,7 +26,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function SearchSortHeader({ fieldNames }) {
+function SearchSortHeader({ fieldNames }: { fieldNames: string[] }) {
   return (
     <Box sx={{ mt: { xs: 1, md: 0 } }}>
       <Stack direction={{ xs: "column", sm: "row" }} alignItems="center">
@@ -47,15 +42,14 @@ function SearchSortHeader({ fieldNames }) {
           Sort by
         </Typography>
         <ButtonGroup variant="text" aria-label="Basic button group">
-          <Button sx={{ color: "#000", height: 30, fontSize: 12 }}>
-            {fieldNames[0]}
-          </Button>
-          <Button sx={{ color: "#000", height: 30, fontSize: 12 }}>
-            {fieldNames[1]}
-          </Button>
-          <Button sx={{ color: "#000", height: 30, fontSize: 12 }}>
-            {fieldNames[2]}
-          </Button>
+          {fieldNames.map((field, index) => (
+            <Button
+              key={index}
+              sx={{ color: "#000", height: 30, fontSize: 12 }}
+            >
+              {field}
+            </Button>
+          ))}
         </ButtonGroup>
         <StyledInput
           id="outlined-basic"

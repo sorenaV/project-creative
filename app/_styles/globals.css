@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
@@ -31,6 +31,11 @@ body {
     text-wrap: balance;
   }
 } */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .link {
   font-size: 0.9rem;

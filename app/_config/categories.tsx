@@ -1,3 +1,5 @@
+import { Category } from "../_types";
+
 import {
   ArticleRounded,
   BiotechRounded,
@@ -5,7 +7,6 @@ import {
   ForumRounded,
   QuestionMarkRounded,
 } from "@mui/icons-material";
-import { Category } from "../_types";
 
 export const categories: Category[] = [
   {

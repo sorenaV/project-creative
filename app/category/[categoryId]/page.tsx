@@ -2,8 +2,9 @@ import Breadcrumb from "@/app/_components/breadcrumb";
 import ChipBox from "@/app/_components/ChipBox";
 import Filter from "@/app/_components/Filter";
 import TopicList from "@/app/_components/TopicList";
-import { data } from "@/app/_confing/data";
+import { data } from "@/app/_config/data";
 import { getCategoryItem } from "@/app/_helper/getCategoryItem";
+
 import { SdSharp } from "@mui/icons-material";
 import { Alert, Box, IconButton, Stack, Typography } from "@mui/material";
 
@@ -28,11 +29,11 @@ export function generateMetadata({ params }: ParamsType) {
   return { title: `Category : ${name}` };
 }
 
-function page({ params }: ParamsType) {
+function Page({ params }: ParamsType) {
   const { name, icon, backgroundColor, description, topics, posts, id } =
     getCategoryItem(Number(params.categoryId));
 
-  const list = data.filter((item) => item.id === id);
+  const list = data.filter((item) => item.category.categoryId === id);
 
   return (
     <Box
@@ -53,7 +54,13 @@ function page({ params }: ParamsType) {
         }}
       >
         <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
-          <IconButton sx={{ backgroundColor, borderRadius: 1 }}>
+          <IconButton
+            sx={{
+              backgroundColor,
+              borderRadius: 1,
+              "&:hover": { backgroundColor },
+            }}
+          >
             {icon}
           </IconButton>
           <Typography
@@ -91,4 +98,4 @@ function page({ params }: ParamsType) {
   );
 }
 
-export default page;
+export default Page;

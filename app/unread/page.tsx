@@ -1,8 +1,8 @@
 import { Alert, Box } from "@mui/material";
 import { Metadata } from "next";
 import Filter from "../_components/Filter";
-import { filterUnreadList } from "../_confing/FilterConfing";
-import { data } from "../_confing/data";
+import { filterUnreadList } from "../_config/FilterConfig";
+import { data } from "../_config/data";
 import TopicList from "../_components/TopicList";
 
 export const metadata: Metadata = {

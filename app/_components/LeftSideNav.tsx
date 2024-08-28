@@ -1,4 +1,4 @@
-import { navLinksLeft } from "../_confing/confing";
+import { navLinksLeft } from "../_config/navItems";
 import type { SidebarsType } from "../_types";
 import NavDrawer from "./NavDrawer";
 

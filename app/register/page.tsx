@@ -1,7 +1,8 @@
-import { Box, Typography } from "@mui/material";
 import RegisterForm from "../_components/RegisterForm";
 
-function page() {
+import { Box, Typography } from "@mui/material";
+
+function Page() {
   return (
     <Box
       sx={{
@@ -27,4 +28,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

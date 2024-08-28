@@ -1,7 +1,7 @@
-import { List } from "@mui/material";
+import type { DataType } from "../_types";
 import TopicListItem from "./TopicListItem";
 
-import { DataType } from "../_types";
+import { List } from "@mui/material";
 
 type TopicListType = {
   data: DataType[];

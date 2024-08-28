@@ -1,5 +1,4 @@
 import {
-  Dashboard,
   FilterAlt,
   FormatListBulletedRounded,
   SellRounded,
@@ -10,7 +9,7 @@ export type FilterType = {
   id: number;
   name: string;
   icon: any;
-  options: string[] | [];
+  options: string[];
 };
 const style = { color: "#0d6efd" };
 
@@ -57,9 +56,3 @@ export const filterUnreadList: FilterType[] = [
     options: categories.map((category) => category.name),
   },
 ];
-
-const filterRecentList: FilterType = {
-  name: "",
-  icon: "",
-  options: [],
-};

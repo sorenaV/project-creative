@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Unread",
 };
 
-function Page(): JSX.Element {
+function Page() {
   return <div>Recent</div>;
 }
 

@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 import HideOnScroll from "./HideOnScroll";
-import { navLinksLeft, navLinksRight } from "../_confing/confing";
+import { navLinksLeft, navLinksRight } from "../_config/navItems";
 
 import {
   AppBar,
@@ -21,7 +21,7 @@ function Appbar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event: EventTarget) => {
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 

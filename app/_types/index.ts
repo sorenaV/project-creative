@@ -1,16 +1,20 @@
 import { StaticImageData } from "next/image";
 
 type StatusType = {
-  votes: number;
-  posts: number;
-  views: number;
+  votes: number | string;
+  posts: number | string;
+  views: number | string;
 };
-export type AuthorType = { name: string; avatar: StaticImageData | string };
+export type AuthorType = {
+  name: string;
+  avatar: StaticImageData | string;
+  username: string;
+};
 
 type CategoryType = {
   name: string;
   categoryId: number;
-  url?: string;
+  url: string;
 };
 
 export type DataType = {
@@ -75,7 +79,7 @@ export type UsersType = {
 };
 
 export type GroupSummeryType = {
-  id: number;
+  id?: number;
   title: string;
   subtitle: string;
   members: number;

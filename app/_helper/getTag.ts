@@ -1,4 +1,4 @@
-import { tags } from "../_confing/data";
+import { tags } from "../_config/data";
 
 export function getTag() {
   const tag = tags;

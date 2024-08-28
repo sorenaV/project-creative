@@ -1,6 +1,6 @@
-import UserOvervierw from "@/app/_components/UserOverview";
+import UserOverview from "@/app/_components/UserOverview";
 import UserPage from "@/app/_components/UserPage";
-import { users } from "@/app/_confing/data";
+import { users } from "@/app/_config/data";
 
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { Box, ButtonBase } from "@mui/material";
@@ -12,7 +12,7 @@ export function generateMetadata({ params }: ParamsType) {
   return { title: `User : ${user?.name}` };
 }
 
-function page({ params }: { params: { username: string } }) {
+function Page({ params }: { params: { username: string } }) {
   const username = params?.username;
   const userInfo = users.find((user) => user.userName === username);
 
@@ -38,11 +38,11 @@ function page({ params }: { params: { username: string } }) {
           </ButtonBase>
         </Grid2>
         <Grid2 xs={12} sm={9}>
-          <UserOvervierw userInfo={userInfo} />
+          <UserOverview userInfo={userInfo} />
         </Grid2>
       </Grid2>
     </Box>
   );
 }
 
-export default page;
+export default Page;

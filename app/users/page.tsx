@@ -2,7 +2,7 @@ import { Box, List, Typography } from "@mui/material";
 import { Metadata } from "next";
 import SearchSortHeader from "../_components/SearchSortHeader";
 import UserList from "../_components/UserList";
-import { users } from "../_confing/data";
+import { users } from "../_config/data";
 
 export const metadata: Metadata = {
   title: "Users",
@@ -29,10 +29,10 @@ function Page() {
           display: "grid",
           gap: 2,
           gridTemplateColumns: {
-            xs: "repeat(2, 1fr)", // 2 columns for small screens
-            md: "repeat(3, 1fr)", // 3 columns for medium screens
-            lg: "repeat(4, 1fr)", // 4 columns for large screens
-            xl: "repeat(5, 1fr)", // 5 columns for extra-large screens
+            xs: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+            lg: "repeat(4, 1fr)",
+            xl: "repeat(5, 1fr)",
           },
         }}
       >

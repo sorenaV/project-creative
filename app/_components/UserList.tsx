@@ -1,3 +1,6 @@
+import Link from "next/link";
+import React from "react";
+
 import {
   Avatar,
   ListItem,
@@ -6,8 +9,6 @@ import {
   Typography,
 } from "@mui/material";
 import { blue } from "@mui/material/colors";
-import Link from "next/link";
-import React from "react";
 
 type UserListType = {
   avatar: string;

@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, createTheme } from "@mui/material";
+import { createTheme } from "@mui/material";
 import { Inter } from "next/font/google";
 
 type Props = {

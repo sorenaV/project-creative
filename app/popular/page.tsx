@@ -1,7 +1,7 @@
 import TopicList from "../_components/TopicList";
 import Filter from "../_components/Filter";
-import { data } from "../_confing/data";
-import { filterPopularList } from "../_confing/FilterConfing";
+import { data } from "../_config/data";
+import { filterPopularList } from "../_config/FilterConfig";
 
 import { Box } from "@mui/material";
 

@@ -1,4 +1,4 @@
-import { categories } from "../_confing/categories";
+import { categories } from "../_config/categories";
 import { Category } from "@/app/_types/index";
 
 export function getCategoryItem(id: number): Category {

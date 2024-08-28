@@ -2,7 +2,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
-import { categories } from "../_confing/categories";
+import { categories } from "../_config/categories";
 import { Category } from "../_types";
 
 import { ArrowDownward } from "@mui/icons-material";
@@ -102,7 +102,7 @@ const Button = styled(ButtonBase)(({ theme }) => ({
   },
 }));
 
-function CaegoryPoper() {
+function CategoryPoper() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [value, setValue] = useState<Category[]>([]);
   const [pendingValue, setPendingValue] = useState<Category[]>([]);
@@ -231,7 +231,7 @@ function CaegoryPoper() {
     </>
   );
 }
-export default CaegoryPoper;
+export default CategoryPoper;
 
 // interface LabelType {
 //   name: string;

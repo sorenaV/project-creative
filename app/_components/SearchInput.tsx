@@ -1,13 +1,13 @@
 "use client";
-import { Button, InputBase, styled, TextField } from "@mui/material";
-import { lightBlue } from "@mui/material/colors";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
+
+import { ButtonBase, InputBase, styled } from "@mui/material";
 
 const StyledInput = styled(InputBase)(({ theme }) => ({
   padding: 5,
+  marginTop: 10,
   width: "100%",
-  borderBottom: `1px solid #eaecef`,
   "& input": {
     borderRadius: 4,
     backgroundColor: "#fff",
@@ -47,19 +47,20 @@ function SearchInput() {
         value={term}
         onChange={handleChange}
       />
-      <Button
+      <ButtonBase
         sx={{
-          backgroundColor: lightBlue["A700"],
+          backgroundColor: "#0d6efd",
           color: "#fff",
           mt: 2,
           width: "100%",
           height: "42px",
+          borderRadius: 2,
         }}
         onClick={handleClick}
         onAbort={() => setTerm("")}
       >
         Search
-      </Button>
+      </ButtonBase>
     </div>
   );
 }

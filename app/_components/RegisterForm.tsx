@@ -5,13 +5,10 @@ import {
   Divider,
   FormControl,
   FormHelperText,
-  Input,
   InputBase,
-  InputLabel,
   styled,
   Typography,
 } from "@mui/material";
-import Link from "next/link";
 
 const StyledInput = styled(InputBase)(({ theme }) => ({
   padding: 5,
@@ -50,15 +47,19 @@ function RegisterForm() {
     <FormControl component="form" sx={{ width: "100%" }}>
       <Typography sx={{ mt: 2 }}>Username</Typography>
       <StyledInput placeholder="Enter Username" />
+
       <FormHelperText id="my-helper-text">
         A unique username between 2 and 16 characters. Others can mention you
         with @username.
       </FormHelperText>
+
       <Typography sx={{ mt: 2 }}>Password</Typography>
       <StyledInput placeholder="Enter Password" />
+
       <FormHelperText id="my-helper-text">
         Your password&rsquo;s length must be at least 6 characters.
       </FormHelperText>
+
       <Typography sx={{ mt: 2 }}>Confirm Password</Typography>
       <StyledInput placeholder="Confirm Password" />
 

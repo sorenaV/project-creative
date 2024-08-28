@@ -28,6 +28,7 @@ function Chips({ category, status }) {
             backgroundColor: backgroundColor,
             color: "#fff",
             fontWeight: 800,
+            border: 0,
           }}
           icon={<IconButton size="small">{icon}</IconButton>}
         />

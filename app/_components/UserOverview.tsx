@@ -3,7 +3,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { ReactNode } from "react";
 import { UsersType } from "../_types";
 
-function UserOvervierw({ userInfo }: { userInfo: UsersType | undefined }) {
+function UserOverview({ userInfo }: { userInfo: UsersType | undefined }) {
   if (!userInfo) return;
   return (
     <Stack
@@ -64,4 +64,4 @@ function OverviewBox({
   );
 }
 
-export default UserOvervierw;
+export default UserOverview;

@@ -3,6 +3,7 @@ import Chips from "@/app/_components/Chips";
 import Filter from "@/app/_components/Filter";
 import MobilePost from "@/app/_components/MobilePost";
 import { getTopicDetails } from "@/app/_helper/getTopicDetails";
+
 import { SdSharp } from "@mui/icons-material";
 import { Box, Typography } from "@mui/material";
 
@@ -21,7 +22,7 @@ export function generateMetadata({ params }: ParamsType) {
   return { title: `Topic : ${title}` };
 }
 
-function page({ params }: ParamsType) {
+function Page({ params }: ParamsType) {
   const { title, status, category, author, createdAt, context, isRead } =
     getTopicDetails(params.topicId);
 
@@ -61,4 +62,4 @@ function page({ params }: ParamsType) {
   );
 }
 
-export default page;
+export default Page;

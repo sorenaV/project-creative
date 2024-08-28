@@ -1,16 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import { Metadata } from "next";
 
-import GroupSummery from "../_components/GroupSummety";
+import GroupSummery from "../_components/GroupSummery";
 import SearchSortHeader from "../_components/SearchSortHeader";
-import { groupSummeryApi } from "../_confing/data";
+import { groupSummeryApi } from "../_config/data";
 
 export const metadata: Metadata = {
   title: "Groups",
 };
 
 function Page() {
-  const groupSummerydata = groupSummeryApi;
+  const groupSummeryData = groupSummeryApi;
   return (
     <Box>
       <Typography
@@ -36,7 +36,7 @@ function Page() {
           },
         }}
       >
-        {groupSummerydata.map((group) => (
+        {groupSummeryData.map((group) => (
           <GroupSummery
             key={group.id}
             title={group.title}
