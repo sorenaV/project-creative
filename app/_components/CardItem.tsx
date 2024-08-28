@@ -1,10 +1,11 @@
-import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
-import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBulletedRounded";
-import CardStatus from "./CardStatus";
 import Link from "next/link";
 
 import type { Category } from "../_types";
+import CardStatus from "./CardStatus";
 import { getCategoryItem } from "../_helper/getCategoryItem";
+
+import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
+import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBulletedRounded";
 import {
   Box,
   Divider,
@@ -15,11 +16,11 @@ import {
   Stack,
 } from "@mui/material";
 
-type Props = {
+type CardItemProps = {
   category: Category;
 };
 
-function CardDetails({ category }: Props) {
+function CardItem({ category }: CardItemProps) {
   const { backgroundColor } = getCategoryItem(category.id);
 
   return (
@@ -97,4 +98,4 @@ function CardDetails({ category }: Props) {
   );
 }
 
-export default CardDetails;
+export default CardItem;

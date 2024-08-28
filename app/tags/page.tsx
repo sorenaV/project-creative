@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import Alert from "../_components/Alert";
-import { Divider, Typography } from "@mui/material";
+import { Alert, Divider, Typography } from "@mui/material";
 import { getTag } from "../_helper/getTag";
 
 export const metadata: Metadata = {
@@ -19,13 +18,7 @@ function Page() {
         Tags
       </Typography>
       <Divider sx={{ mt: 2 }} />
-      {!tags.length && (
-        <Alert
-          bgColor="#fff3cd"
-          messageColor="#664d03"
-          message="There are no tags yet."
-        />
-      )}
+      {!tags.length && <Alert severity="info">There are no tags yet.</Alert>}
     </>
   );
 }

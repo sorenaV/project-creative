@@ -1,13 +1,13 @@
 "use client";
-import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
 import { useState } from "react";
+
 import type { FilterOptionsType } from "../_types";
+
+import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
 
 type FilterItem = {
   menuList: FilterOptionsType;
 };
-
-// Shall i also add type to this props?
 
 export default function FilterItem({ menuList }: FilterItem) {
   const [anchorEl, setAnchorEl] = useState(null);

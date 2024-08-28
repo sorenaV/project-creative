@@ -5,7 +5,7 @@ type StatusType = {
   posts: number;
   views: number;
 };
-type AuthorType = { name: string; avatar: StaticImageData | string };
+export type AuthorType = { name: string; avatar: StaticImageData | string };
 
 type CategoryType = {
   name: string;

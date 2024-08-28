@@ -1,4 +1,3 @@
-import Alert from "@/app/_components/Alert";
 import Breadcrumb from "@/app/_components/breadcrumb";
 import ChipBox from "@/app/_components/ChipBox";
 import Filter from "@/app/_components/Filter";
@@ -6,7 +5,7 @@ import TopicList from "@/app/_components/TopicList";
 import { data } from "@/app/_confing/data";
 import { getCategoryItem } from "@/app/_helper/getCategoryItem";
 import { SdSharp } from "@mui/icons-material";
-import { Box, IconButton, Stack, Typography } from "@mui/material";
+import { Alert, Box, IconButton, Stack, Typography } from "@mui/material";
 
 const filterOptions = [
   {
@@ -22,7 +21,14 @@ const filterOptions = [
   },
 ];
 
-function page({ params }: { params: { categoryId: string } }) {
+type ParamsType = { params: { categoryId: string } };
+
+export function generateMetadata({ params }: ParamsType) {
+  const { name } = getCategoryItem(Number(params.categoryId));
+  return { title: `Category : ${name}` };
+}
+
+function page({ params }: ParamsType) {
   const { name, icon, backgroundColor, description, topics, posts, id } =
     getCategoryItem(Number(params.categoryId));
 
@@ -37,7 +43,7 @@ function page({ params }: { params: { categoryId: string } }) {
         },
       }}
     >
-      <Breadcrumb category={name} />
+      <Breadcrumb category={name} id={id} />
       <Box
         sx={{
           mt: {
@@ -77,11 +83,9 @@ function page({ params }: { params: { categoryId: string } }) {
       {list.length ? (
         <TopicList pageName="detail" data={list} />
       ) : (
-        <Alert
-          message="No Post in this topic yet."
-          bgColor={backgroundColor}
-          messageColor="white"
-        />
+        <Alert sx={{ bgColor: { backgroundColor } }}>
+          No Post in this topic yet.
+        </Alert>
       )}
     </Box>
   );

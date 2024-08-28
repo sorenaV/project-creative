@@ -1,12 +1,12 @@
 import { Box, Stack, Typography } from "@mui/material";
 
-type Props = {
+type CardStatusType = {
   cardIcon: JSX.Element;
   cardLabel: string;
   cardNum: string | number;
 };
 
-function CardStatus({ cardNum, cardLabel, cardIcon }: Props) {
+function CardStatus({ cardNum, cardLabel, cardIcon }: CardStatusType) {
   return (
     <Stack
       direction="row"
@@ -23,7 +23,7 @@ function CardStatus({ cardNum, cardLabel, cardIcon }: Props) {
       }}
     >
       <div>
-        <TypoComponent
+        <CardStatusContent
           cardNum={cardNum}
           cardLabel={cardLabel}
           cardIcon={cardIcon}
@@ -32,8 +32,9 @@ function CardStatus({ cardNum, cardLabel, cardIcon }: Props) {
     </Stack>
   );
 }
+export default CardStatus;
 
-function TypoComponent({ cardNum, cardLabel, cardIcon }: Props) {
+function CardStatusContent({ cardNum, cardLabel, cardIcon }: CardStatusType) {
   const styles = {
     backgroundColor: "#f9f9f9",
     padding: "1.5rem",
@@ -70,6 +71,7 @@ function TypoComponent({ cardNum, cardLabel, cardIcon }: Props) {
   return (
     <Box sx={styles}>
       <Typography sx={numStyles}>{cardNum}</Typography>
+      {/* Show either label (larger screen) or icon (smaller screen) */}
       <Typography sx={{ ...titleStyles, ...titleResponsiveMd }}>
         {cardIcon}
       </Typography>
@@ -79,4 +81,3 @@ function TypoComponent({ cardNum, cardLabel, cardIcon }: Props) {
     </Box>
   );
 }
-export default CardStatus;

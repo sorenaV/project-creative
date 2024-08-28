@@ -1,5 +1,5 @@
 "use client";
-import { NavElementType } from "../_types/index";
+import type { NavElementType } from "../_types/index";
 import NavListItem from "./NavListItem";
 
 import { Box, Drawer, IconButton, List, Typography } from "@mui/material";
@@ -63,7 +63,7 @@ function NavDrawer({
           ))}
         </List>
 
-        {/* 2 More Icon Only On Left Side */}
+        {/* 2 More Icons Only On the Left Side */}
         {anchorDir === "left" && (
           <Box
             sx={{

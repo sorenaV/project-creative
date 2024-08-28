@@ -1,8 +1,14 @@
 import { Avatar, Box, Divider, Stack, Typography } from "@mui/material";
 import { orange } from "@mui/material/colors";
 import Image from "next/image";
+import { UsersType } from "../_types";
 
-function UserPage({ userInfo }) {
+type UserPagePropsType = {
+  userInfo: UsersType | undefined;
+};
+
+function UserPage({ userInfo }: UserPagePropsType) {
+  if (!userInfo) return;
   return (
     <Box>
       <Box

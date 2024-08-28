@@ -4,7 +4,7 @@ import Filter from "@/app/_components/Filter";
 import MobilePost from "@/app/_components/MobilePost";
 import { getTopicDetails } from "@/app/_helper/getTopicDetails";
 import { SdSharp } from "@mui/icons-material";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const filterOptions = [
   {
@@ -14,7 +14,14 @@ const filterOptions = [
   },
 ];
 
-function page({ params }: { params: { topicId: string } }) {
+type ParamsType = { params: { topicId: string } };
+
+export function generateMetadata({ params }: ParamsType) {
+  const { title } = getTopicDetails(params.topicId);
+  return { title: `Topic : ${title}` };
+}
+
+function page({ params }: ParamsType) {
   const { title, status, category, author, createdAt, context, isRead } =
     getTopicDetails(params.topicId);
 
@@ -27,7 +34,7 @@ function page({ params }: { params: { topicId: string } }) {
         },
       }}
     >
-      <Breadcrumb category={category.name} />
+      <Breadcrumb category={category.name} id={category.categoryId} />
       <Typography
         component="h5"
         variant="h5"

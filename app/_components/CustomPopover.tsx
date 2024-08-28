@@ -1,24 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import { ArrowDownward } from "@mui/icons-material";
+import DoneIcon from "@mui/icons-material/Done";
+import LabelIcon from "@mui/icons-material/Label";
 import {
-  Popper,
   Box,
-  ClickAwayListener,
+  ButtonBase,
   Chip,
+  ClickAwayListener,
   List,
   ListItem,
   ListItemText,
-  ButtonBase,
+  Popper,
 } from "@mui/material";
-import { styled, useTheme } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
-import SearchIcon from "@mui/icons-material/Search";
-import LabelIcon from "@mui/icons-material/Label";
-import DoneIcon from "@mui/icons-material/Done";
-import { UsersType } from "../_types";
 import { orange } from "@mui/material/colors";
+import InputBase from "@mui/material/InputBase";
+import { styled, useTheme } from "@mui/material/styles";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { ArrowDownward, DownhillSkiing } from "@mui/icons-material";
+import React, { useState } from "react";
+import { UsersType } from "../_types";
 
 interface OptionType {
   name: string;

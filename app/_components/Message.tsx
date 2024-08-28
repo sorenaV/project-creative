@@ -16,6 +16,7 @@ function Message() {
     >
       <Typography
         variant="h6"
+        component="h6"
         fontSize={{
           xs: 16,
           md: 18,
@@ -28,6 +29,7 @@ function Message() {
 
       <Typography
         variant="body1"
+        component="p"
         sx={{ marginBottom: 2 }}
         fontSize={{
           xs: 14,
@@ -41,6 +43,7 @@ function Message() {
 
       <Typography
         variant="body1"
+        component="p"
         sx={{ marginBottom: 2 }}
         fontSize={{
           xs: 14,
@@ -52,6 +55,7 @@ function Message() {
 
       <Typography
         variant="body1"
+        component="p"
         fontSize={{
           xs: 14,
           md: 16,

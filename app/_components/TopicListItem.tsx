@@ -28,7 +28,6 @@ function TopicListItem({ item, pageName }: ItemType) {
     icon,
     id: categoryId,
   } = getCategoryItem(category.categoryId);
-  console.log(id);
 
   return (
     <>
@@ -44,8 +43,8 @@ function TopicListItem({ item, pageName }: ItemType) {
             <Image
               src={author.avatar}
               alt={author.name}
-              layout="fill" // Ensures the image covers the Avatar
-              objectFit="cover" // Ensures the image covers the Avatar properly
+              layout="fill"
+              objectFit="cover"
             />
           </Avatar>
 

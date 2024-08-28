@@ -37,6 +37,8 @@ function Filter({ buttonLabel, filterOptions }: FilterType) {
           height: "2rem",
           ml: "auto",
           backgroundColor: "#0d6efd",
+          color: "#fff",
+          "&:hover": { backgroundColor: "#0d6efd" },
         }}
       >
         {buttonLabel}

@@ -1,15 +1,23 @@
 import UserOvervierw from "@/app/_components/UserOverview";
 import UserPage from "@/app/_components/UserPage";
 import { users } from "@/app/_confing/data";
-import { Box, ButtonBase, Divider } from "@mui/material";
+
 import Grid2 from "@mui/material/Unstable_Grid2";
+import { Box, ButtonBase } from "@mui/material";
+
+type ParamsType = { params: { username: string } };
+
+export function generateMetadata({ params }: ParamsType) {
+  const user = users.find((user) => user.userName === params.username);
+  return { title: `User : ${user?.name}` };
+}
 
 function page({ params }: { params: { username: string } }) {
   const username = params?.username;
   const userInfo = users.find((user) => user.userName === username);
 
   return (
-    <>
+    <Box>
       <UserPage userInfo={userInfo} />
 
       <Grid2 container sx={{ mt: 5 }} spacing={3}>
@@ -23,6 +31,7 @@ function page({ params }: { params: { username: string } }) {
               fontWeight: 500,
               padding: 1,
               borderRadius: 2,
+              justifyContent: "center",
             }}
           >
             About
@@ -32,7 +41,7 @@ function page({ params }: { params: { username: string } }) {
           <UserOvervierw userInfo={userInfo} />
         </Grid2>
       </Grid2>
-    </>
+    </Box>
   );
 }
 

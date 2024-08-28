@@ -1,4 +1,10 @@
 "use client";
+import { useState } from "react";
+import Link from "next/link";
+
+import HideOnScroll from "./HideOnScroll";
+import { navLinksLeft, navLinksRight } from "../_confing/confing";
+
 import {
   AppBar,
   Box,
@@ -9,12 +15,7 @@ import {
   Menu,
   Toolbar,
 } from "@mui/material";
-
 import MenuIcon from "@mui/icons-material/Menu";
-import { useState } from "react";
-import { navLinksLeft, navLinksRight } from "../_confing/confing";
-import HideOnScroll from "./HideOnScroll";
-import Link from "next/link";
 
 function Appbar() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -54,6 +55,7 @@ function Appbar() {
               aria-controls={open ? "positioned-menu" : undefined}
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
+              component="button"
               onClick={handleClick}
             >
               <MenuIcon />
@@ -101,9 +103,9 @@ function Appbar() {
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           {navLinksRight.map((link) => (
-            <IconButton key={link.name} href={link.url}>
-              {link.icon}
-            </IconButton>
+            <Link key={link.name} href={link.url}>
+              <IconButton>{link.icon}</IconButton>
+            </Link>
           ))}
         </Toolbar>
       </AppBar>

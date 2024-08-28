@@ -1,7 +1,8 @@
-import { AppBar, Divider } from "@mui/material";
 import Logo from "./Logo";
 
-function Header(): JSX.Element {
+import { AppBar, Divider } from "@mui/material";
+
+function Header() {
   return (
     <AppBar
       position="static"

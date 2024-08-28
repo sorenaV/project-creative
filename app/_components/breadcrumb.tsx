@@ -6,28 +6,16 @@ import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Link from "next/link";
 
-function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-  event.preventDefault();
-  console.info("You clicked a breadcrumb.");
-}
-
-function Breadcrumb({ category }: { category: string }) {
+function Breadcrumb({ category, id }: { category: string; id: number }) {
   const breadcrumbs = [
-    <Link
-      className=" text"
-      key="1"
-      color="inherit"
-      href="/"
-      onClick={handleClick}
-    >
+    <Link className=" text" key="1" color="inherit" href="/">
       Home
     </Link>,
     <Link
       className=" text"
       key="2"
       color="text.primary"
-      href="/material-ui/getting-started/installation/"
-      onClick={handleClick}
+      href={`/category/${id}`}
     >
       <Typography
         key="3"

@@ -1,3 +1,5 @@
+import type { AuthorType } from "../_types";
+
 import { ArrowDownwardRounded, ArrowUpwardRounded } from "@mui/icons-material";
 import {
   Avatar,
@@ -7,18 +9,26 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { getUserAvatar } from "../_helper/getUserAvatar";
 
-function MobilePost({ author, createdAt, context, votes }) {
-  const avatar = getUserAvatar(author);
+type PostPropsType = {
+  author: AuthorType;
+  createdAt: string;
+  context: string;
+  votes: number;
+};
+
+function MobilePost({ author, createdAt, context, votes }: PostPropsType) {
   return (
     <Box sx={{ mt: 5 }}>
       <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
-        <Avatar src={avatar} sx={{ width: 22, height: 22 }}>
-          {avatar}
-        </Avatar>
+        <Avatar
+          src={`${author.avatar}`}
+          alt={author.name}
+          sx={{ width: 22, height: 22 }}
+        />
+
         <Typography sx={{ color: "#0d6efd", fontSize: 14, fontWeight: 700 }}>
-          sd
+          {author.name}
         </Typography>
         <Typography sx={{ fontSize: 12, opacity: 0.5 }}>
           wrote on {createdAt}
