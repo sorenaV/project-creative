@@ -33,6 +33,7 @@ function UserOverview({ userInfo }: { userInfo: UsersType | undefined }) {
     </Stack>
   );
 }
+export default UserOverview;
 
 function OverviewBox({
   fieldName,
@@ -63,5 +64,3 @@ function OverviewBox({
     </Box>
   );
 }
-
-export default UserOverview;

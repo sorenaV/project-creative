@@ -19,7 +19,6 @@ function Page({ params }: { params: { username: string } }) {
   return (
     <Box>
       <UserPage userInfo={userInfo} />
-
       <Grid2 container sx={{ mt: 5 }} spacing={3}>
         <Grid2 xs={12} sm={3}>
           <ButtonBase

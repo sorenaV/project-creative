@@ -5,10 +5,12 @@ function NotFound() {
   return (
     <Stack
       sx={{
-        alignItems: "center",
-        justifyContent: "center",
         gap: 2,
+        width: "50%",
       }}
+      justifyContent="center"
+      alignItems="center"
+      textAlign="center"
     >
       <Typography
         variant="h1"

@@ -12,7 +12,7 @@ import {
 
 const StyledInput = styled(InputBase)(({ theme }) => ({
   padding: 5,
-  width: "40%",
+
   "& input": {
     borderRadius: 4,
     backgroundColor: "#fff",
@@ -54,7 +54,13 @@ function SearchSortHeader({ fieldNames }: { fieldNames: string[] }) {
         <StyledInput
           id="outlined-basic"
           placeholder="Type to search"
-          sx={{ ml: "auto" }}
+          sx={{
+            ml: "auto",
+            width: {
+              xs: "100%",
+              md: "40%",
+            },
+          }}
         />
       </Stack>
       <Divider sx={{ mt: 2 }} />
