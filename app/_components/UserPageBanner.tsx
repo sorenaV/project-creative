@@ -4,11 +4,11 @@ import type { UsersType } from "../_types";
 import { Avatar, Box, Divider, Stack, Typography } from "@mui/material";
 import { orange } from "@mui/material/colors";
 
-type UserPagePropsType = {
+type UserPageBannerPropsType = {
   userInfo: UsersType | undefined;
 };
 
-function UserPage({ userInfo }: UserPagePropsType) {
+function UserPageBanner({ userInfo }: UserPageBannerPropsType) {
   if (!userInfo) return;
   return (
     <Box>
@@ -71,4 +71,4 @@ function UserPage({ userInfo }: UserPagePropsType) {
   );
 }
 
-export default UserPage;
+export default UserPageBanner;

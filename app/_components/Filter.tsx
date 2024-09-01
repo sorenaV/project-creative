@@ -2,6 +2,8 @@ import { Box, Button } from "@mui/material";
 import { FilterOptionsType } from "../_types";
 import FilterItem from "./FilterItem";
 
+// REMINDER: Refactoring is needed
+
 type FilterType = {
   buttonLabel: string;
   filterOptions: FilterOptionsType[];

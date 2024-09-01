@@ -44,7 +44,7 @@ const Button = styled(ButtonBase)(({ theme }) => ({
 
 function RegisterForm() {
   return (
-    <FormControl component="form" sx={{ width: "100%" }}>
+    <form>
       <Typography sx={{ mt: 2 }}>Username</Typography>
       <StyledInput placeholder="Enter Username" />
 
@@ -65,7 +65,7 @@ function RegisterForm() {
 
       <Button sx={{ my: 5 }}>Login</Button>
       <Divider variant="fullWidth" />
-    </FormControl>
+    </form>
   );
 }
 

@@ -68,6 +68,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
 const Button = styled(ButtonBase)(({ theme }) => ({
   width: "max-content",
   fontSize: 13,
+  fontFamily: "inherit",
   textAlign: "left",
   padding: 10,
   backgroundColor: "#f8f9fa",

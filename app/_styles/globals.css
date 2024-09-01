@@ -56,3 +56,7 @@ a {
 .text:hover {
   text-decoration: underline;
 }
+
+form {
+  width: 100%;
+}

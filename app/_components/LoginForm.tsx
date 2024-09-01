@@ -44,7 +44,7 @@ const Button = styled(ButtonBase)(({ theme }) => ({
 
 function LoginForm() {
   return (
-    <FormControl component="form" sx={{ width: "100%" }}>
+    <form>
       <Typography sx={{ mt: 2 }}>Username / Email</Typography>
       <StyledInput placeholder="Username / Email" />
       <Typography sx={{ mt: 2 }}>Password</Typography>
@@ -56,7 +56,7 @@ function LoginForm() {
       </Link>
       <Button sx={{ my: 5 }}>Login</Button>
       <Divider variant="fullWidth" />
-    </FormControl>
+    </form>
   );
 }
 

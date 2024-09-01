@@ -73,7 +73,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
     fontSize: 12,
     "&:focus": {
       boxShadow: "0px 0px 0px 3px rgba(3, 102, 214, 0.3)",
-      borderColor: theme.palette.mode === "light" ? "#0366d6" : "#388bfd",
+      borderColor: "#0366d6",
     },
   },
 }));
@@ -81,6 +81,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
 const Button = styled(ButtonBase)(({ theme }) => ({
   width: "max-content",
   fontSize: 13,
+  fontFamily: "inherit",
   textAlign: "left",
   padding: 10,
   backgroundColor: "#f8f9fa",
