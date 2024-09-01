@@ -1,5 +1,4 @@
 import {
-  AccessTimeOutlined,
   FormatListBulletedRounded,
   Groups2Rounded,
   InboxRounded,
@@ -15,47 +14,42 @@ import { NavElementType } from "../_types";
 
 export const navLinksLeft: NavElementType[] = [
   {
-    name: "Categories",
+    name: "دسته بندی ها",
     icon: <FormatListBulletedRounded />,
     url: "/categories",
   },
   {
-    name: "Unread",
+    name: "نخوانده",
     icon: <InboxRounded />,
     url: "/unread",
   },
   {
-    name: "Recent",
-    icon: <AccessTimeOutlined />,
-    url: "/recent",
-  },
-  {
-    name: "Tags",
+    name: "تگ ها",
     icon: <LocalOfferRounded />,
     url: "/tags",
   },
   {
-    name: "Popular",
+    name: "محبوب ها",
     icon: <LocalFireDepartmentRounded />,
     url: "/popular",
   },
   {
-    name: "Users",
+    name: "کاربران",
     icon: <PersonRounded />,
     url: "/users",
   },
   {
-    name: "Groups",
+    name: "گروه ها",
     icon: <Groups2Rounded />,
     url: "/groups",
   },
   {
-    name: "Admin",
+    name: "ادمین",
     icon: <SettingsRounded />,
     url: "/admin",
   },
   {
-    name: "Search",
+    name: "جستجو",
     icon: <SearchRounded />,
     url: "/search",
   },
@@ -63,12 +57,12 @@ export const navLinksLeft: NavElementType[] = [
 
 export const navLinksRight = [
   {
-    name: "Login",
+    name: "ورود",
     icon: <LoginRounded />,
     url: "/login",
   },
   {
-    name: "Register",
+    name: "ثبت نام",
     icon: <PersonAddAlt1Rounded />,
     url: "/register",
   },

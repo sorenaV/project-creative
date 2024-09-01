@@ -47,7 +47,7 @@ function Page({ params }: ParamsType) {
       <Breadcrumb category={name} id={id} />
       <Box
         sx={{
-          mt: {
+          my: {
             xs: 3,
             md: 5,
           },
@@ -75,14 +75,14 @@ function Page({ params }: ParamsType) {
         <Typography
           variant="h5"
           component="h5"
-          sx={{ mt: 2, fontSize: 14, opacity: 0.5 }}
+          sx={{ my: 1, fontSize: 14, opacity: 0.5 }}
         >
           {description}
         </Typography>
 
-        <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
-          <ChipBox labelNumber={posts} label="posts" />
-          <ChipBox labelNumber={topics} label="topics" />
+        <Stack direction="row" spacing={1} sx={{ my: 1 }}>
+          <ChipBox labelNumber={posts} label="پست" />
+          <ChipBox labelNumber={topics} label="تاپیک" />
         </Stack>
       </Box>
       <Filter buttonLabel="Login" filterOptions={filterOptions} />
@@ -90,8 +90,8 @@ function Page({ params }: ParamsType) {
       {list.length ? (
         <TopicList pageName="detail" data={list} />
       ) : (
-        <Alert sx={{ bgColor: { backgroundColor } }}>
-          No Post in this topic yet.
+        <Alert severity="info" sx={{ my: 3 }}>
+          هنوز پستی منتشر نشده.
         </Alert>
       )}
     </Box>

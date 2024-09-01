@@ -1,15 +1,14 @@
 "use client";
-import * as React from "react";
+import { NavigateBeforeRounded } from "@mui/icons-material";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
 function Breadcrumb({ category, id }: { category: string; id: number }) {
   const breadcrumbs = [
     <Link className=" text" key="1" color="inherit" href="/">
-      Home
+      خانه
     </Link>,
     <Link
       className=" text"
@@ -35,7 +34,7 @@ function Breadcrumb({ category, id }: { category: string; id: number }) {
   return (
     <Stack spacing={2}>
       <Breadcrumbs
-        separator={<NavigateNextIcon fontSize="small" />}
+        separator={<NavigateBeforeRounded fontSize="small" />}
         aria-label="breadcrumb"
         sx={{
           fontSize: {

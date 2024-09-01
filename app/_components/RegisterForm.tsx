@@ -31,6 +31,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
 const Button = styled(ButtonBase)(({ theme }) => ({
   width: "100%",
   fontSize: 15,
+  fontFamily: "inherit",
   padding: 10,
   backgroundColor: "#0d6efd",
   border: "1px solid #0d6efd",
@@ -44,28 +45,28 @@ const Button = styled(ButtonBase)(({ theme }) => ({
 
 function RegisterForm() {
   return (
-    <FormControl component="form" sx={{ width: "100%" }}>
-      <Typography sx={{ mt: 2 }}>Username</Typography>
-      <StyledInput placeholder="Enter Username" />
+    <form>
+      <Typography sx={{ mt: 2, fontWeight: 500 }}>نام کاربری</Typography>
+      <StyledInput placeholder="نام کاربری خود را وارد کنید" />
 
       <FormHelperText id="my-helper-text">
-        A unique username between 2 and 16 characters. Others can mention you
-        with @username.
+        یک نام کاربری منحصر به فرد بین 2 تا 16 کاراکتر. دیگران می توانند از شما
+        نام ببرند با @username.
       </FormHelperText>
 
-      <Typography sx={{ mt: 2 }}>Password</Typography>
-      <StyledInput placeholder="Enter Password" />
+      <Typography sx={{ mt: 2, fontWeight: 500 }}>گذرواژه</Typography>
+      <StyledInput placeholder="گذرواژه خود را وارد کنید" />
 
       <FormHelperText id="my-helper-text">
-        Your password&rsquo;s length must be at least 6 characters.
+        طول رمز عبور شما باید حداقل 6 کاراکتر باشد.
       </FormHelperText>
 
-      <Typography sx={{ mt: 2 }}>Confirm Password</Typography>
-      <StyledInput placeholder="Confirm Password" />
+      <Typography sx={{ mt: 2, fontWeight: 500 }}>تکرار گذرواژه</Typography>
+      <StyledInput placeholder="تکرار گذرواژه" />
 
-      <Button sx={{ my: 5 }}>Login</Button>
+      <Button sx={{ my: 5 }}>ورود</Button>
       <Divider variant="fullWidth" />
-    </FormControl>
+    </form>
   );
 }
 

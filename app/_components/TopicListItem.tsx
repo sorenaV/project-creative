@@ -66,9 +66,7 @@ function TopicListItem({ item, pageName }: ItemType) {
             </Link>
             <Stack
               direction={{ xs: "column", sm: "row" }}
-              spacing={{
-                xs: 0,
-              }}
+              spacing={0}
               sx={{
                 alignItems: "center",
                 flexWrap: {
@@ -139,24 +137,24 @@ function TopicListItem({ item, pageName }: ItemType) {
             </Stack>
           </div>
         </Stack>
-        <Stack direction="row" spacing={5} sx={{ ml: "auto" }}>
+        <Stack direction="row" spacing={1} sx={{ ml: "auto" }}>
           <CardStatus
             cardNum={status.views}
-            cardLabel="Views"
+            cardLabel="بازدید"
             cardIcon={
               <FormatListBulletedRounded fontSize="small" color="action" />
             }
           />
           <CardStatus
             cardNum={status.posts}
-            cardLabel="Posts"
+            cardLabel="پست"
             cardIcon={
               <FormatListBulletedRounded fontSize="small" color="action" />
             }
           />
           <CardStatus
             cardNum={status.votes}
-            cardLabel="Votes"
+            cardLabel="رای"
             cardIcon={
               <FormatListBulletedRounded fontSize="small" color="action" />
             }

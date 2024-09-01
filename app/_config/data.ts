@@ -9,9 +9,9 @@ import avatarPic from "@/public/avatar.jpeg";
 export const data: DataType[] = [
   {
     id: 1,
-    title: "Creating tables in NodeBB",
+    title: "ساختن جدول در نودبی",
     category: {
-      name: "General Discussion",
+      name: "بحث های عمومی",
       url: "general-discussion",
       categoryId: 2,
     },
@@ -26,9 +26,9 @@ export const data: DataType[] = [
   },
   {
     id: 2,
-    title: "Iframely example!",
+    title: "مثال ایفریملی",
     category: {
-      name: "Comments & Feedback",
+      name: "نطرات",
       url: "comments-feedback",
       categoryId: 3,
     },
@@ -43,8 +43,8 @@ export const data: DataType[] = [
   },
   {
     id: 3,
-    title: "Welcome to the demo instance of NodeBB!",
-    category: { name: "Announcements", url: "announcements", categoryId: 1 },
+    title: "به نسخه دمو برنامه خوش آمدید",
+    category: { name: "اطلاعیه ها", url: "announcements", categoryId: 1 },
     status: { votes: 5, posts: 1, views: 250 },
     createdAt: "Jul 10, 2017, 10:02 PM",
     author: {
@@ -56,7 +56,7 @@ export const data: DataType[] = [
   },
   {
     id: 4,
-    title: "Check out the NodeBB Blog!",
+    title: "یه سری به نودبی بزنید",
     category: { name: "Blogs", url: "blogs", categoryId: 4 },
     status: { votes: 12, posts: 5, views: 25 },
     createdAt: "Jul 10, 2017, 10:02 PM",
@@ -69,7 +69,7 @@ export const data: DataType[] = [
   },
   {
     id: 5,
-    title: "Check out the NodeBB Blog!",
+    title: "یه سری به نودبی بزنید",
     category: { name: "Blogs", url: "blogs", categoryId: 4 },
     status: { votes: 22, posts: 2, views: 5 },
     createdAt: "Jul 10, 2017, 10:02 PM",
@@ -82,7 +82,7 @@ export const data: DataType[] = [
   },
   {
     id: 6,
-    title: "Check out the NodeBB Blog!",
+    title: "یه سری به نودبی بزنید",
     category: { name: "Blogs", url: "blogs", categoryId: 4 },
     status: { votes: 0, posts: 7, views: 77 },
     createdAt: "Jul 10, 2017, 10:02 PM",
@@ -95,11 +95,11 @@ export const data: DataType[] = [
   },
   {
     id: 7,
-    title: "Check out the NodeBB Blog!",
+    title: "یه سری به نودبی بزنید",
     category: {
-      name: "Comments Feedback",
+      name: "نظرات",
       url: "Comments-Feedback",
-      categoryId: 4,
+      categoryId: 3,
     },
     status: { votes: 1, posts: 5, views: 29 },
     createdAt: "Jul 10, 2017, 10:02 PM",
@@ -112,7 +112,7 @@ export const data: DataType[] = [
   },
   {
     id: 8,
-    title: "NodeBB Blog!",
+    title: "نودبی بلاگ",
     category: { name: "Blogs", url: "blogs", categoryId: 4 },
     status: { votes: 3, posts: 2, views: 3 },
     createdAt: "Jul 10, 2017, 10:02 PM",

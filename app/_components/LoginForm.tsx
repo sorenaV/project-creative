@@ -31,6 +31,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
 const Button = styled(ButtonBase)(({ theme }) => ({
   width: "100%",
   fontSize: 15,
+  fontFamily: "inherit",
   padding: 10,
   backgroundColor: "#0d6efd",
   border: "1px solid #0d6efd",
@@ -44,19 +45,19 @@ const Button = styled(ButtonBase)(({ theme }) => ({
 
 function LoginForm() {
   return (
-    <FormControl component="form" sx={{ width: "100%" }}>
-      <Typography sx={{ mt: 2 }}>Username / Email</Typography>
-      <StyledInput placeholder="Username / Email" />
-      <Typography sx={{ mt: 2 }}>Password</Typography>
-      <StyledInput placeholder="Password" />
+    <form>
+      <Typography sx={{ mt: 2 }}>نام کاربری / ایمیل</Typography>
+      <StyledInput placeholder="نام کاربری / ایمیل" />
+      <Typography sx={{ mt: 2 }}>گذرواژه</Typography>
+      <StyledInput placeholder="گذرواژه" />
       <Link href="/">
         <Typography sx={{ textDecoration: "underline", fontSize: 14 }}>
-          Forget Password?
+          گذرواژه را فراموش کردید؟
         </Typography>
       </Link>
-      <Button sx={{ my: 5 }}>Login</Button>
+      <Button sx={{ my: 5 }}>ورود</Button>
       <Divider variant="fullWidth" />
-    </FormControl>
+    </form>
   );
 }
 

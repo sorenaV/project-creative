@@ -22,9 +22,9 @@ function Message() {
           md: 18,
         }}
         sx={{ marginBottom: 2 }}
-        fontWeight={600}
+        fontWeight={500}
       >
-        Welcome to the NodeBB demo instance!
+        خوش آمدید به نودبی
       </Typography>
 
       <Typography
@@ -36,9 +36,9 @@ function Message() {
           md: 16,
         }}
       >
-        This website is a demo instance of NodeBB that you can use to try out
-        our forum software. It is a default install with minimal configuration
-        changes.
+        این وب‌سایت نمونه‌ای از NodeBB است که می‌توانید از آن برای آزمایش
+        استفاده کنید نرم افزار انجمن ما این یک نصب پیش فرض با حداقل پیکربندی است
+        تغییر می کند.
       </Typography>
 
       <Typography
@@ -50,7 +50,7 @@ function Message() {
           md: 16,
         }}
       >
-        For more information on this site, please check out this post.
+        برای اطلاعات بیشتر در این سایت، لطفا این پست را بررسی کنید.
       </Typography>
 
       <Typography
@@ -61,8 +61,8 @@ function Message() {
           md: 16,
         }}
       >
-        This information is displayed via the Widgets system, available under
-        the Extend menu in the admin control panel.
+        این اطلاعات از طریق سیستم ابزارک ها، در زیر نمایش داده می شود منوی
+        Extend در کنترل پنل مدیریت
       </Typography>
     </Box>
   );

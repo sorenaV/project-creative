@@ -55,6 +55,7 @@ function NavDrawer({
           alignItems: "center",
           justifyContent: "space-between",
           height: "100%",
+          width: "100%",
         }}
       >
         <List sx={{ alignItems: "center" }}>
@@ -78,7 +79,7 @@ function NavDrawer({
               {isOpen ? (
                 <>
                   <BrushRounded />
-                  <Typography>Skins</Typography>
+                  <Typography>پوسته ها</Typography>
                 </>
               ) : (
                 <BrushRounded />
@@ -87,11 +88,11 @@ function NavDrawer({
             <IconButton onClick={handleDrawer}>
               {isOpen ? (
                 <>
-                  <KeyboardDoubleArrowLeftRounded />
-                  <Typography>Collapse</Typography>
+                  <KeyboardDoubleArrowRightRounded />
+                  <Typography>بستن منو</Typography>
                 </>
               ) : (
-                <KeyboardDoubleArrowRightRounded />
+                <KeyboardDoubleArrowLeftRounded />
               )}
             </IconButton>
           </Box>

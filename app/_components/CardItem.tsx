@@ -60,8 +60,8 @@ function CardItem({ category }: CardItemProps) {
                     },
                   },
                   fontSize: {
-                    xs: 20,
-                    md: 25,
+                    xs: 18,
+                    md: 22,
                   },
                   fontWeight: 500,
                   color: "#343a40",
@@ -69,7 +69,7 @@ function CardItem({ category }: CardItemProps) {
                 secondaryTypographyProps={{
                   fontSize: {
                     xs: 12,
-                    md: 15,
+                    md: 13,
                   },
                   color: "#676b70",
                 }}
@@ -80,14 +80,14 @@ function CardItem({ category }: CardItemProps) {
 
         <Stack direction="row" spacing={5}>
           <CardStatus
-            cardLabel="Topics"
+            cardLabel="تاپیک ها"
             cardNum={category.posts}
             cardIcon={
               <FormatListBulletedRoundedIcon fontSize="small" color="action" />
             }
           />
           <CardStatus
-            cardLabel="Topics"
+            cardLabel="پست ها"
             cardNum={category.posts}
             cardIcon={<ChatBubbleRoundedIcon fontSize="small" color="action" />}
           />
