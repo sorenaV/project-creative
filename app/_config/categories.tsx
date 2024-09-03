@@ -44,7 +44,7 @@ export const categories: Category[] = [
     name: "بلاگ ها",
     url: "blogs",
     icon: <ArticleOutlined sx={{ color: "#fff" }} />,
-    description: "پست های افراد",
+    description: "پست های اعضای انجمن ها",
     backgroundColor: "#86ba4b",
     topics: "10",
     posts: "5",
