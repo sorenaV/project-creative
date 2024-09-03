@@ -43,7 +43,7 @@ function SearchInput() {
     <div>
       <StyledInput
         id="outlined-basic"
-        placeholder="Type to search"
+        placeholder="جستجو"
         value={term}
         onChange={handleChange}
       />
@@ -55,11 +55,12 @@ function SearchInput() {
           width: "100%",
           height: "42px",
           borderRadius: 2,
+          fontFamily: "inherit",
         }}
         onClick={handleClick}
         onAbort={() => setTerm("")}
       >
-        Search
+        جستجو
       </ButtonBase>
     </div>
   );

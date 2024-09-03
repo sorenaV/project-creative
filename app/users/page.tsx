@@ -17,11 +17,11 @@ function Page() {
         component="h1"
         sx={{ fontSize: 25, mt: 5, fontWeight: 500 }}
       >
-        Users
+        کاربران
       </Typography>
       <div>
         <SearchSortHeader
-          fieldNames={["Online", "Top Posters", "Most Reputation"]}
+          fieldNames={["آنلاین", "بیشترین پست", "بیشترین شهرت"]}
         />
       </div>
       <List

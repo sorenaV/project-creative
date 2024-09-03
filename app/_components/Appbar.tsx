@@ -90,6 +90,7 @@ function Appbar() {
                     sx={{ minWidth: 0, justifyContent: "center" }}
                     dense={true}
                     disableGutters={true}
+                    onClick={handleClose}
                   >
                     <ListItemIcon sx={{ justifyContent: "center" }}>
                       {link.icon}

@@ -33,7 +33,7 @@ function Page({ params }: { params: { username: string } }) {
               justifyContent: "center",
             }}
           >
-            About
+            درباره
           </ButtonBase>
         </Grid2>
         <Grid2 xs={12} sm={9}>

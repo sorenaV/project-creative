@@ -81,6 +81,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
 const Button = styled(ButtonBase)(({ theme }) => ({
   width: "max-content",
   fontSize: 13,
+  fontFamily: "inherit",
   textAlign: "left",
   padding: 10,
   backgroundColor: "#f8f9fa",
@@ -102,7 +103,7 @@ const Button = styled(ButtonBase)(({ theme }) => ({
   },
 }));
 
-function CategoryPoper() {
+function SearchCategory() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [value, setValue] = useState<Category[]>([]);
   const [pendingValue, setPendingValue] = useState<Category[]>([]);
@@ -132,7 +133,7 @@ function CategoryPoper() {
     <>
       <Box sx={{ fontSize: 13 }}>
         <Button disableRipple aria-describedby={id} onClick={handleClick}>
-          <span>{value.length > 0 ? value[0].name : "Category"}</span>
+          <span>{value.length > 0 ? value[0].name : "دسته بندی"}</span>
           <ArrowDownward />
         </Button>
       </Box>
@@ -231,7 +232,7 @@ function CategoryPoper() {
     </>
   );
 }
-export default CategoryPoper;
+export default SearchCategory;
 
 // interface LabelType {
 //   name: string;

@@ -7,7 +7,7 @@ function ChipBox({ labelNumber, label }) {
         <Typography component="span" sx={{ fontSize: 12 }}>
           <Typography
             component="span"
-            sx={{ fontWeight: 650, marginRight: 0.5, fontSize: 12 }}
+            sx={{ fontWeight: 500, marginRight: 0.5, fontSize: 12 }}
           >
             {labelNumber}
           </Typography>

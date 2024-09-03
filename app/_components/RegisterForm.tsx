@@ -46,7 +46,7 @@ const Button = styled(ButtonBase)(({ theme }) => ({
 function RegisterForm() {
   return (
     <form>
-      <Typography sx={{ mt: 2, fontWeight: 500 }}>نام کاربری</Typography>
+      <Typography sx={{ mt: 2 }}>نام کاربری</Typography>
       <StyledInput placeholder="نام کاربری خود را وارد کنید" />
 
       <FormHelperText id="my-helper-text">
@@ -54,14 +54,14 @@ function RegisterForm() {
         نام ببرند با @username.
       </FormHelperText>
 
-      <Typography sx={{ mt: 2, fontWeight: 500 }}>گذرواژه</Typography>
+      <Typography sx={{ mt: 2 }}>گذرواژه</Typography>
       <StyledInput placeholder="گذرواژه خود را وارد کنید" />
 
       <FormHelperText id="my-helper-text">
         طول رمز عبور شما باید حداقل 6 کاراکتر باشد.
       </FormHelperText>
 
-      <Typography sx={{ mt: 2, fontWeight: 500 }}>تکرار گذرواژه</Typography>
+      <Typography sx={{ mt: 2 }}>تکرار گذرواژه</Typography>
       <StyledInput placeholder="تکرار گذرواژه" />
 
       <Button sx={{ my: 5 }}>ورود</Button>

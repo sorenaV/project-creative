@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import CustomPopover from "../_components/CustomPopover";
 import SearchInput from "../_components/SearchInput";
 import SearchList from "../_components/SearchList";
-import SearchSelect from "../_components/SearchSelect";
+import SearchCategory from "../_components/SearchCategory";
 import SortBy from "../_components/SortBy";
 import { tags, users } from "../_config/data";
 
@@ -38,7 +38,7 @@ function Page({ searchParams }: { searchParams: FilterType }) {
           component="h1"
           sx={{ fontSize: 25, mt: 3, fontWeight: 500 }}
         >
-          Search
+          جستجو
         </Typography>
         <SearchInput />
       </Grid2>
@@ -46,9 +46,9 @@ function Page({ searchParams }: { searchParams: FilterType }) {
       <Grid2 xs={12} md={7}>
         <Stack>
           <Stack direction="row" spacing={1} padding={1}>
-            <SearchSelect />
-            <CustomPopover label="users" posts={users} />
-            <CustomPopover label="tag" posts={tags} />
+            <SearchCategory />
+            <CustomPopover label="کاربران" posts={users} paramLabel="users" />
+            <CustomPopover label="تگ ها" posts={tags} paramLabel="tags" />
             <SortBy />
           </Stack>
           <Divider />

@@ -26,12 +26,12 @@ function Error({
         component="h1"
         sx={{ fontSize: 30, fontWeight: 500, color: red[900] }}
       >
-        Something went wrong!
+        اشتباهی پیش اومد
       </Typography>
       <Typography variant="body1" component="p">
         {error.message}
       </Typography>
-      <Button onClick={reset}>Try again</Button>
+      <Button onClick={reset}>امتحان دوباره</Button>
     </Box>
   );
 }

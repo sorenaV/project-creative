@@ -30,7 +30,9 @@ function GroupSummery({ title, subtitle, members }: GroupSummeryType) {
             >
               {title}
             </Typography>
-            <Typography sx={{ ml: "auto" }}>
+            <Typography
+              sx={{ ml: "auto", display: "flex", alignItems: "center" }}
+            >
               <Person sx={{ opacity: 0.6 }} />
               {members}
             </Typography>

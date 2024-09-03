@@ -18,18 +18,18 @@ function UserOverview({ userInfo }: { userInfo: UsersType | undefined }) {
         justifyContent: "center",
       }}
     >
-      <OverviewBox fieldName="Reputation" fieldNumber={userInfo.reputation} />
+      <OverviewBox fieldName="شهرت" fieldNumber={userInfo.reputation} />
       <OverviewBox
-        fieldName="Profile Views"
+        fieldName="بازدید پروفایل"
         fieldNumber={userInfo.profileViews}
       />
 
       <OverviewBox
-        fieldName="joined"
+        fieldName="عضو شده"
         fieldNumber={userInfo.joined}
         fieldIcon={<PersonAddAlt1Rounded fontSize="small" />}
       />
-      <OverviewBox fieldName="Last Online" fieldNumber={userInfo.lastOnline} />
+      <OverviewBox fieldName="آخرین بازدید" fieldNumber={userInfo.lastOnline} />
     </Stack>
   );
 }

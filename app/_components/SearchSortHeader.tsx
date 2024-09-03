@@ -1,10 +1,14 @@
 "use client";
 import styled from "@emotion/styled";
+import { Search } from "@mui/icons-material";
 import {
   Box,
   Button,
   ButtonGroup,
   Divider,
+  FormControl,
+  IconButton,
+  InputAdornment,
   InputBase,
   Stack,
   Typography,
@@ -39,7 +43,7 @@ function SearchSortHeader({ fieldNames }: { fieldNames: string[] }) {
             fontWeight: 500,
           }}
         >
-          Sort by
+          مرتب کردن با
         </Typography>
         <ButtonGroup variant="text" aria-label="Basic button group">
           {fieldNames.map((field, index) => (
@@ -51,9 +55,17 @@ function SearchSortHeader({ fieldNames }: { fieldNames: string[] }) {
             </Button>
           ))}
         </ButtonGroup>
+        {/* <FormControl></FormControl> */}
         <StyledInput
           id="outlined-basic"
-          placeholder="Type to search"
+          placeholder="جستجو..."
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton edge="end">
+                <Search />
+              </IconButton>
+            </InputAdornment>
+          }
           sx={{
             ml: "auto",
             width: {

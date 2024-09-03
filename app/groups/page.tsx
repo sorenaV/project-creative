@@ -18,11 +18,9 @@ function Page() {
         component="h1"
         sx={{ fontSize: 25, mt: 5, fontWeight: 500 }}
       >
-        Groups
+        گروه ها
       </Typography>
-      <SearchSortHeader
-        fieldNames={["Group Name", "Member Count", "Creation Date"]}
-      />
+      <SearchSortHeader fieldNames={["نام گروه", "تعداد عضو", "تاریخ ساخت"]} />
       <Box
         sx={{
           display: "grid",

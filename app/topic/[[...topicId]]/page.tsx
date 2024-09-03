@@ -29,7 +29,7 @@ function Page({ params }: ParamsType) {
   return (
     <Box
       sx={{
-        mt: {
+        my: {
           xs: 2,
           md: 4,
         },
@@ -40,7 +40,7 @@ function Page({ params }: ParamsType) {
         component="h5"
         variant="h5"
         sx={{
-          mt: 2,
+          my: 2,
           fontSize: {
             xs: 22,
             md: 30,

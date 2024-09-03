@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
+import "@/app/_styles/globals.css";
 import { theme } from "@/app/custom-layout";
 import { Container, CssBaseline, ThemeProvider } from "@mui/material";
-import { Inter } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import "@/app/_styles/globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import Header from "./_components/Header";
 import Navigation from "./_components/Navigation";
 import CustomLayout from "./custom-layout";
-import CacheProviderContainer from "./CacheProviderContainer";
+import Rtl from "./Rtl";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -30,7 +30,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <CacheProviderContainer>
+            <Rtl>
               <Container
                 sx={{
                   //BRING THE VALUE FROM NAVIGATION
@@ -47,7 +47,7 @@ export default function RootLayout({
 
                 <CustomLayout>{children}</CustomLayout>
               </Container>
-            </CacheProviderContainer>
+            </Rtl>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

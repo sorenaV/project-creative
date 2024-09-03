@@ -68,6 +68,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
 const Button = styled(ButtonBase)(({ theme }) => ({
   width: "max-content",
   fontSize: 13,
+  fontFamily: "inherit",
   textAlign: "left",
   padding: 10,
   backgroundColor: "#f8f9fa",
@@ -92,9 +93,14 @@ const Button = styled(ButtonBase)(({ theme }) => ({
 type PopoverPropsData = {
   label: string;
   posts: UsersType[];
+  paramLabel: string;
 };
 
-export default function CustomPopover({ label, posts }: PopoverPropsData) {
+export default function CustomPopover({
+  label,
+  posts,
+  paramLabel,
+}: PopoverPropsData) {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [searchValue, setSearchValue] = useState("");
@@ -113,7 +119,10 @@ export default function CustomPopover({ label, posts }: PopoverPropsData) {
     setSearchValue("");
     const params = new URLSearchParams(searchParams);
     if (!selectedOptions.length) params.delete(label);
-    params.set(label, selectedOptions.map((selec) => selec.name).join(","));
+    params.set(
+      paramLabel,
+      selectedOptions.map((selec) => selec.userName).join(",")
+    );
     router.replace(`${pathname}?${params.toString()}`);
   };
 
@@ -175,7 +184,7 @@ export default function CustomPopover({ label, posts }: PopoverPropsData) {
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, my: 1 }}>
               {selectedOptions.map((option) => (
                 <Chip
-                  key={option.name}
+                  key={option.id}
                   label={option.name}
                   onDelete={() => handleDeleteChip(option)}
                   sx={{

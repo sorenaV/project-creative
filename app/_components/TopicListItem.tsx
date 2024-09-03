@@ -40,13 +40,8 @@ function TopicListItem({ item, pageName }: ItemType) {
         }}
       >
         <Stack direction="row" spacing={1}>
-          <Avatar alt={author.name}>
-            <Image
-              src={author.avatar}
-              alt={author.name}
-              layout="fill"
-              objectFit="cover"
-            />
+          <Avatar alt={author.name} sx={{ width: 50, height: 50 }}>
+            <Image src={author.avatar} alt={author.name} fill />
           </Avatar>
 
           <div>

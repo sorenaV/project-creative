@@ -20,13 +20,7 @@ function UserPage({ userInfo }: UserPagePropsType) {
           overflow: "hidden",
         }}
       >
-        <Image
-          src="/bannerImage.png"
-          alt="Profile Banner"
-          layout="fill"
-          objectFit="cover"
-          priority
-        />
+        <Image src="/bannerImage.png" alt="Profile Banner" fill />
       </Box>
 
       <Stack
@@ -61,7 +55,7 @@ function UserPage({ userInfo }: UserPagePropsType) {
             {userInfo.name}
           </Typography>
           <Typography sx={{ color: "text.secondary" }}>
-            @{userInfo.userName}
+            {userInfo.userName}@
           </Typography>
         </Stack>
       </Stack>

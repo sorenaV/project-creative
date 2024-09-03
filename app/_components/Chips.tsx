@@ -27,7 +27,7 @@ function Chips({ category, status }) {
             ...chipStyle,
             backgroundColor: backgroundColor,
             color: "#fff",
-            fontWeight: 800,
+            fontWeight: 500,
             border: 0,
           }}
           icon={<IconButton size="small">{icon}</IconButton>}
@@ -36,19 +36,19 @@ function Chips({ category, status }) {
 
       <Stack direction="row" spacing={1}>
         <Chip
-          label={`${status.posts} posts`}
+          label={`${status.posts} پست`}
           variant="outlined"
           size="small"
           sx={chipStyle}
         />
         <Chip
-          label={`${status.posts} posters`}
+          label={`${status.posts} پست کننده`}
           variant="outlined"
           size="small"
           sx={chipStyle}
         />
         <Chip
-          label={`${status.views} views`}
+          label={`${status.views} بازدید`}
           variant="outlined"
           size="small"
           sx={chipStyle}

@@ -26,7 +26,7 @@ function SearchList({ filter }: { filter: FilterType }) {
   // Apply user filter if provided
   if (filter.users) {
     const users = filter.users.split(",");
-    filterValue = topics.filter((item) => users.includes(item.author.name));
+    filterValue = topics.filter((item) => users.includes(item.author.username));
   }
 
   // Apply category AND user filter if provided
@@ -35,7 +35,7 @@ function SearchList({ filter }: { filter: FilterType }) {
     const users = filter.users.split(",");
     filterValue = topics.filter(
       (topic) =>
-        users.includes(topic.author.name) &&
+        users.includes(topic.author.username) &&
         categories.includes(topic.category.url)
     );
   }

@@ -16,10 +16,14 @@ function Page() {
         variant="h1"
         sx={{ fontSize: 25, mt: 5, fontWeight: 500 }}
       >
-        Tags
+        تگ ها
       </Typography>
       <Divider sx={{ mt: 2 }} />
-      {!tags.length && <Alert severity="info">There are no tags yet.</Alert>}
+      {!tags.length && (
+        <Alert severity="info" sx={{ my: 2 }}>
+          هنوز تگی وجود ندارد.
+        </Alert>
+      )}
     </>
   );
 }

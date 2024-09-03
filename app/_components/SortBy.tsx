@@ -17,13 +17,14 @@ import {
 const Button = styled(ButtonBase)(({ theme }) => ({
   width: "max-content",
   fontSize: 13,
+  fontFamily: "inherit",
   textAlign: "left",
   padding: 10,
   backgroundColor: "#f8f9fa",
   border: "1px solid #dee2e6",
   borderRadius: 5,
   color: "#000",
-  fontWeight: 550,
+  fontWeight: 500,
   "&:hover,&:focus": {
     color: "#0366d6",
   },
@@ -70,7 +71,7 @@ function SortBy() {
   return (
     <div>
       <Button id={id} onClick={handleClick}>
-        Sort
+        مرتب کردن
         <ArrowDownward />
       </Button>
       <Popper
@@ -96,11 +97,11 @@ function SortBy() {
                 onChange={(e) => setField(e.target.value)}
               >
                 <MenuItem value="">
-                  <em>All</em>
+                  <em>همه</em>
                 </MenuItem>
-                <MenuItem value="votes">Votes</MenuItem>
-                <MenuItem value="posts">Number of posts</MenuItem>
-                <MenuItem value="views">Number of views</MenuItem>
+                <MenuItem value="votes">رای ها</MenuItem>
+                <MenuItem value="posts">تعداد پست</MenuItem>
+                <MenuItem value="views">تعداد بازدید</MenuItem>
               </Select>
             </FormControl>
             <FormControl sx={{ m: 1, width: "80%" }} variant="standard">
@@ -110,8 +111,8 @@ function SortBy() {
                 value={direction}
                 onChange={(e) => setDirection(e.target.value)}
               >
-                <MenuItem value="asc">in ascending order</MenuItem>
-                <MenuItem value="desc">in descending order</MenuItem>
+                <MenuItem value="asc">صعودی</MenuItem>
+                <MenuItem value="desc">نزولی</MenuItem>
               </Select>
             </FormControl>
           </Box>

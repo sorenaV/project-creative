@@ -55,7 +55,6 @@ function NavDrawer({
           alignItems: "center",
           justifyContent: "space-between",
           height: "100%",
-          width: "100%",
         }}
       >
         <List sx={{ alignItems: "center" }}>
