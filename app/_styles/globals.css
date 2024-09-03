@@ -37,6 +37,7 @@ form {
 a {
   text-decoration: none;
   color: inherit;
+  width: fit-content;
 }
 
 .link {

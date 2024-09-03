@@ -26,7 +26,7 @@ function NotFound() {
           component="h1"
           sx={{ fontSize: 30, fontWeight: 500 }}
         >
-          یـــه خبــر بـــد!!
+          یـــه خبــر بـــد!! 404
         </Typography>
         <Typography
           variant="h6"

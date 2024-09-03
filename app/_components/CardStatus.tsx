@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 type CardStatusType = {
   cardIcon: JSX.Element;
@@ -15,6 +15,7 @@ function CardStatus({ cardNum, cardLabel, cardIcon }: CardStatusType) {
           xs: "none",
           md: "flex",
         },
+        alignItems: "center",
       }}
     >
       <CardStatusContent
@@ -37,6 +38,7 @@ function CardStatusContent({ cardNum, cardLabel, cardIcon }: CardStatusType) {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    borderRadius: 2,
   };
   const numStyles = {
     fontSize: "1.2rem",

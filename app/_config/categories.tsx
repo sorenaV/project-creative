@@ -1,10 +1,10 @@
 import { Category } from "../_types";
 
 import {
-  ArticleRounded,
+  ArticleOutlined,
   BiotechRounded,
-  CampaignRounded,
-  ForumRounded,
+  CampaignOutlined,
+  ForumOutlined,
   QuestionMarkRounded,
 } from "@mui/icons-material";
 
@@ -13,7 +13,7 @@ export const categories: Category[] = [
     id: 1,
     name: "اطلاعیه ها",
     url: "announcements",
-    icon: <CampaignRounded sx={{ color: "#fff" }} />,
+    icon: <CampaignOutlined sx={{ color: "#fff" }} />,
     description: "اطلاعیه های مربوط به کامیونیتی",
     backgroundColor: "#fda34b",
     topics: "10",
@@ -23,7 +23,7 @@ export const categories: Category[] = [
     id: 2,
     name: "بحث های عمومی",
     url: "general-discussion",
-    icon: <ForumRounded sx={{ color: "#fff" }} />,
+    icon: <ForumOutlined sx={{ color: "#fff" }} />,
     description: "محلی برای صحبت درباره همه‌چیز ",
     backgroundColor: "#59b3d0",
     topics: "10",
@@ -43,7 +43,7 @@ export const categories: Category[] = [
     id: 4,
     name: "بلاگ ها",
     url: "blogs",
-    icon: <ArticleRounded sx={{ color: "#fff" }} />,
+    icon: <ArticleOutlined sx={{ color: "#fff" }} />,
     description: "پست های افراد",
     backgroundColor: "#86ba4b",
     topics: "10",
@@ -54,7 +54,7 @@ export const categories: Category[] = [
     name: "زمین تست",
     url: "testing-ground",
     icon: <BiotechRounded sx={{ color: "#fff" }} />,
-    description: "هرکسی میتونه اینچا پست بزاره حتی مهمون ها",
+    description: "هرکسی میتونه اینجا پست بزاره حتی مهمون ها",
     backgroundColor: "#ab4642",
     topics: "10",
     posts: "5",

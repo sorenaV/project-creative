@@ -8,6 +8,7 @@ import {
   KeyboardDoubleArrowLeftRounded,
   KeyboardDoubleArrowRightRounded,
 } from "@mui/icons-material";
+import { drawerCollapsedWidth, drawerExpandedWidth } from "../_utils/constants";
 
 type NavDrawerPropsType = {
   anchorDir: "left" | "right" | "bottom" | undefined;
@@ -15,10 +16,6 @@ type NavDrawerPropsType = {
   isOpen: boolean;
   handleDrawer: () => void;
 };
-
-const drawerCollapsedWidth = 60;
-const drawerExpandedWidth = 240;
-export { drawerCollapsedWidth, drawerExpandedWidth };
 
 function NavDrawer({
   anchorDir = "left",
@@ -78,7 +75,7 @@ function NavDrawer({
               {isOpen ? (
                 <>
                   <BrushRounded />
-                  <Typography>پوسته ها</Typography>
+                  <Typography sx={{ fontWeight: 500 }}>پوسته ها</Typography>
                 </>
               ) : (
                 <BrushRounded />
@@ -88,7 +85,7 @@ function NavDrawer({
               {isOpen ? (
                 <>
                   <KeyboardDoubleArrowRightRounded />
-                  <Typography>بستن منو</Typography>
+                  <Typography sx={{ fontWeight: 500 }}>بستن منو</Typography>
                 </>
               ) : (
                 <KeyboardDoubleArrowLeftRounded />

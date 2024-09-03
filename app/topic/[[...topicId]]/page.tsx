@@ -5,7 +5,7 @@ import MobilePost from "@/app/_components/MobilePost";
 import { getTopicDetails } from "@/app/_helper/getTopicDetails";
 
 import { SdSharp } from "@mui/icons-material";
-import { Box, Typography } from "@mui/material";
+import { Alert, Box, Typography } from "@mui/material";
 
 const filterOptions = [
   {
@@ -18,13 +18,14 @@ const filterOptions = [
 type ParamsType = { params: { topicId: string } };
 
 export function generateMetadata({ params }: ParamsType) {
-  const { title } = getTopicDetails(params.topicId);
+  const { title } = getTopicDetails(params?.topicId);
   return { title: `Topic : ${title}` };
 }
 
 function Page({ params }: ParamsType) {
-  const { title, status, category, author, createdAt, context, isRead } =
-    getTopicDetails(params.topicId);
+  const topicId = params?.topicId;
+  const { id, title, status, category, author, createdAt, context, isRead } =
+    getTopicDetails(topicId);
 
   return (
     <Box

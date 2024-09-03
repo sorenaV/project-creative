@@ -15,6 +15,7 @@ import {
   ListItemText,
   Stack,
 } from "@mui/material";
+import { ChatBubbleOutline } from "@mui/icons-material";
 
 type CardItemProps = {
   category: Category;
@@ -89,7 +90,7 @@ function CardItem({ category }: CardItemProps) {
           <CardStatus
             cardLabel="پست ها"
             cardNum={category.posts}
-            cardIcon={<ChatBubbleRoundedIcon fontSize="small" color="action" />}
+            cardIcon={<ChatBubbleOutline fontSize="small" color="action" />}
           />
         </Stack>
       </Box>

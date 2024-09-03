@@ -5,7 +5,12 @@ import type { DataType } from "../_types/index";
 import { getCategoryItem } from "../_helper/getCategoryItem";
 import CardStatus from "./CardStatus";
 
-import { FormatListBulletedRounded } from "@mui/icons-material";
+import {
+  ChatBubbleOutline,
+  FormatListBulletedRounded,
+  KeyboardArrowUpOutlined,
+  VisibilityOutlined,
+} from "@mui/icons-material";
 import {
   Avatar,
   Box,
@@ -97,7 +102,7 @@ function TopicListItem({ item, pageName }: ItemType) {
                   />
                 </Link>
               )}
-              <Box sx={{ display: "flex", gap: 1, mt: 2 }}>
+              <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
                 <Chip
                   label={createdAt}
                   variant="outlined"
@@ -113,7 +118,7 @@ function TopicListItem({ item, pageName }: ItemType) {
                   }}
                 />
                 <Chip
-                  label={`${status.posts} posts`}
+                  label={`${status.posts}  سیسلل پست ها`}
                   variant="outlined"
                   size="small"
                   sx={{
@@ -136,22 +141,18 @@ function TopicListItem({ item, pageName }: ItemType) {
           <CardStatus
             cardNum={status.views}
             cardLabel="بازدید"
-            cardIcon={
-              <FormatListBulletedRounded fontSize="small" color="action" />
-            }
+            cardIcon={<VisibilityOutlined fontSize="small" color="action" />}
           />
           <CardStatus
             cardNum={status.posts}
             cardLabel="پست"
-            cardIcon={
-              <FormatListBulletedRounded fontSize="small" color="action" />
-            }
+            cardIcon={<ChatBubbleOutline fontSize="small" color="action" />}
           />
           <CardStatus
             cardNum={status.votes}
             cardLabel="رای"
             cardIcon={
-              <FormatListBulletedRounded fontSize="small" color="action" />
+              <KeyboardArrowUpOutlined fontSize="medium" color="action" />
             }
           />
         </Stack>

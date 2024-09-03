@@ -22,7 +22,7 @@ function NavListItem({ isOpen, link }: NavListItemType) {
       }}
     >
       <Link href={link.url}>
-        <Tooltip title={link.name} arrow placement="right">
+        <Tooltip title={link.name} arrow followCursor placement="right">
           <ListItemButton
             sx={{ minWidth: 0, justifyContent: "center" }}
             dense={true}
@@ -34,7 +34,8 @@ function NavListItem({ isOpen, link }: NavListItemType) {
             {isOpen && (
               <ListItemText
                 primary={link.name}
-                sx={{ opacity: isOpen ? 1 : 0 }}
+                primaryTypographyProps={{ fontWeight: 500 }}
+                sx={{ textWrap: "nowrap", opacity: 0.8 }}
               />
             )}
           </ListItemButton>
