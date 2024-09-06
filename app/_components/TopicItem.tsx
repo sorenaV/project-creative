@@ -2,31 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 
 import type { DataType } from "../_types/index";
-import { getCategoryItem } from "../_helper/getCategoryItem";
+import { getCategoryItem } from "../_utils/helpers";
 import CardStatus from "./CardStatus";
 
 import {
   ChatBubbleOutline,
-  FormatListBulletedRounded,
   KeyboardArrowUpOutlined,
   VisibilityOutlined,
 } from "@mui/icons-material";
-import {
-  Avatar,
-  Box,
-  Chip,
-  Divider,
-  ListItem,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Avatar, Divider, ListItem, Stack, Typography } from "@mui/material";
+import CategoryChip from "./CategoryChip";
+import ChipBox from "./ChipBox";
 
 type ItemType = {
   item: DataType;
   pageName: string;
 };
 
-function TopicListItem({ item, pageName }: ItemType) {
+function TopicItem({ item, pageName }: ItemType) {
   const { title, category, status, createdAt, author, id } = item;
 
   const {
@@ -68,75 +61,30 @@ function TopicListItem({ item, pageName }: ItemType) {
               direction={{ xs: "column", sm: "row" }}
               spacing={0}
               sx={{
-                alignItems: "center",
+                alignItems: {
+                  xs: "flex-start",
+                  sm: "center",
+                },
                 flexWrap: {
                   xs: "wrap", // Wrap chips on extra-small screens
                   lg: "nowrap", // Do not wrap chips on large screens
-                },
-                "& > :nth-of-type(1)": {
-                  width: { xs: "100%", lg: "auto" },
-                },
-                "& > :nth-of-type(2), & > :nth-of-type(3)": {
-                  display: "inline-block",
                 },
               }}
             >
               {/* Just On Page Category Shows Category Chip 👇 */}
 
               {pageName === "category" && (
-                <Link href={`/category/${categoryId}`}>
-                  <Chip
-                    label={category.name}
-                    icon={icon}
-                    color="secondary"
-                    size="small"
-                    sx={{
-                      borderRadius: 1.5,
-                      height: 25,
-                      backgroundColor: badgeColor,
-                      fontSize: 11,
-                      fontWeight: 700,
-                      maxWidth: "70vw",
-                      mb: 0.1,
-                    }}
-                  />
-                </Link>
+                <CategoryChip categoryId={categoryId} />
               )}
-              <Box sx={{ display: "flex", gap: 1, mt: 1 }}>
-                <Chip
-                  label={createdAt}
-                  variant="outlined"
-                  size="small"
-                  sx={{
-                    borderRadius: 2,
-                    fontSize: 10,
-                    border: {
-                      xs: "1px solid #e9ecef",
-                      md: "none",
-                    },
-                    opacity: 0.7,
-                  }}
-                />
-                <Chip
-                  label={`${status.posts}  سیسلل پست ها`}
-                  variant="outlined"
-                  size="small"
-                  sx={{
-                    borderRadius: 2,
-                    fontSize: 10,
-                    border: "1px solid #e9ecef",
-                    display: {
-                      xs: "flex",
-                      lg: "none",
-                    },
-                    opacity: 0.7,
-                    width: "fit-content",
-                  }}
-                />
-              </Box>
+
+              <Stack direction="row" spacing={1} margin={1}>
+                <ChipBox label={createdAt} labelNumber="" />
+                <ChipBox label="پست" labelNumber={status.posts} />
+              </Stack>
             </Stack>
           </div>
         </Stack>
+
         <Stack direction="row" spacing={1} sx={{ ml: "auto" }}>
           <CardStatus
             cardNum={status.views}
@@ -162,4 +110,4 @@ function TopicListItem({ item, pageName }: ItemType) {
   );
 }
 
-export default TopicListItem;
+export default TopicItem;

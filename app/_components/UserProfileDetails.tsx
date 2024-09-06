@@ -1,9 +1,9 @@
 import { PersonAddAlt1Rounded } from "@mui/icons-material";
 import { Box, Stack, Typography } from "@mui/material";
 import { ReactNode } from "react";
-import { UsersType } from "../_types";
+import type { UsersType } from "../_types";
 
-function UserOverview({ userInfo }: { userInfo: UsersType | undefined }) {
+function UserProfileDetails({ userInfo }: { userInfo: UsersType | undefined }) {
   if (!userInfo) return;
   return (
     <Stack
@@ -33,7 +33,7 @@ function UserOverview({ userInfo }: { userInfo: UsersType | undefined }) {
     </Stack>
   );
 }
-export default UserOverview;
+export default UserProfileDetails;
 
 function OverviewBox({
   fieldName,

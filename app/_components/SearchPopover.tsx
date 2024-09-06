@@ -1,4 +1,7 @@
 "use client";
+import React, { useState } from "react";
+import type { UsersType } from "../_types";
+
 import { ArrowDownward } from "@mui/icons-material";
 import DoneIcon from "@mui/icons-material/Done";
 import LabelIcon from "@mui/icons-material/Label";
@@ -15,27 +18,8 @@ import {
 import { orange } from "@mui/material/colors";
 import InputBase from "@mui/material/InputBase";
 import { styled, useTheme } from "@mui/material/styles";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
-import { UsersType } from "../_types";
+import { useSearchParamsHandler } from "../_utils/useSearchParams";
 
-interface OptionType {
-  name: string;
-  description: string;
-  color: string;
-}
-
-const options: OptionType[] = [
-  { name: "Bug", description: "Issues related to bugs", color: "#d73a4a" },
-  {
-    name: "Documentation",
-    description: "Improvements or additions to documentation",
-    color: "#0075ca",
-  },
-  // Add more options as needed
-];
-
-// Styled components based on your previous styles
 const StyledPopper = styled(Popper)(({ theme }) => ({
   border: `1px solid #e1e4e8`,
   boxShadow: `0 8px 24px rgba(149, 157, 165, 0.2)`,
@@ -60,7 +44,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
     fontSize: 12,
     "&:focus": {
       boxShadow: "0px 0px 0px 3px rgba(3, 102, 214, 0.3)",
-      borderColor: theme.palette.mode === "light" ? "#0366d6" : "#388bfd",
+      borderColor: "#0366d6",
     },
   },
 }));
@@ -96,19 +80,16 @@ type PopoverPropsData = {
   paramLabel: string;
 };
 
-export default function CustomPopover({
+export default function SearchPopover({
   label,
   posts,
   paramLabel,
 }: PopoverPropsData) {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState<string>("");
   const [selectedOptions, setSelectedOptions] = useState<UsersType[]>([]);
-
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
+  const { updateSearchParam } = useSearchParamsHandler();
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -117,13 +98,10 @@ export default function CustomPopover({
   const handleClose = () => {
     setAnchorEl(null);
     setSearchValue("");
-    const params = new URLSearchParams(searchParams);
-    if (!selectedOptions.length) params.delete(label);
-    params.set(
+    updateSearchParam(
       paramLabel,
       selectedOptions.map((selec) => selec.userName).join(",")
     );
-    router.replace(`${pathname}?${params.toString()}`);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -188,8 +166,9 @@ export default function CustomPopover({
                   label={option.name}
                   onDelete={() => handleDeleteChip(option)}
                   sx={{
-                    backgroundColor: orange[500],
-                    color: "blue",
+                    backgroundColor: "#fff",
+                    border: "#0d6efd 1px solid",
+                    color: "#0d6efd",
                   }}
                 />
               ))}

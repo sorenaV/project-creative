@@ -1,12 +1,13 @@
 import type {
   DataType,
-  GroupSummeryType,
+  GroupItemType,
   TopicDetailsType,
   UsersType,
 } from "../_types";
 
 import avatarPic from "@/public/avatar.jpeg";
-export const data: DataType[] = [
+
+export const topicsData: DataType[] = [
   {
     id: 1,
     title: "ساختن جدول در نودبی",
@@ -188,21 +189,21 @@ export const users: UsersType[] = [
     name: "کارل",
     userName: "carl",
     avatar: "/public/avatar",
-    posts: 2,
+    posts: 12,
     joined: "2 ماه پیش",
     lastOnline: "3 دقیقه پیش",
-    reputation: 3,
+    reputation: 12,
     profileViews: 3,
   },
   {
     id: 2,
     name: "ادمین",
-    userName: "Admin",
+    userName: "admin",
     avatar: "/public/avatar",
-    posts: 6,
+    posts: 3,
     joined: "2 ماه پیش",
     lastOnline: "3 دقیقه پیش",
-    reputation: 3,
+    reputation: 25,
     profileViews: 3,
   },
   {
@@ -210,10 +211,10 @@ export const users: UsersType[] = [
     name: "امیر",
     userName: "Amir",
     avatar: "/public/avatar",
-    posts: 6,
+    posts: 1,
     joined: "2 ماه پیش",
     lastOnline: "3 دقیقه پیش",
-    reputation: 3,
+    reputation: 0,
     profileViews: 3,
   },
   {
@@ -221,10 +222,10 @@ export const users: UsersType[] = [
     name: "رادین",
     userName: "radin",
     avatar: "/public/avatar",
-    posts: 2,
+    posts: 10,
     joined: "2 ماه پیش",
     lastOnline: "3 دقیقه پیش",
-    reputation: 3,
+    reputation: 1,
     profileViews: 3,
   },
   {
@@ -232,10 +233,10 @@ export const users: UsersType[] = [
     name: "آرتمیس",
     userName: "artemis",
     avatar: "/public/avatar",
-    posts: 6,
+    posts: 2,
     joined: "2 ماه پیش",
     lastOnline: "3 دقیقه پیش",
-    reputation: 3,
+    reputation: 32,
     profileViews: 3,
   },
   {
@@ -243,27 +244,48 @@ export const users: UsersType[] = [
     name: "سورنا",
     userName: "sorena",
     avatar: "/public/avatar",
-    posts: 6,
+    posts: 1,
     joined: "2 ماه پیش",
     lastOnline: "3 دقیقه پیش",
-    reputation: 3,
+    reputation: 1,
     profileViews: 3,
   },
 ];
 
-export const groupSummeryApi: GroupSummeryType[] = [
-  { id: 1, title: "مدیریت", subtitle: "", members: 2 },
+export const groupItemData: GroupItemType[] = [
+  {
+    id: 1,
+    title: "مدیریت",
+    subtitle: "",
+    members: 2,
+    createdAt: "Jul 10, 2017, 10:02 PM",
+  },
   {
     id: 2,
     title: "مدیران انجمن",
     subtitle: "مدیران انجمن",
     members: 0,
+    createdAt: "Jul 25, 2017, 10:02 PM",
   },
-  { id: 3, title: "مدیران", subtitle: "", members: 25 },
+  {
+    id: 3,
+    title: "یا مدیران",
+    subtitle: "",
+    members: 25,
+    createdAt: "Jul 29, 2017, 10:02 PM",
+  },
   {
     id: 4,
     title: "شخصی",
     subtitle: "انجمن شخصی",
     members: 0,
+    createdAt: "Jul 02, 2017, 10:02 PM",
+  },
+  {
+    id: 5,
+    title: "الفبا",
+    subtitle: "",
+    members: 21,
+    createdAt: "Jul 10, 2017, 10:02 PM",
   },
 ];

@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Admin",
 };
 
-function Page(): JSX.Element {
+function Page() {
   return <div>Admin</div>;
 }
 

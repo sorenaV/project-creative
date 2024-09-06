@@ -17,7 +17,7 @@ type PostPropsType = {
   votes: string | number;
 };
 
-function MobilePost({ author, createdAt, context, votes }: PostPropsType) {
+function TopicContent({ author, createdAt, context, votes }: PostPropsType) {
   return (
     <Box sx={{ mt: 5 }}>
       <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
@@ -65,4 +65,4 @@ function MobilePost({ author, createdAt, context, votes }: PostPropsType) {
   );
 }
 
-export default MobilePost;
+export default TopicContent;

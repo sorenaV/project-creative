@@ -4,55 +4,66 @@ import {
   SellRounded,
 } from "@mui/icons-material";
 import { categories } from "./categories";
+import type { FilterOptionsType } from "../_types";
 
-export type FilterType = {
-  id: number;
-  name: string;
-  icon: any;
-  options: string[];
-};
 const style = { color: "#0d6efd" };
 
-export const filterPopularList: FilterType[] = [
+export const filterPopularList: FilterOptionsType[] = [
   {
-    id: 1,
-    name: "All topics",
+    name: "topics",
     icon: <FilterAlt sx={style} />,
-    options: ["All Topics", "New Topics", "Watched Topics", "Unreplied Topics"],
+    options: [
+      { label: "همه‌ی تاپیک ها", value: "all" },
+      { label: "تاپیک های جدید", value: "new" },
+      { label: "تاپیک های دیده شده", value: "seen" },
+      { label: "تاپیک های بدون پاسخ", value: "no-reply" },
+    ],
   },
   {
-    id: 2,
-    name: "Date",
+    name: "date",
     icon: <FormatListBulletedRounded sx={style} />,
-    options: ["as", "as", "jdh"],
+    options: [
+      { label: "همه", value: "all" },
+      { label: "روز", value: "day" },
+      { label: "هفته", value: "week" },
+      { label: "ماه", value: "month" },
+    ],
   },
 
   {
-    id: 3,
-    name: "All Tags",
+    name: "category",
     icon: <SellRounded />,
-    options: categories.map((category) => category.name),
+    options: categories.map((category) => {
+      return { label: category.name, value: category.url };
+    }),
   },
 ];
 
-export const filterUnreadList: FilterType[] = [
+export const filterUnreadList: FilterOptionsType[] = [
   {
-    id: 1,
     name: "All topics",
     icon: <FilterAlt sx={style} />,
-    options: ["All Topics", "New Topics", "Watched Topics", "Unreplied Topics"],
+    options: [
+      { label: "همه‌ی تاپیک ها", value: "all" },
+      { label: "تاپیک های جدید", value: "new" },
+      { label: "تاپیک های دیده شده", value: "seen" },
+      { label: "تاپیک های بدون پاسخ", value: "no-reply" },
+    ],
   },
   {
-    id: 2,
     name: "Date",
     icon: <FormatListBulletedRounded sx={style} />,
-    options: ["as", "as", "jdh"],
+    options: [
+      { label: "همه", value: "all" },
+      { label: "روز", value: "day" },
+      { label: "هفته", value: "week" },
+      { label: "ماه", value: "month" },
+    ],
   },
 
   {
-    id: 3,
     name: "All Tags",
     icon: <SellRounded />,
-    options: categories.map((category) => category.name),
+    options: [{ label: "همه‌ تگ‌ها", value: "" }],
   },
 ];

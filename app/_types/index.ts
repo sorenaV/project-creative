@@ -1,9 +1,10 @@
 import { StaticImageData } from "next/image";
 
 type StatusType = {
-  votes: number | string;
-  posts: number | string;
-  views: number | string;
+  [key: string]: number;
+  votes: number;
+  posts: number;
+  views: number;
 };
 export type AuthorType = {
   name: string;
@@ -42,7 +43,7 @@ export type Category = {
   id: number;
   name: string;
   url: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   description: string;
   backgroundColor: string;
   topics: string;
@@ -51,7 +52,7 @@ export type Category = {
 
 export type NavElementType = {
   name: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   url: string;
 };
 
@@ -60,10 +61,15 @@ export type SidebarsType = {
   handleDrawer: () => void;
 };
 
+export type Options = {
+  label: string;
+  value: string;
+};
+
 export type FilterOptionsType = {
   name: string;
-  icon: JSX.Element;
-  options: string[];
+  icon: React.ReactNode;
+  options: Options[];
 };
 
 export type UsersType = {
@@ -78,9 +84,10 @@ export type UsersType = {
   profileViews: number;
 };
 
-export type GroupSummeryType = {
+export type GroupItemType = {
   id?: number;
   title: string;
   subtitle: string;
   members: number;
+  createdAt: string;
 };

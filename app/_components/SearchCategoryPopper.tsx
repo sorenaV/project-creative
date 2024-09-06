@@ -1,9 +1,8 @@
 "use client";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
 import { categories } from "../_config/categories";
-import { Category } from "../_types";
+import type { Category } from "../_types";
 
 import { ArrowDownward } from "@mui/icons-material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -15,6 +14,7 @@ import ClickAwayListener from "@mui/material/ClickAwayListener";
 import InputBase from "@mui/material/InputBase";
 import Popper from "@mui/material/Popper";
 import { styled } from "@mui/material/styles";
+import { useSearchParamsHandler } from "../_utils/useSearchParams";
 
 const StyledAutocompletePopper = styled("div")(({ theme }) => ({
   [`& .${autocompleteClasses.paper}`]: {
@@ -51,7 +51,7 @@ function PopperComponent(props: any) {
 
 const StyledPopper = styled(Popper)(({ theme }) => ({
   border: `1px solid #e1e4e8`,
-  boxShadow: `0 8px 24px rgba(149, 157, 165, 0.2)`,
+  boxShadow: `0 8px 24px rgba(111, 128, 145, 0.2)`,
   borderRadius: 6,
   width: 200,
   zIndex: theme.zIndex.modal,
@@ -73,7 +73,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
     fontSize: 12,
     "&:focus": {
       boxShadow: "0px 0px 0px 3px rgba(3, 102, 214, 0.3)",
-      borderColor: theme.palette.mode === "light" ? "#0366d6" : "#388bfd",
+      borderColor: "#0366d6",
     },
   },
 }));
@@ -103,13 +103,12 @@ const Button = styled(ButtonBase)(({ theme }) => ({
   },
 }));
 
-function SearchCategory() {
+function SearchCategoryPopper() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [value, setValue] = useState<Category[]>([]);
   const [pendingValue, setPendingValue] = useState<Category[]>([]);
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
+
+  const { updateSearchParam } = useSearchParamsHandler();
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setPendingValue(value);
@@ -119,11 +118,11 @@ function SearchCategory() {
   const handleClose = () => {
     setValue(pendingValue);
     setAnchorEl(null);
-    const params = new URLSearchParams(searchParams);
-    if (!pendingValue.length) params.delete("categories");
-    params.set("categories", pendingValue.map((label) => label.url).join(","));
-
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    // Updating url base on selected options
+    updateSearchParam(
+      "categories",
+      pendingValue.map((label) => label.url).join(",")
+    );
   };
 
   const open = Boolean(anchorEl);
@@ -131,9 +130,14 @@ function SearchCategory() {
 
   return (
     <>
-      <Box sx={{ fontSize: 13 }}>
-        <Button disableRipple aria-describedby={id} onClick={handleClick}>
-          <span>{value.length > 0 ? value[0].name : "دسته بندی"}</span>
+      <Box>
+        <Button
+          disableRipple
+          aria-describedby={id}
+          onClick={handleClick}
+          sx={{ fontSize: 13 }}
+        >
+          <span>دسته بندی</span>
           <ArrowDownward />
         </Button>
       </Box>
@@ -232,7 +236,7 @@ function SearchCategory() {
     </>
   );
 }
-export default SearchCategory;
+export default SearchCategoryPopper;
 
 // interface LabelType {
 //   name: string;

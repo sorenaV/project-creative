@@ -1,5 +1,5 @@
 "use client";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 import { ArrowDownward } from "@mui/icons-material";
@@ -13,6 +13,7 @@ import {
   Select,
   styled,
 } from "@mui/material";
+import { useSearchParamsHandler } from "../_utils/useSearchParams";
 
 const Button = styled(ButtonBase)(({ theme }) => ({
   width: "max-content",
@@ -39,18 +40,16 @@ const Button = styled(ButtonBase)(({ theme }) => ({
   },
 }));
 
-function SortBy() {
+function SortPopper() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
+  const { updateSearchParam } = useSearchParamsHandler();
   const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
 
   const activeField = searchParams.get("sortBy") ?? "";
   const activeDirection = searchParams.get("order") ?? "";
 
-  const [field, setField] = useState(activeField);
-  const [direction, setDirection] = useState(activeDirection);
+  const [field, setField] = useState<string>(activeField);
+  const [direction, setDirection] = useState<string>(activeDirection);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -58,11 +57,8 @@ function SortBy() {
 
   const handleClose = () => {
     setAnchorEl(null);
-    const params = new URLSearchParams(searchParams);
-    if (!field.length && !direction.length) return;
-    params.set("sortBy", field);
-    params.set("order", direction);
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    updateSearchParam("order", direction);
+    updateSearchParam("sortBy", field);
   };
 
   const open = Boolean(anchorEl);
@@ -122,4 +118,4 @@ function SortBy() {
   );
 }
 
-export default SortBy;
+export default SortPopper;

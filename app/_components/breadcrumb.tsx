@@ -1,4 +1,3 @@
-"use client";
 import { NavigateBeforeRounded } from "@mui/icons-material";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Stack from "@mui/material/Stack";

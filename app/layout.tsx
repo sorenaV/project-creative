@@ -1,13 +1,14 @@
-import "@/app/_styles/globals.css";
-import { theme } from "@/app/custom-layout";
-import { Container, CssBaseline, ThemeProvider } from "@mui/material";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import type { Metadata } from "next";
+
 import Header from "./_components/Header";
 import Navigation from "./_components/Navigation";
-import { drawerCollapsedWidth } from "./_utils/constants";
-import CustomLayout from "./custom-layout";
 import Rtl from "./Rtl";
+import { drawerCollapsedWidth } from "./_utils/constants";
+import "@/app/_styles/globals.css";
+
+import theme from "@/app/_styles/theme";
+import { Container, CssBaseline, ThemeProvider } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body>
-        <AppRouterCacheProvider>
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <Rtl>
             <ThemeProvider theme={theme}>
               <CssBaseline />
@@ -42,7 +43,7 @@ export default function RootLayout({
               >
                 <Header />
                 <Navigation />
-                <CustomLayout>{children}</CustomLayout>
+                <div>{children}</div>
               </Container>
             </ThemeProvider>
           </Rtl>
@@ -52,4 +53,8 @@ export default function RootLayout({
   );
 }
 
-// TODO: Change names to better, make one chip component and one category chip, refactor filter component, Check how to make it rtl, enhance user profile page, make spacing better, find a solution for avatars
+// TODO:  Check how to make it rtl, enhance user profile page, make spacing better, find a solution for avatars
+/*
+  TODO: useState Typescript,
+
+*/

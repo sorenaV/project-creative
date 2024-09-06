@@ -1,10 +1,10 @@
 import Link from "next/link";
 
+import { getCategoryItem } from "../_utils/helpers";
 import type { Category } from "../_types";
 import CardStatus from "./CardStatus";
-import { getCategoryItem } from "../_helper/getCategoryItem";
 
-import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
+import { ChatBubbleOutline } from "@mui/icons-material";
 import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBulletedRounded";
 import {
   Box,
@@ -15,13 +15,12 @@ import {
   ListItemText,
   Stack,
 } from "@mui/material";
-import { ChatBubbleOutline } from "@mui/icons-material";
 
-type CardItemProps = {
+type CategoryItemProps = {
   category: Category;
 };
 
-function CardItem({ category }: CardItemProps) {
+function CategoryItem({ category }: CategoryItemProps) {
   const { backgroundColor } = getCategoryItem(category.id);
 
   return (
@@ -99,4 +98,4 @@ function CardItem({ category }: CardItemProps) {
   );
 }
 
-export default CardItem;
+export default CategoryItem;

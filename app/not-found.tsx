@@ -58,7 +58,7 @@ function NotFound() {
           height: { xs: 300, md: 500 },
         }}
       >
-        <Image alt="mo" src={notFound} fill />
+        <Image alt="not found image" src={notFound} fill />
       </Box>
     </Stack>
   );

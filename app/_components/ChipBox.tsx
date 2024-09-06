@@ -1,6 +1,12 @@
 import { Chip, Typography } from "@mui/material";
 
-function ChipBox({ labelNumber, label }) {
+function ChipBox({
+  labelNumber,
+  label,
+}: {
+  labelNumber: number | string;
+  label: string;
+}) {
   return (
     <Chip
       label={

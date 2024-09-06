@@ -1,6 +1,6 @@
 "use client";
 import type { NavElementType } from "../_types/index";
-import NavListItem from "./NavListItem";
+import SidebarItem from "./SidebarItem";
 
 import { Box, Drawer, IconButton, List, Typography } from "@mui/material";
 import {
@@ -10,19 +10,19 @@ import {
 } from "@mui/icons-material";
 import { drawerCollapsedWidth, drawerExpandedWidth } from "../_utils/constants";
 
-type NavDrawerPropsType = {
-  anchorDir: "left" | "right" | "bottom" | undefined;
+type SideNavPropsType = {
+  anchorDir: "left" | "right" | undefined;
   navArray: NavElementType[];
   isOpen: boolean;
   handleDrawer: () => void;
 };
 
-function NavDrawer({
+function SideNav({
   anchorDir = "left",
   navArray,
   isOpen,
   handleDrawer,
-}: NavDrawerPropsType) {
+}: SideNavPropsType) {
   return (
     <Drawer
       anchor={anchorDir}
@@ -56,7 +56,7 @@ function NavDrawer({
       >
         <List sx={{ alignItems: "center" }}>
           {navArray?.map((link: NavElementType) => (
-            <NavListItem key={link.name} isOpen={isOpen} link={link} />
+            <SidebarItem key={link.name} isOpen={isOpen} link={link} />
           ))}
         </List>
 
@@ -98,4 +98,4 @@ function NavDrawer({
   );
 }
 
-export default NavDrawer;
+export default SideNav;

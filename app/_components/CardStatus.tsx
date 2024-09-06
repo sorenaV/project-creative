@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 
 type CardStatusType = {
-  cardIcon: JSX.Element;
+  cardIcon: React.ReactNode;
   cardLabel: string;
   cardNum: string | number;
 };
@@ -45,8 +45,9 @@ function CardStatusContent({ cardNum, cardLabel, cardIcon }: CardStatusType) {
     textAlign: "center",
   };
   const titleStyles = {
-    fontSize: "0.9rem",
+    fontSize: "0.8rem",
     textAlign: "center",
+    opacity: 0.6,
   };
 
   const titleResponsiveMd = {

@@ -1,10 +1,10 @@
 import { navLinksLeft } from "../_config/navItems";
 import type { SidebarsType } from "../_types";
-import NavDrawer from "./NavDrawer";
+import SideNav from "./SideNav";
 
 function LeftSideNav({ isOpen, handleDrawer }: SidebarsType) {
   return (
-    <NavDrawer
+    <SideNav
       anchorDir="left"
       navArray={navLinksLeft}
       isOpen={isOpen}

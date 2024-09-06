@@ -4,7 +4,7 @@ import type { DataType } from "../_types";
 import { Avatar, Box, Divider, Stack, Typography } from "@mui/material";
 import { purple } from "@mui/material/colors";
 
-function SearchItem({ result }: { result: DataType }) {
+function SearchResults({ result }: { result: DataType }) {
   return (
     <Box>
       <Link href={`/topic/${result.id}`}>
@@ -42,10 +42,9 @@ function SearchItem({ result }: { result: DataType }) {
           {result.createdAt}
         </Typography>
       </Stack>
-
       <Divider sx={{ mt: 2 }} />
     </Box>
   );
 }
 
-export default SearchItem;
+export default SearchResults;

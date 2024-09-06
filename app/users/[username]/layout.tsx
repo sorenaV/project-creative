@@ -1,6 +1,4 @@
-import UserPage from "@/app/_components/UserPage";
-
-function Layout({ children }: { children: JSX.Element }) {
+function Layout({ children }: { children: React.ReactNode }) {
   return <div>{children}</div>;
 }
 

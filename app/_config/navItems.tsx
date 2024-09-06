@@ -10,7 +10,7 @@ import {
   SearchRounded,
   SettingsRounded,
 } from "@mui/icons-material";
-import { NavElementType } from "../_types";
+import type { NavElementType } from "../_types";
 
 export const navLinksLeft: NavElementType[] = [
   {

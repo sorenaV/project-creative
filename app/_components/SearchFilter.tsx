@@ -1,18 +1,24 @@
-import { data } from "../_config/data";
-import SearchItem from "./SearchItem";
+import { topicsData } from "../_config/data";
+import SearchResults from "./SearchResults";
 
-type FilterType = {
-  categories?: string;
-  users?: string;
-  tag?: string;
-  sortBy: string;
-  order: string;
-  term?: string;
+type SearchFilterType = {
+  [key: string]: string;
 };
 
-function SearchList({ filter }: { filter: FilterType }) {
-  const topics = data;
-  if (!filter) return;
+// ?: which one is Correct?
+
+// type SearchFilterType = {
+//   categories?: string;
+//   users?: string;
+//   tag?: string;
+//   sortBy: string;
+//   term?: string;
+//   order?: "asc" | "desc";
+// };
+
+function SearchFilter({ filter }: { filter: SearchFilterType }) {
+  const topics = topicsData;
+  if (!filter) return null;
   let filterValue = topics;
 
   // Apply category filter if provided
@@ -40,7 +46,7 @@ function SearchList({ filter }: { filter: FilterType }) {
     );
   }
 
-  // Apply status sort if provided
+  // Apply status(votes, posts, views) sort if provided
   if (filter.sortBy) {
     const modifier = filter.order === "asc" ? 1 : -1;
     const sortedCabin = filterValue.sort(
@@ -60,10 +66,10 @@ function SearchList({ filter }: { filter: FilterType }) {
   return (
     <div>
       {filterValue.map((topic) => (
-        <SearchItem key={topic.id} result={topic} />
+        <SearchResults key={topic.id} result={topic} />
       ))}
     </div>
   );
 }
 
-export default SearchList;
+export default SearchFilter;

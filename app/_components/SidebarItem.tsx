@@ -9,12 +9,12 @@ import {
   Tooltip,
 } from "@mui/material";
 
-type NavListItemType = {
+type SidebarItemType = {
   link: NavElementType;
   isOpen: Boolean;
 };
 
-function NavListItem({ isOpen, link }: NavListItemType) {
+function SidebarItem({ isOpen, link }: SidebarItemType) {
   return (
     <ListItem
       sx={{
@@ -45,4 +45,4 @@ function NavListItem({ isOpen, link }: NavListItemType) {
   );
 }
 
-export default NavListItem;
+export default SidebarItem;

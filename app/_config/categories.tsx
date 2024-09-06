@@ -1,4 +1,4 @@
-import { Category } from "../_types";
+import type { Category } from "../_types";
 
 import {
   ArticleOutlined,

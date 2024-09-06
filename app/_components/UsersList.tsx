@@ -10,14 +10,14 @@ import {
 } from "@mui/material";
 import { blue } from "@mui/material/colors";
 
-type UserListType = {
+type UsersListType = {
   avatar: string;
   name: string;
   userName: string;
   posts: number;
 };
 
-function UserList({ avatar, name, userName, posts }: UserListType) {
+function UsersList({ avatar, name, userName, posts }: UsersListType) {
   return (
     <ListItem>
       <ListItemAvatar>
@@ -52,4 +52,4 @@ function UserList({ avatar, name, userName, posts }: UserListType) {
   );
 }
 
-export default UserList;
+export default UsersList;

@@ -1,8 +1,8 @@
 "use client";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
 import { ButtonBase, InputBase, styled } from "@mui/material";
+import { useSearchParamsHandler } from "../_utils/useSearchParams";
 
 const StyledInput = styled(InputBase)(({ theme }) => ({
   padding: 5,
@@ -22,21 +22,16 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function SearchInput() {
-  const [term, setTerm] = useState("");
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
+function SearchBar() {
+  const [term, setTerm] = useState<string>("");
+  const { updateSearchParam } = useSearchParamsHandler();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setTerm(e.target.value);
   }
 
   function handleClick() {
-    const params = new URLSearchParams(searchParams);
-    if (!term.length) params.delete("term");
-    params.set("term", term);
-    router.replace(`${pathname}?${params.toString()}`);
+    updateSearchParam("term", term);
   }
 
   return (
@@ -66,4 +61,4 @@ function SearchInput() {
   );
 }
 
-export default SearchInput;
+export default SearchBar;

@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-function Message() {
+function HeroMessage() {
   return (
     <Box
       bgcolor="#cff4fc"
@@ -68,4 +68,4 @@ function Message() {
   );
 }
 
-export default Message;
+export default HeroMessage;

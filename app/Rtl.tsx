@@ -10,7 +10,7 @@ const cacheRtl = createCache({
   stylisPlugins: [prefixer, rtlPlugin],
 });
 
-function Rtl({ children }: { children: JSX.Element }) {
+function Rtl({ children }: { children: React.ReactNode }) {
   return <CacheProvider value={cacheRtl}>{children}</CacheProvider>;
 }
 

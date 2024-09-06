@@ -1,19 +1,18 @@
+import Image from "next/image";
+import type { GroupItemType } from "../_types";
+import bannerImage from "@/public/bannerimage.png";
+
 import {
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
-  IconButton,
   Stack,
   Typography,
 } from "@mui/material";
-import Image from "next/image";
-
-import bannerImage from "@/public/bannerimage.png";
-import { GroupSummeryType } from "../_types";
 import { Person } from "@mui/icons-material";
 
-function GroupSummery({ title, subtitle, members }: GroupSummeryType) {
+function GroupItem({ title, subtitle, members }: GroupItemType) {
   return (
     <Card sx={{ boxShadow: 0, border: "1px solid #e9ecef" }}>
       <CardActionArea>
@@ -46,4 +45,4 @@ function GroupSummery({ title, subtitle, members }: GroupSummeryType) {
   );
 }
 
-export default GroupSummery;
+export default GroupItem;

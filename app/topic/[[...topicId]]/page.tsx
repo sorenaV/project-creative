@@ -1,17 +1,22 @@
-import Breadcrumb from "@/app/_components/breadcrumb";
-import Chips from "@/app/_components/Chips";
+import Breadcrumb from "@/app/_components/Breadcrumb";
+import CategoryChip from "@/app/_components/CategoryChip";
+import ChipBox from "@/app/_components/ChipBox";
 import Filter from "@/app/_components/Filter";
-import MobilePost from "@/app/_components/MobilePost";
-import { getTopicDetails } from "@/app/_helper/getTopicDetails";
+import TopicContent from "@/app/_components/TopicContent";
+import { getTopicDetails } from "@/app/_utils/helpers";
 
 import { SdSharp } from "@mui/icons-material";
-import { Alert, Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 const filterOptions = [
   {
-    name: "Oldest to new",
+    name: "topic-filter",
     icon: <SdSharp />,
-    options: ["Oldest to Newest", "Newest to Oldest", "Most Votes"],
+    options: [
+      { label: "قدیمی به جدید", value: "old-to-new" },
+      { label: "جدید به قدیمی", value: "new-to-old" },
+      { label: "بیشترین رای", value: "most-votes" },
+    ],
   },
 ];
 
@@ -37,6 +42,7 @@ function Page({ params }: ParamsType) {
       }}
     >
       <Breadcrumb category={category.name} id={category.categoryId} />
+
       <Typography
         component="h5"
         variant="h5"
@@ -51,9 +57,28 @@ function Page({ params }: ParamsType) {
       >
         {title}
       </Typography>
-      <Chips category={category.categoryId} status={status} />
-      <Filter filterOptions={filterOptions} buttonLabel="Login" />
-      <MobilePost
+
+      <Stack
+        sx={{
+          mt: 2,
+          flexDirection: {
+            xs: "column",
+            sm: "row",
+          },
+          gap: 1,
+        }}
+      >
+        <CategoryChip categoryId={id} />
+        <Stack direction="row" spacing={1}>
+          <ChipBox label="پست" labelNumber={status.posts} />
+          <ChipBox label="بازدید" labelNumber={status.views} />
+          <ChipBox label="پست" labelNumber={status.posts} />
+        </Stack>
+      </Stack>
+
+      <Filter filterOptions={filterOptions} buttonLabel="ورود" />
+
+      <TopicContent
         author={author}
         createdAt={createdAt}
         context={context}

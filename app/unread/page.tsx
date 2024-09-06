@@ -2,20 +2,21 @@ import { Alert, Box } from "@mui/material";
 import { Metadata } from "next";
 import Filter from "../_components/Filter";
 import { filterUnreadList } from "../_config/FilterConfig";
-import { data } from "../_config/data";
-import TopicList from "../_components/TopicList";
+import { topicsData } from "../_config/data";
+import TopicsList from "../_components/TopicsList";
 
 export const metadata: Metadata = {
   title: "Unread",
 };
 
 function Page() {
-  const unreadData = data.filter((data) => data.isRead === false);
+  const unreadData = topicsData.filter((data) => data.isRead === false);
   return (
     <Box sx={{ mt: 4 }}>
-      <Filter filterOptions={filterUnreadList} buttonLabel="Log in" />
+      <Filter filterOptions={filterUnreadList} buttonLabel="ورود" />
+
       {unreadData.length ? (
-        <TopicList pageName="category" data={unreadData} />
+        <TopicsList pageName="category" data={unreadData} />
       ) : (
         <Alert severity="info">Good,You have read all the topics.</Alert>
       )}
