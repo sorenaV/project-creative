@@ -1,16 +1,17 @@
 import { Box, Typography } from "@mui/material";
 import { Metadata } from "next";
 
-import GroupSummery from "../_components/GroupSummery";
-import SearchSortHeader from "../_components/SearchSortHeader";
-import { groupSummeryApi } from "../_config/data";
+import GroupFilter from "../_components/GroupFilter";
+import SortAndSearchBar from "../_components/SortAndSearchBar";
 
 export const metadata: Metadata = {
   title: "Groups",
 };
 
-function Page() {
-  const groupSummeryData = groupSummeryApi;
+function Page({ searchParams }: { searchParams: { [key: string]: string } }) {
+  const sort = searchParams?.sortBy ?? "all";
+  const searchTerm = searchParams?.term ?? "";
+
   return (
     <Box>
       <Typography
@@ -18,11 +19,17 @@ function Page() {
         component="h1"
         sx={{ fontSize: 25, mt: 5, fontWeight: 500 }}
       >
-        Groups
+        گروه ها
       </Typography>
-      <SearchSortHeader
-        fieldNames={["Group Name", "Member Count", "Creation Date"]}
+
+      <SortAndSearchBar
+        fieldNames={[
+          { label: "نام گروه", value: "group-name" },
+          { label: "تعداد عضو", value: "members" },
+          { label: "تاریخ ساخت", value: "created-at" },
+        ]}
       />
+
       <Box
         sx={{
           display: "grid",
@@ -36,14 +43,7 @@ function Page() {
           },
         }}
       >
-        {groupSummeryData.map((group) => (
-          <GroupSummery
-            key={group.id}
-            title={group.title}
-            subtitle={group.subtitle}
-            members={group.members}
-          />
-        ))}
+        {<GroupFilter sort={sort} searchTerm={searchTerm} />}
       </Box>
     </Box>
   );

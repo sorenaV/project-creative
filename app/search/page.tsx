@@ -2,11 +2,11 @@ import { Box, Divider, Stack, Typography } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 import { Metadata } from "next";
-import CustomPopover from "../_components/CustomPopover";
-import SearchInput from "../_components/SearchInput";
-import SearchList from "../_components/SearchList";
-import SearchSelect from "../_components/SearchSelect";
-import SortBy from "../_components/SortBy";
+import SearchPopover from "../_components/SearchPopover";
+import SearchBar from "../_components/SearchBar";
+import SearchFilter from "../_components/SearchFilter";
+import SearchCategoryPopper from "../_components/SearchCategoryPopper";
+import SortPopper from "../_components/SortPopper";
 import { tags, users } from "../_config/data";
 
 export const metadata: Metadata = {
@@ -21,7 +21,11 @@ type FilterType = {
   order: string;
 };
 
-function Page({ searchParams }: { searchParams: FilterType }) {
+function Page({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string; sortBy: string };
+}) {
   const filter = searchParams;
 
   return (
@@ -38,22 +42,23 @@ function Page({ searchParams }: { searchParams: FilterType }) {
           component="h1"
           sx={{ fontSize: 25, mt: 3, fontWeight: 500 }}
         >
-          Search
+          جستجو
         </Typography>
-        <SearchInput />
+        <SearchBar />
       </Grid2>
 
       <Grid2 xs={12} md={7}>
         <Stack>
           <Stack direction="row" spacing={1} padding={1}>
-            <SearchSelect />
-            <CustomPopover label="users" posts={users} />
-            <CustomPopover label="tag" posts={tags} />
-            <SortBy />
+            <SearchCategoryPopper />
+            <SearchPopover label="کاربران" posts={users} paramLabel="users" />
+            <SearchPopover label="تگ ها" posts={tags} paramLabel="tags" />
+            <SortPopper />
           </Stack>
-          <Divider />
+          <Divider variant="fullWidth" />
+
           <Box>
-            <SearchList filter={filter} />
+            <SearchFilter filter={filter} />
           </Box>
         </Stack>
       </Grid2>

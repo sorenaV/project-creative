@@ -14,7 +14,7 @@ function Logo() {
           transition: "background-color 0.2s ease",
           borderRadius: 2,
         }}
-        fontWeight={600}
+        fontWeight={500}
         fontSize={16}
         color="#000"
         py={1.5}

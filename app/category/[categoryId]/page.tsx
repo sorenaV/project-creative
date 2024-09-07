@@ -1,23 +1,23 @@
 import Breadcrumb from "@/app/_components/breadcrumb";
 import ChipBox from "@/app/_components/ChipBox";
 import Filter from "@/app/_components/Filter";
-import TopicList from "@/app/_components/TopicList";
-import { data } from "@/app/_config/data";
-import { getCategoryItem } from "@/app/_helper/getCategoryItem";
+import TopicsList from "@/app/_components/TopicsList";
+import { topicsData } from "@/app/_config/data";
+import { getCategoryItem } from "@/app/_utils/helpers";
 
 import { SdSharp } from "@mui/icons-material";
 import { Alert, Box, IconButton, Stack, Typography } from "@mui/material";
 
 const filterOptions = [
   {
-    name: "Recently Replied",
+    name: "category-filter",
     icon: <SdSharp />,
     options: [
-      "Recently Replied",
-      "Recently Created",
-      "Most Posts",
-      "Most Votes",
-      "Most Views",
+      { label: "اخرین جواب", value: "recently-replied" },
+      { label: "اخرین ساخته شده", value: "recently-created" },
+      { label: "بیشترین پست", value: "most-posts" },
+      { label: "بیشترین رای", value: "most-votes" },
+      { label: "بیشترین بازدید", value: "most-views" },
     ],
   },
 ];
@@ -33,7 +33,7 @@ function Page({ params }: ParamsType) {
   const { name, icon, backgroundColor, description, topics, posts, id } =
     getCategoryItem(Number(params.categoryId));
 
-  const list = data.filter((item) => item.category.categoryId === id);
+  const list = topicsData.filter((item) => item.category.categoryId === id);
 
   return (
     <Box
@@ -47,9 +47,9 @@ function Page({ params }: ParamsType) {
       <Breadcrumb category={name} id={id} />
       <Box
         sx={{
-          mt: {
-            xs: 3,
-            md: 5,
+          my: {
+            xs: 2,
+            md: 3,
           },
         }}
       >
@@ -74,24 +74,28 @@ function Page({ params }: ParamsType) {
 
         <Typography
           variant="h5"
-          component="h5"
-          sx={{ mt: 2, fontSize: 14, opacity: 0.5 }}
+          component="h6"
+          sx={{ my: 1, fontSize: 14, opacity: 0.5 }}
         >
           {description}
         </Typography>
 
-        <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
-          <ChipBox labelNumber={posts} label="posts" />
-          <ChipBox labelNumber={topics} label="topics" />
+        <Stack direction="row" spacing={1} sx={{ my: 2 }}>
+          <ChipBox labelNumber={posts} label="پست" />
+          <ChipBox labelNumber={topics} label="تاپیک" />
         </Stack>
       </Box>
-      <Filter buttonLabel="Login" filterOptions={filterOptions} />
+      <Filter
+        buttonLabel="ورود"
+        filterOptions={filterOptions}
+        buttonPath="/login"
+      />
 
       {list.length ? (
-        <TopicList pageName="detail" data={list} />
+        <TopicsList pageName="detail" data={list} />
       ) : (
-        <Alert sx={{ bgColor: { backgroundColor } }}>
-          No Post in this topic yet.
+        <Alert severity="info" sx={{ my: 3 }}>
+          هنوز پستی منتشر نشده.
         </Alert>
       )}
     </Box>

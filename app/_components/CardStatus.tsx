@@ -1,35 +1,29 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 type CardStatusType = {
-  cardIcon: JSX.Element;
+  cardIcon: React.ReactNode;
   cardLabel: string;
   cardNum: string | number;
 };
 
 function CardStatus({ cardNum, cardLabel, cardIcon }: CardStatusType) {
   return (
-    <Stack
-      direction="row"
-      spacing={1}
+    <Box
       sx={{
-        width: "2rem",
-        justifyContent: "end",
-        alignSelf: "center",
         height: "auto",
         display: {
           xs: "none",
           md: "flex",
         },
+        alignItems: "center",
       }}
     >
-      <div>
-        <CardStatusContent
-          cardNum={cardNum}
-          cardLabel={cardLabel}
-          cardIcon={cardIcon}
-        />
-      </div>
-    </Stack>
+      <CardStatusContent
+        cardNum={cardNum}
+        cardLabel={cardLabel}
+        cardIcon={cardIcon}
+      />
+    </Box>
   );
 }
 export default CardStatus;
@@ -40,18 +34,20 @@ function CardStatusContent({ cardNum, cardLabel, cardIcon }: CardStatusType) {
     padding: "1.5rem",
     py: ".5rem",
     height: "4rem",
-    width: "4rem",
+    width: "7rem",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    borderRadius: 2,
   };
   const numStyles = {
     fontSize: "1.2rem",
     textAlign: "center",
   };
   const titleStyles = {
-    fontSize: "0.9rem",
+    fontSize: "0.8rem",
     textAlign: "center",
+    opacity: 0.6,
   };
 
   const titleResponsiveMd = {
@@ -71,7 +67,7 @@ function CardStatusContent({ cardNum, cardLabel, cardIcon }: CardStatusType) {
   return (
     <Box sx={styles}>
       <Typography sx={numStyles}>{cardNum}</Typography>
-      {/* Show either label (larger screen) or icon (smaller screen) */}
+      {/* Shows either label (larger screen) or icon (smaller screen) */}
       <Typography sx={{ ...titleStyles, ...titleResponsiveMd }}>
         {cardIcon}
       </Typography>

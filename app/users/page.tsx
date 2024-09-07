@@ -1,15 +1,18 @@
+import type { Metadata } from "next";
+
+import SortAndSearchBar from "../_components/SortAndSearchBar";
+import UserFilter from "../_components/UserFilter";
+
 import { Box, List, Typography } from "@mui/material";
-import { Metadata } from "next";
-import SearchSortHeader from "../_components/SearchSortHeader";
-import UserList from "../_components/UserList";
-import { users } from "../_config/data";
 
 export const metadata: Metadata = {
   title: "Users",
 };
 
-function Page() {
-  const usersPage = users;
+function Page({ searchParams }: { searchParams: { [key: string]: string } }) {
+  const sort = searchParams?.sortBy ?? "all";
+  const searchTerm = searchParams?.term ?? "";
+
   return (
     <Box>
       <Typography
@@ -17,11 +20,15 @@ function Page() {
         component="h1"
         sx={{ fontSize: 25, mt: 5, fontWeight: 500 }}
       >
-        Users
+        کاربران
       </Typography>
       <div>
-        <SearchSortHeader
-          fieldNames={["Online", "Top Posters", "Most Reputation"]}
+        <SortAndSearchBar
+          fieldNames={[
+            { label: "آنلاین", value: "online" },
+            { label: "بیشترین پست", value: "posts" },
+            { label: "بیشترین شهرت", value: "reputation" },
+          ]}
         />
       </div>
       <List
@@ -36,15 +43,7 @@ function Page() {
           },
         }}
       >
-        {usersPage.map(({ avatar, name, userName, posts, id }) => (
-          <UserList
-            key={id}
-            avatar={avatar}
-            name={name}
-            userName={userName}
-            posts={posts}
-          />
-        ))}
+        {<UserFilter sort={sort} searchTerm={searchTerm} />}
       </List>
     </Box>
   );

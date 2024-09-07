@@ -21,7 +21,7 @@ function Page() {
       <Typography
         sx={{ fontSize: { xs: 25, md: 28, lg: 32 }, fontWeight: 600 }}
       >
-        Register
+        ثبت نام
       </Typography>
       <RegisterForm />
     </Box>

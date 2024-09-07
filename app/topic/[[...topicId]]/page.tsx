@@ -1,46 +1,53 @@
 import Breadcrumb from "@/app/_components/breadcrumb";
-import Chips from "@/app/_components/Chips";
+import CategoryChip from "@/app/_components/CategoryChip";
+import ChipBox from "@/app/_components/ChipBox";
 import Filter from "@/app/_components/Filter";
-import MobilePost from "@/app/_components/MobilePost";
-import { getTopicDetails } from "@/app/_helper/getTopicDetails";
+import TopicContent from "@/app/_components/TopicContent";
+import { getTopicDetails } from "@/app/_utils/helpers";
 
 import { SdSharp } from "@mui/icons-material";
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 const filterOptions = [
   {
-    name: "Oldest to new",
+    name: "topic-filter",
     icon: <SdSharp />,
-    options: ["Oldest to Newest", "Newest to Oldest", "Most Votes"],
+    options: [
+      { label: "قدیمی به جدید", value: "old-to-new" },
+      { label: "جدید به قدیمی", value: "new-to-old" },
+      { label: "بیشترین رای", value: "most-votes" },
+    ],
   },
 ];
 
 type ParamsType = { params: { topicId: string } };
 
 export function generateMetadata({ params }: ParamsType) {
-  const { title } = getTopicDetails(params.topicId);
+  const { title } = getTopicDetails(params?.topicId);
   return { title: `Topic : ${title}` };
 }
 
 function Page({ params }: ParamsType) {
-  const { title, status, category, author, createdAt, context, isRead } =
-    getTopicDetails(params.topicId);
+  const topicId = params?.topicId;
+  const { id, title, status, category, author, createdAt, context, isRead } =
+    getTopicDetails(topicId);
 
   return (
     <Box
       sx={{
-        mt: {
+        my: {
           xs: 2,
           md: 4,
         },
       }}
     >
       <Breadcrumb category={category.name} id={category.categoryId} />
+
       <Typography
         component="h5"
         variant="h5"
         sx={{
-          mt: 2,
+          my: 2,
           fontSize: {
             xs: 22,
             md: 30,
@@ -50,9 +57,32 @@ function Page({ params }: ParamsType) {
       >
         {title}
       </Typography>
-      <Chips category={category.categoryId} status={status} />
-      <Filter filterOptions={filterOptions} buttonLabel="Login" />
-      <MobilePost
+
+      <Stack
+        sx={{
+          mt: 2,
+          flexDirection: {
+            xs: "column",
+            sm: "row",
+          },
+          gap: 1,
+        }}
+      >
+        <CategoryChip categoryId={category.categoryId} />
+        <Stack direction="row" spacing={1}>
+          <ChipBox label="پست" labelNumber={status.posts} />
+          <ChipBox label="بازدید" labelNumber={status.views} />
+          <ChipBox label="پست" labelNumber={status.posts} />
+        </Stack>
+      </Stack>
+
+      <Filter
+        filterOptions={filterOptions}
+        buttonLabel="ورود"
+        buttonPath="/login"
+      />
+
+      <TopicContent
         author={author}
         createdAt={createdAt}
         context={context}

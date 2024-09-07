@@ -1,6 +1,6 @@
-import TopicList from "../_components/TopicList";
+import TopicsList from "../_components/TopicsList";
 import Filter from "../_components/Filter";
-import { data } from "../_config/data";
+import { topicsData } from "../_config/data";
 import { filterPopularList } from "../_config/FilterConfig";
 
 import { Box } from "@mui/material";
@@ -9,11 +9,26 @@ export const metadata = {
   title: "Popular",
 };
 
-function Page() {
+function Page({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | undefined };
+}) {
+  const { category, topics, date } = searchParams;
+
   return (
     <Box>
-      <Filter filterOptions={filterPopularList} buttonLabel="Login" />
-      <TopicList pageName="category" data={data} />
+      <Filter
+        filterOptions={filterPopularList}
+        buttonLabel="ورود"
+        buttonPath="/login"
+      />
+
+      <TopicsList
+        pageName="category"
+        filterCategory={category}
+        data={topicsData}
+      />
     </Box>
   );
 }

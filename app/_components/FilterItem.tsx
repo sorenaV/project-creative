@@ -4,14 +4,16 @@ import { useState } from "react";
 import type { FilterOptionsType } from "../_types";
 
 import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
+import { useSearchParamsHandler } from "../_utils/useSearchParams";
 
 type FilterItem = {
   menuList: FilterOptionsType;
 };
 
 export default function FilterItem({ menuList }: FilterItem) {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const { updateSearchParam } = useSearchParamsHandler();
 
   const open = Boolean(anchorEl);
 
@@ -22,9 +24,10 @@ export default function FilterItem({ menuList }: FilterItem) {
     setAnchorEl(null);
   };
 
-  const handleMenuItemClick = (index: number) => {
+  const handleMenuItemClick = (index: number, filterValue: string) => {
     setSelectedIndex(index);
     setAnchorEl(null);
+    updateSearchParam(menuList.name, filterValue);
   };
 
   return (
@@ -39,13 +42,13 @@ export default function FilterItem({ menuList }: FilterItem) {
       >
         <Typography
           sx={{
-            display: { xs: "none", md: "inline" }, // Show text only on small screens
-            fontWeight: 550,
+            display: { xs: "none", md: "inline" }, // Shows text only on small screens
+            fontWeight: 500,
             fontSize: 14,
             color: "#000",
           }}
         >
-          {menuList.options[selectedIndex]}
+          {menuList.options[selectedIndex].label}
         </Typography>
       </Button>
       <Menu
@@ -58,10 +61,10 @@ export default function FilterItem({ menuList }: FilterItem) {
         {menuList.options.map((list, index) => (
           <MenuItem
             key={index}
-            onClick={(event) => handleMenuItemClick(index)}
+            onClick={() => handleMenuItemClick(index, list.value)}
             selected={index === selectedIndex}
           >
-            {list}
+            {list.label}
           </MenuItem>
         ))}
       </Menu>

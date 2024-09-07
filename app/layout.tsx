@@ -1,14 +1,14 @@
-import { theme } from "@/app/custom-layout";
-import { Container, CssBaseline, ThemeProvider } from "@mui/material";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 
-import "@/app/_styles/globals.css";
 import Header from "./_components/Header";
 import Navigation from "./_components/Navigation";
-import CustomLayout from "./custom-layout";
+import Rtl from "./Rtl";
+import { drawerCollapsedWidth } from "./_utils/constants";
+import "@/app/_styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+import theme from "@/app/_styles/theme";
+import { Container, CssBaseline, ThemeProvider } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 export const metadata: Metadata = {
   title: {
@@ -24,26 +24,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className}`}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Container
-            sx={{
-              //BRING THE VALUR FROM NAVIGATION
-              maxWidth: {
-                xs: "100%",
-                md: `calc(100% - ${120}px)`,
-                lg: "80%",
-                xl: "60%",
-              },
-            }}
-          >
-            <Navigation />
-            <Header />
-            <CustomLayout>{children}</CustomLayout>
-          </Container>
-        </ThemeProvider>
+    <html lang="fa" dir="rtl">
+      <body>
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+          <Rtl>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <Container
+                sx={{
+                  maxWidth: {
+                    xs: "100%",
+                    // The width of collapsed drawer * 2 as we have 2 sidebars (left and right)
+                    md: `calc(100% - ${drawerCollapsedWidth * 2}px)`,
+                    lg: "80%",
+                    xl: "60%",
+                  },
+                }}
+              >
+                <Header />
+                <Navigation />
+                <div>{children}</div>
+              </Container>
+            </ThemeProvider>
+          </Rtl>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
