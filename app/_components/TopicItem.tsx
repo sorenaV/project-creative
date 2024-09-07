@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import type { DataType } from "../_types/index";
-import { getCategoryItem } from "../_utils/helpers";
 import CardStatus from "./CardStatus";
 
 import {
@@ -21,12 +20,6 @@ type ItemType = {
 
 function TopicItem({ item, pageName }: ItemType) {
   const { title, category, status, createdAt, author, id } = item;
-
-  const {
-    backgroundColor: badgeColor,
-    icon,
-    id: categoryId,
-  } = getCategoryItem(category.categoryId);
 
   return (
     <>
@@ -74,7 +67,7 @@ function TopicItem({ item, pageName }: ItemType) {
               {/* Just On Page Category Shows Category Chip 👇 */}
 
               {pageName === "category" && (
-                <CategoryChip categoryId={categoryId} />
+                <CategoryChip categoryId={category.categoryId} />
               )}
 
               <Stack direction="row" spacing={1} margin={1}>

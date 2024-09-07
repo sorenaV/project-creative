@@ -1,10 +1,12 @@
+import { categories } from "./categories";
+import type { FilterOptionsType } from "../_types";
+
 import {
   FilterAlt,
   FormatListBulletedRounded,
   SellRounded,
+  WatchLater,
 } from "@mui/icons-material";
-import { categories } from "./categories";
-import type { FilterOptionsType } from "../_types";
 
 const style = { color: "#0d6efd" };
 
@@ -21,7 +23,7 @@ export const filterPopularList: FilterOptionsType[] = [
   },
   {
     name: "date",
-    icon: <FormatListBulletedRounded sx={style} />,
+    icon: <WatchLater sx={style} />,
     options: [
       { label: "همه", value: "all" },
       { label: "روز", value: "day" },
@@ -32,7 +34,7 @@ export const filterPopularList: FilterOptionsType[] = [
 
   {
     name: "category",
-    icon: <SellRounded />,
+    icon: <FormatListBulletedRounded sx={style} />,
     options: categories.map((category) => {
       return { label: category.name, value: category.url };
     }),
@@ -52,7 +54,7 @@ export const filterUnreadList: FilterOptionsType[] = [
   },
   {
     name: "Date",
-    icon: <FormatListBulletedRounded sx={style} />,
+    icon: <WatchLater sx={style} />,
     options: [
       { label: "همه", value: "all" },
       { label: "روز", value: "day" },

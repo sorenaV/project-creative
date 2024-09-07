@@ -1,13 +1,15 @@
 import { Box, Button, Stack } from "@mui/material";
 import type { FilterOptionsType } from "../_types";
 import FilterItem from "./FilterItem";
+import Link from "next/link";
 
 type FilterType = {
   buttonLabel: string;
+  buttonPath: string;
   filterOptions: FilterOptionsType[];
 };
 
-function Filter({ buttonLabel, filterOptions }: FilterType) {
+function Filter({ buttonLabel, buttonPath, filterOptions }: FilterType) {
   return (
     <Stack
       direction="row"
@@ -29,18 +31,19 @@ function Filter({ buttonLabel, filterOptions }: FilterType) {
           <FilterItem key={index} menuList={list} />
         ))}
       </Stack>
-
-      <Button
-        size="medium"
-        sx={{
-          height: "2rem",
-          backgroundColor: "#0d6efd",
-          color: "#fff",
-          "&:hover": { backgroundColor: "#0d6efd" },
-        }}
-      >
-        {buttonLabel}
-      </Button>
+      <Link href={`${buttonPath}`}>
+        <Button
+          size="medium"
+          sx={{
+            height: "2rem",
+            backgroundColor: "#0d6efd",
+            color: "#fff",
+            "&:hover": { backgroundColor: "#0d6efd" },
+          }}
+        >
+          {buttonLabel}
+        </Button>
+      </Link>
     </Stack>
   );
 }

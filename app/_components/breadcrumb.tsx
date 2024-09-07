@@ -1,8 +1,9 @@
-import { NavigateBeforeRounded } from "@mui/icons-material";
+import Link from "next/link";
+
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
+import { NavigateBeforeRounded } from "@mui/icons-material";
 
 function Breadcrumb({ category, id }: { category: string; id: number }) {
   const breadcrumbs = [

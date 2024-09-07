@@ -213,6 +213,7 @@ function SearchCategoryPopper() {
                   </li>
                 );
               }}
+              // Sort the options so that the selected appears on the top
               options={[...categories].sort((a, b) => {
                 let ai = value.indexOf(a);
                 ai = ai === -1 ? value.length + categories.indexOf(a) : ai;

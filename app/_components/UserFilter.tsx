@@ -1,4 +1,4 @@
-import { groupItemData, users } from "../_config/data";
+import { users } from "../_config/data";
 import UsersList from "./UsersList";
 
 type Sort = { sort: string; searchTerm: string };

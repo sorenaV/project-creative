@@ -68,7 +68,7 @@ function Page({ params }: ParamsType) {
           gap: 1,
         }}
       >
-        <CategoryChip categoryId={id} />
+        <CategoryChip categoryId={category.categoryId} />
         <Stack direction="row" spacing={1}>
           <ChipBox label="پست" labelNumber={status.posts} />
           <ChipBox label="بازدید" labelNumber={status.views} />
@@ -76,7 +76,11 @@ function Page({ params }: ParamsType) {
         </Stack>
       </Stack>
 
-      <Filter filterOptions={filterOptions} buttonLabel="ورود" />
+      <Filter
+        filterOptions={filterOptions}
+        buttonLabel="ورود"
+        buttonPath="/login"
+      />
 
       <TopicContent
         author={author}

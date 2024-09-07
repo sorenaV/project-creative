@@ -12,7 +12,7 @@ type FilterItem = {
 
 export default function FilterItem({ menuList }: FilterItem) {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const { updateSearchParam } = useSearchParamsHandler();
 
   const open = Boolean(anchorEl);

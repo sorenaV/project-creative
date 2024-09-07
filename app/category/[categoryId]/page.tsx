@@ -85,7 +85,11 @@ function Page({ params }: ParamsType) {
           <ChipBox labelNumber={topics} label="تاپیک" />
         </Stack>
       </Box>
-      <Filter buttonLabel="ورود" filterOptions={filterOptions} />
+      <Filter
+        buttonLabel="ورود"
+        filterOptions={filterOptions}
+        buttonPath="/login"
+      />
 
       {list.length ? (
         <TopicsList pageName="detail" data={list} />

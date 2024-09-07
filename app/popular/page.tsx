@@ -18,7 +18,11 @@ function Page({
 
   return (
     <Box>
-      <Filter filterOptions={filterPopularList} buttonLabel="ورود" />
+      <Filter
+        filterOptions={filterPopularList}
+        buttonLabel="ورود"
+        buttonPath="/login"
+      />
 
       <TopicsList
         pageName="category"

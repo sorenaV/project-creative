@@ -9,7 +9,7 @@ function HeroMessage() {
         borderRadius: 2,
         borderColor: "primary.main",
         p: 2,
-        mt: { xs: 2, lg: 0 },
+        mt: { xs: 1, lg: 0 },
         ml: { md: 2 },
         height: "100%",
       }}
@@ -30,7 +30,7 @@ function HeroMessage() {
       <Typography
         variant="body1"
         component="p"
-        sx={{ marginBottom: 2 }}
+        sx={{ marginBottom: 1 }}
         fontSize={{
           xs: 14,
           md: 16,
@@ -44,7 +44,7 @@ function HeroMessage() {
       <Typography
         variant="body1"
         component="p"
-        sx={{ marginBottom: 2 }}
+        sx={{ marginBottom: 1 }}
         fontSize={{
           xs: 14,
           md: 16,

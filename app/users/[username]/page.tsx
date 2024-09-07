@@ -21,15 +21,16 @@ function Page({ params }: { params: { username: string } }) {
       {userInfo ? (
         <>
           <UserProfile userInfo={userInfo} />
-          <Grid2 container sx={{ mt: 5 }} spacing={3}>
+          <Grid2 container sx={{ my: 5 }} spacing={3}>
             <Grid2 xs={12} sm={3}>
               <ButtonBase
                 sx={{
-                  width: "90%",
+                  width: "100%",
                   height: 35,
                   backgroundColor: "#e3e4e5",
                   color: "inherit",
                   fontWeight: 500,
+                  fontFamily: "inherit",
                   padding: 1,
                   borderRadius: 2,
                   justifyContent: "center",
@@ -41,7 +42,7 @@ function Page({ params }: { params: { username: string } }) {
             <Grid2 xs={12} sm={9}>
               <UserProfileDetails userInfo={userInfo} />
             </Grid2>
-          </Grid2>{" "}
+          </Grid2>
         </>
       ) : (
         <Alert severity="info" color="warning" sx={{ my: 2 }}>

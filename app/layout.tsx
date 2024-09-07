@@ -52,9 +52,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-// TODO:  Check how to make it rtl, enhance user profile page, make spacing better, find a solution for avatars
-/*
-  TODO: useState Typescript,
-
-*/
